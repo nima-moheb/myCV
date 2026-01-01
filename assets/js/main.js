@@ -50,7 +50,9 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     var supportsHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+    var prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     var rootStyle = document.documentElement;
+    document.body.classList.add("is-loaded");
 
     // جلوه‌ی نور دنبال‌کننده‌ی نشانگر
     var cursorGlow = document.querySelector(".cursor-glow");
@@ -59,6 +61,23 @@ document.addEventListener("DOMContentLoaded", function () {
             rootStyle.style.setProperty("--cursor-x", event.clientX + "px");
             rootStyle.style.setProperty("--cursor-y", event.clientY + "px");
         });
+    } else if (cursorGlow) {
+        cursorGlow.classList.add("is-breathing");
+
+        if (!prefersReducedMotion) {
+            var startTime = performance.now();
+            var animateGlow = function (time) {
+                var t = (time - startTime) / 1000;
+                var x = 50 + Math.cos(t * 0.35) * 10;
+                var y = 28 + Math.sin(t * 0.35) * 8;
+
+                rootStyle.style.setProperty("--cursor-x", x.toFixed(2) + "vw");
+                rootStyle.style.setProperty("--cursor-y", y.toFixed(2) + "vh");
+                window.requestAnimationFrame(animateGlow);
+            };
+
+            window.requestAnimationFrame(animateGlow);
+        }
     }
 
     // افکت زاویه‌دار کارت‌ها
