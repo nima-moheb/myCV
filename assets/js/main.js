@@ -1,6 +1,13 @@
 document.addEventListener("DOMContentLoaded", function () {
     // مشاهده‌ی کارت‌ها برای انیمیشن ظاهر شدن هنگام اسکرول
     var observedElements = document.querySelectorAll(".observe");
+    var supportsHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+    var prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var rootStyle = document.documentElement;
+    document.body.classList.add("is-loaded");
+    if (!supportsHover) {
+        document.body.classList.add("is-mobile");
+    }
 
     if ("IntersectionObserver" in window) {
         var observer = new IntersectionObserver(
@@ -8,6 +15,18 @@ document.addEventListener("DOMContentLoaded", function () {
                 entries.forEach(function (entry) {
                     if (entry.isIntersecting) {
                         entry.target.classList.add("is-visible");
+                        if (
+                            !prefersReducedMotion &&
+                            (entry.target.classList.contains("layer-card") ||
+                                entry.target.classList.contains("highlight-card") ||
+                                entry.target.classList.contains("mini-card"))
+                        ) {
+                            entry.target.classList.add("spark");
+                            var sparkDuration = 600 + Math.random() * 300;
+                            window.setTimeout(function () {
+                                entry.target.classList.remove("spark");
+                            }, sparkDuration);
+                        }
                         observer.unobserve(entry.target);
                     }
                 });
@@ -48,11 +67,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     });
-
-    var supportsHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
-    var prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    var rootStyle = document.documentElement;
-    document.body.classList.add("is-loaded");
 
     // جلوه‌ی نور دنبال‌کننده‌ی نشانگر
     var cursorGlow = document.querySelector(".cursor-glow");
@@ -122,5 +136,42 @@ document.addEventListener("DOMContentLoaded", function () {
                 button.style.setProperty("--btn-y", "0px");
             });
         });
+    }
+
+    if (!supportsHover && !prefersReducedMotion) {
+        var idleCards = Array.prototype.slice.call(
+            document.querySelectorAll(".layer-card, .highlight-card, .mini-card")
+        );
+
+        var scheduleShimmer = function () {
+            var delay = 8000 + Math.random() * 4000;
+            window.setTimeout(function () {
+                if (document.visibilityState !== "visible") {
+                    scheduleShimmer();
+                    return;
+                }
+
+                var count = Math.random() > 0.6 ? 2 : 1;
+                var available = idleCards.slice();
+
+                for (var i = 0; i < count && available.length > 0; i += 1) {
+                    var index = Math.floor(Math.random() * available.length);
+                    var card = available.splice(index, 1)[0];
+                    card.classList.add("idle-shimmer");
+                    window.setTimeout(
+                        function (target) {
+                            target.classList.remove("idle-shimmer");
+                        }.bind(null, card),
+                        1200
+                    );
+                }
+
+                scheduleShimmer();
+            }, delay);
+        };
+
+        if (idleCards.length > 0) {
+            scheduleShimmer();
+        }
     }
 });
