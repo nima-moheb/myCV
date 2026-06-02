@@ -1,177 +1,135 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // مشاهده‌ی کارت‌ها برای انیمیشن ظاهر شدن هنگام اسکرول
-    var observedElements = document.querySelectorAll(".observe");
-    var supportsHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+    var root = document.documentElement;
     var prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    var rootStyle = document.documentElement;
-    document.body.classList.add("is-loaded");
-    if (!supportsHover) {
-        document.body.classList.add("is-mobile");
-    }
+    var supportsHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 
-    if ("IntersectionObserver" in window) {
-        var observer = new IntersectionObserver(
-            function (entries) {
-                entries.forEach(function (entry) {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add("is-visible");
-                        if (
-                            !prefersReducedMotion &&
-                            (entry.target.classList.contains("layer-card") ||
-                                entry.target.classList.contains("highlight-card") ||
-                                entry.target.classList.contains("mini-card"))
-                        ) {
-                            entry.target.classList.add("spark");
-                            var sparkDuration = 600 + Math.random() * 300;
-                            window.setTimeout(function () {
-                                entry.target.classList.remove("spark");
-                            }, sparkDuration);
-                        }
-                        observer.unobserve(entry.target);
+    var observedElements = document.querySelectorAll(".observe");
+    if (prefersReducedMotion) {
+        observedElements.forEach(function (element) {
+            element.classList.add("is-visible");
+        });
+    } else if ("IntersectionObserver" in window) {
+        var revealObserver = new IntersectionObserver(function (entries, observer) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("is-visible");
+                    if (entry.target.classList.contains("project-card") || entry.target.classList.contains("stack-card")) {
+                        entry.target.classList.add("spark");
+                        window.setTimeout(function () {
+                            entry.target.classList.remove("spark");
+                        }, 900);
                     }
-                });
-            },
-            {
-                threshold: 0.18
-            }
-        );
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.16, rootMargin: "0px 0px -8% 0px" });
 
-        observedElements.forEach(function (el) {
-            observer.observe(el);
+        observedElements.forEach(function (element) {
+            revealObserver.observe(element);
         });
     } else {
-        // مرورگرهای قدیمی‌تر: تمام کارت‌ها را نمایش بده
-        observedElements.forEach(function (el) {
-            el.classList.add("is-visible");
+        observedElements.forEach(function (element) {
+            element.classList.add("is-visible");
         });
     }
 
-    // اسکرول نرم به بخش‌ها برای لینک‌هایی که به ID اشاره می‌کنند
-    var anchorLinks = document.querySelectorAll('a[href^="#"]');
-
-    anchorLinks.forEach(function (link) {
+    document.querySelectorAll('a[href^="#"]').forEach(function (link) {
         link.addEventListener("click", function (event) {
-            var targetId = this.getAttribute("href").substring(1);
-            var targetElement = document.getElementById(targetId);
-
-            if (targetElement) {
-                event.preventDefault();
-                var rect = targetElement.getBoundingClientRect();
-                var offset = window.scrollY || window.pageYOffset;
-                var targetPosition = rect.top + offset - 72;
-
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: "smooth"
-                });
+            var targetId = link.getAttribute("href").slice(1);
+            var target = document.getElementById(targetId);
+            if (!target) {
+                return;
             }
+
+            event.preventDefault();
+            var header = document.querySelector(".site-header");
+            var headerOffset = header && getComputedStyle(header).position === "sticky" ? header.offsetHeight + 18 : 18;
+            var targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+
+            window.scrollTo({
+                top: targetPosition,
+                behavior: prefersReducedMotion ? "auto" : "smooth"
+            });
         });
     });
 
-    // جلوه‌ی نور دنبال‌کننده‌ی نشانگر
     var cursorGlow = document.querySelector(".cursor-glow");
-    if (cursorGlow && supportsHover) {
+    if (cursorGlow && supportsHover && !prefersReducedMotion) {
+        var latestX = window.innerWidth / 2;
+        var latestY = window.innerHeight * 0.3;
+        var currentX = latestX;
+        var currentY = latestY;
+        var ticking = false;
+
+        var renderGlow = function () {
+            currentX += (latestX - currentX) * 0.16;
+            currentY += (latestY - currentY) * 0.16;
+            root.style.setProperty("--cursor-x", currentX.toFixed(1) + "px");
+            root.style.setProperty("--cursor-y", currentY.toFixed(1) + "px");
+
+            if (Math.abs(latestX - currentX) > 0.5 || Math.abs(latestY - currentY) > 0.5) {
+                window.requestAnimationFrame(renderGlow);
+            } else {
+                ticking = false;
+            }
+        };
+
         window.addEventListener("pointermove", function (event) {
-            rootStyle.style.setProperty("--cursor-x", event.clientX + "px");
-            rootStyle.style.setProperty("--cursor-y", event.clientY + "px");
-        });
-    } else if (cursorGlow) {
-        cursorGlow.classList.add("is-breathing");
-
-        if (!prefersReducedMotion) {
-            var startTime = performance.now();
-            var animateGlow = function (time) {
-                var t = (time - startTime) / 1000;
-                var x = 50 + Math.cos(t * 0.35) * 10;
-                var y = 28 + Math.sin(t * 0.35) * 8;
-
-                rootStyle.style.setProperty("--cursor-x", x.toFixed(2) + "vw");
-                rootStyle.style.setProperty("--cursor-y", y.toFixed(2) + "vh");
-                window.requestAnimationFrame(animateGlow);
-            };
-
-            window.requestAnimationFrame(animateGlow);
-        }
+            latestX = event.clientX;
+            latestY = event.clientY;
+            if (!ticking) {
+                ticking = true;
+                window.requestAnimationFrame(renderGlow);
+            }
+        }, { passive: true });
     }
 
-    // افکت زاویه‌دار کارت‌ها
-    if (supportsHover) {
-        var tiltCards = document.querySelectorAll(".layer-card, .highlight-card, .mini-card");
-        tiltCards.forEach(function (card) {
-            card.addEventListener("pointermove", function (event) {
-                var rect = card.getBoundingClientRect();
-                var x = (event.clientX - rect.left) / rect.width;
-                var y = (event.clientY - rect.top) / rect.height;
-                var rotateX = (0.5 - y) * 6;
-                var rotateY = (x - 0.5) * 6;
+    if (supportsHover && !prefersReducedMotion) {
+        document.querySelectorAll(".tilt-card").forEach(function (card) {
+            var queued = false;
+            var lastEvent = null;
 
-                card.style.setProperty("--tilt-x", rotateX.toFixed(2) + "deg");
-                card.style.setProperty("--tilt-y", rotateY.toFixed(2) + "deg");
-            });
+            var updateTilt = function () {
+                if (!lastEvent) {
+                    queued = false;
+                    return;
+                }
+                var rect = card.getBoundingClientRect();
+                var x = (lastEvent.clientX - rect.left) / rect.width;
+                var y = (lastEvent.clientY - rect.top) / rect.height;
+                card.style.setProperty("--tilt-x", ((0.5 - y) * 7).toFixed(2) + "deg");
+                card.style.setProperty("--tilt-y", ((x - 0.5) * 7).toFixed(2) + "deg");
+                queued = false;
+            };
+
+            card.addEventListener("pointermove", function (event) {
+                lastEvent = event;
+                if (!queued) {
+                    queued = true;
+                    window.requestAnimationFrame(updateTilt);
+                }
+            }, { passive: true });
 
             card.addEventListener("pointerleave", function () {
+                lastEvent = null;
                 card.style.setProperty("--tilt-x", "0deg");
                 card.style.setProperty("--tilt-y", "0deg");
             });
         });
-    }
 
-    // افکت مغناطیسی دکمه‌ها
-    var buttons = document.querySelectorAll(".btn");
-    if (supportsHover) {
-        buttons.forEach(function (button) {
+        document.querySelectorAll(".btn").forEach(function (button) {
             button.addEventListener("pointermove", function (event) {
                 var rect = button.getBoundingClientRect();
                 var offsetX = event.clientX - rect.left - rect.width / 2;
                 var offsetY = event.clientY - rect.top - rect.height / 2;
-                var translateX = Math.max(-10, Math.min(10, offsetX * 0.2));
-                var translateY = Math.max(-10, Math.min(10, offsetY * 0.2));
-
-                button.style.setProperty("--btn-x", translateX.toFixed(1) + "px");
-                button.style.setProperty("--btn-y", translateY.toFixed(1) + "px");
-            });
+                button.style.setProperty("--btn-x", Math.max(-9, Math.min(9, offsetX * 0.18)).toFixed(1) + "px");
+                button.style.setProperty("--btn-y", Math.max(-9, Math.min(9, offsetY * 0.18)).toFixed(1) + "px");
+            }, { passive: true });
 
             button.addEventListener("pointerleave", function () {
                 button.style.setProperty("--btn-x", "0px");
                 button.style.setProperty("--btn-y", "0px");
             });
         });
-    }
-
-    if (!supportsHover && !prefersReducedMotion) {
-        var idleCards = Array.prototype.slice.call(
-            document.querySelectorAll(".layer-card, .highlight-card, .mini-card")
-        );
-
-        var scheduleShimmer = function () {
-            var delay = 8000 + Math.random() * 4000;
-            window.setTimeout(function () {
-                if (document.visibilityState !== "visible") {
-                    scheduleShimmer();
-                    return;
-                }
-
-                var count = Math.random() > 0.6 ? 2 : 1;
-                var available = idleCards.slice();
-
-                for (var i = 0; i < count && available.length > 0; i += 1) {
-                    var index = Math.floor(Math.random() * available.length);
-                    var card = available.splice(index, 1)[0];
-                    card.classList.add("idle-shimmer");
-                    window.setTimeout(
-                        function (target) {
-                            target.classList.remove("idle-shimmer");
-                        }.bind(null, card),
-                        1200
-                    );
-                }
-
-                scheduleShimmer();
-            }, delay);
-        };
-
-        if (idleCards.length > 0) {
-            scheduleShimmer();
-        }
     }
 });
