@@ -11,11 +11,11 @@
     <meta property="og:description" content="وب‌اپلیکیشن، فروشگاه و سایت‌هایی که فقط ظاهر ندارند؛ واقعاً کار می‌کنند.">
     <meta property="og:locale" content="fa_IR">
     <meta property="og:site_name" content="نیما | Developer Command Center">
-    <meta property="og:image" content="/nima-command-center.png">
+    <meta property="og:image" content="./nima-command-center.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="نیما | مرکز فرمان توسعه وب">
     <meta name="twitter:description" content="رزومه تعاملی توسعه وب، لاراول، وردپرس، سئو، سرعت و زیرساخت.">
-    <meta name="twitter:image" content="/nima-command-center.png">
+    <meta name="twitter:image" content="./nima-command-center.png">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -28,19 +28,7 @@
             "jobTitle": "Full-Stack Web Developer",
             "email": "mailto:nima.mohebali.b@gmail.com",
             "telephone": "+989227241378",
-            "knowsAbout": [
-                "Laravel",
-                "React",
-                "WordPress",
-                "WooCommerce",
-                "PHP",
-                "MySQL",
-                "JavaScript",
-                "Technical SEO",
-                "Web Performance",
-                "Cloudflare",
-                "nginx"
-            ]
+            "knowsAbout": ["Laravel", "WordPress", "WooCommerce", "PHP", "MySQL", "JavaScript", "Technical SEO", "Web Performance", "Cloudflare", "nginx"]
         }
     }
     </script>
@@ -52,7 +40,6 @@
     <div class="ambient-bg" aria-hidden="true">
         <span class="orb orb-one"></span>
         <span class="orb orb-two"></span>
-        <span class="orb orb-three"></span>
         <span class="grid-glow"></span>
     </div>
 
@@ -68,145 +55,134 @@
                 <a href="#contact" data-i18n="navContact">تماس</a>
             </div>
             <div class="nav-actions">
-                <button class="command-trigger" type="button" data-open-command>
-                    <span>⌘</span><span data-i18n="commandTrigger">Command Center</span><kbd>/</kbd>
+                <button class="command-trigger" type="button" data-open-command data-i18n-aria-label="commandAria" aria-label="باز کردن فرمان سریع">
+                    <span aria-hidden="true">⌘</span><span data-i18n="commandTrigger">فرمان سریع</span><kbd>/</kbd>
                 </button>
                 <div class="language-switch" role="group" data-i18n-aria-label="langAria" aria-label="تغییر زبان">
                     <button type="button" class="lang-option is-active" data-lang-option="fa">FA</button>
                     <button type="button" class="lang-option" data-lang-option="en">EN</button>
                     <span class="lang-status" data-i18n="langStatus">حالت فارسی</span>
                 </div>
-                <a class="btn mini-btn" href="#contact" data-i18n="navContact">تماس</a>
             </div>
         </nav>
     </header>
 
     <main id="main-content">
-        <section class="hero section" id="top">
+        <section class="hero section" id="top" aria-labelledby="hero-title">
             <div class="container hero-grid">
                 <div class="hero-copy observe">
                     <p class="hero-kicker" data-i18n="heroBadge">توسعه‌دهنده فول‌استک وب</p>
-                    <h1 class="hero-title" data-i18n="heroTitle">وب‌اپلیکیشن، فروشگاه و سایت‌هایی که فقط ظاهر ندارند؛ واقعاً کار می‌کنند.</h1>
+                    <h1 class="hero-title" id="hero-title" data-i18n="heroTitle">وب‌اپلیکیشن، فروشگاه و سایت‌هایی که فقط ظاهر ندارند؛ واقعاً کار می‌کنند.</h1>
                     <p class="hero-subtitle" data-i18n="heroSubtitle">از لاراول و داشبوردهای کاربردی تا وردپرس، ووکامرس، سئوی فنی، بهینه‌سازی سرعت و عیب‌یابی محیط واقعی سایت.</p>
-                    <div class="hero-chips" aria-label="Proof chips">
-                        <span data-i18n="chip1">لاراول و داشبورد</span>
-                        <span data-i18n="chip2">وردپرس و ووکامرس</span>
-                        <span data-i18n="chip3">سئو و سرعت</span>
-                        <span data-i18n="chip4">زیرساخت و عیب‌یابی</span>
+                    <div class="hero-chips" aria-label="مهارت‌های کلیدی">
+                        <span data-i18n="chip1">Laravel</span>
+                        <span data-i18n="chip2">WordPress</span>
+                        <span data-i18n="chip3">WooCommerce</span>
+                        <span data-i18n="chip4">SEO / Performance</span>
                     </div>
                     <div class="hero-actions">
                         <a href="#projects" class="btn primary-btn" data-i18n="heroCtaProjects">دیدن پروژه‌ها</a>
                         <a href="#contact" class="btn ghost-btn" data-i18n="heroCtaContact">تماس با من</a>
-                        <button class="btn command-btn" type="button" data-open-command data-i18n="commandTrigger">Command Center</button>
+                    </div>
+                    <div class="metric-row" aria-label="highlights">
+                        <span><strong>4×100</strong><small data-i18n="metricLighthouse">گزارش Lighthouse برای Applitent</small></span>
+                        <span><strong>3</strong><small data-i18n="metricProjects">پروژه منتخب</small></span>
+                        <span><strong>0</strong><small data-i18n="metricApis">API خارجی برای این صفحه</small></span>
                     </div>
                 </div>
-
-                <aside class="hero-visual observe tilt-card" data-i18n-aria-label="visualAria" aria-label="تصویر مرکز فرمان توسعه وب">
+                <div class="hero-visual observe tilt-card">
                     <div class="visual-frame">
-                        <img src="./nima-command-center.png" width="640" height="640" data-i18n-alt="heroAlt" alt="نیما در مرکز فرمان توسعه وب">
-                        <span class="map-node node-a">Laravel</span>
-                        <span class="map-node node-b">SEO</span>
-                        <span class="map-node node-c">Cloudflare</span>
-                        <span class="map-node node-d">WooCommerce</span>
+                        <img src="./nima-command-center.png" alt="تصویر مرکز فرمان توسعه وب نیما" data-i18n-alt="heroImageAlt" width="900" height="900">
+                        <div class="visual-console" aria-hidden="true">
+                            <span class="console-dot"></span>
+                            <span>deploy: stable</span>
+                            <strong>SEO 100</strong>
+                        </div>
                     </div>
-                    <div class="visual-console" aria-hidden="true">
-                        <span>system.ready</span>
-                        <strong>4×100</strong>
-                    </div>
-                </aside>
+                    <div class="map-node map-node-one">Laravel</div>
+                    <div class="map-node map-node-two">WP</div>
+                    <div class="map-node map-node-three">SSL</div>
+                </div>
             </div>
         </section>
 
         <section class="section compact-section" aria-labelledby="diagnostics-title">
             <div class="container two-column">
                 <article class="diagnostics-card observe tilt-card">
-                    <p class="section-kicker" data-i18n="diagnosticsKicker">Frontend Demo</p>
-                    <h2 id="diagnostics-title" data-i18n="diagnosticsTitle">سیستم شما از نگاه مرورگر</h2>
-                    <p class="muted" data-i18n="diagnosticsNote">فقط داده‌های امن مرورگر نمایش داده می‌شود؛ بدون آی‌پی، مکان‌یابی یا درخواست بیرونی.</p>
-                    <dl class="diagnostics-grid" id="diagnostics-list"></dl>
+                    <p class="section-kicker" data-i18n="diagKicker">عیب‌یابی مرورگر</p>
+                    <h2 id="diagnostics-title" data-i18n="diagTitle">نمای امنی از محیط بازدید شما</h2>
+                    <p data-i18n="diagText">این کارت فقط اطلاعات بی‌خطر مرورگر را نشان می‌دهد؛ بدون IP، مکان‌یابی یا API خارجی.</p>
+                    <div class="diagnostics-grid" id="diagnostics-grid" aria-live="polite"></div>
                 </article>
-
-                <article class="focus-card observe tilt-card">
-                    <p class="section-kicker" data-i18n="focusKicker">Focus Switch</p>
-                    <div class="focus-toggle" role="group" data-i18n-aria-label="focusAria" aria-label="انتخاب نوع مخاطب">
-                        <button type="button" class="is-active" data-focus="employer" data-i18n="focusEmployer">برای کارفرما</button>
-                        <button type="button" data-focus="client" data-i18n="focusClient">برای مشتری</button>
+                <article class="focus-card observe tilt-card" aria-labelledby="focus-title">
+                    <p class="section-kicker" data-i18n="focusKicker">تمرکز همکاری</p>
+                    <h2 id="focus-title" data-i18n="focusTitle">برای کارفرما یا مشتری، خروجی مهم است.</h2>
+                    <div class="focus-toggle" role="group" data-i18n-aria-label="focusAria" aria-label="انتخاب نوع همکاری">
+                        <button type="button" class="is-active" data-focus="employer" data-i18n="focusEmployer">کارفرما</button>
+                        <button type="button" data-focus="client" data-i18n="focusClient">مشتری</button>
                     </div>
-                    <h2 id="focus-title" data-i18n="focusEmployerTitle">چیزی که برای تیم مهم است</h2>
-                    <p id="focus-text" data-i18n="focusEmployerText">استک قابل رشد، تحویل قابل اتکا، عیب‌یابی در محیط واقعی و یادگیری سریع برای جا افتادن در تیم.</p>
+                    <p id="focus-copy" data-i18n="focusEmployerText">برای تیم‌ها، روی کد قابل نگه‌داری، مستندسازی مسیرها، عیب‌یابی تولید و تحویل قابل اتکا تمرکز می‌کنم.</p>
                 </article>
             </div>
         </section>
 
-        <section id="projects" class="section projects-section" aria-labelledby="projects-title">
+        <section id="projects" class="section" aria-labelledby="projects-title">
             <div class="container">
-                <div class="section-header observe">
-                    <p class="section-kicker" data-i18n="projectsKicker">Case Studies</p>
-                    <h2 id="projects-title" data-i18n="projectsTitle">پروژه‌ها، با تمرکز روی خروجی واقعی</h2>
-                    <p data-i18n="projectsIntro">کارت‌ها کوتاه‌اند، اما روی مسئله، نقش من و خروجی تمرکز دارند.</p>
+                <div class="section-heading observe">
+                    <p class="section-kicker" data-i18n="projectsKicker">پروژه‌های منتخب</p>
+                    <h2 id="projects-title" data-i18n="projectsTitle">سه نمونه که ساختار، سئو، سرعت و عیب‌یابی واقعی در آن‌ها مهم بوده است.</h2>
                 </div>
-
                 <div class="projects-grid">
-                    <article class="project-card featured observe tilt-card" data-project-card="applitent">
-                        <div class="project-top">
-                            <div>
-                                <span class="project-label" data-i18n="featuredLabel">پروژه شاخص</span>
-                                <h3>Applitent</h3>
-                            </div>
-                            <span class="project-type">Laravel / Legal-tech</span>
+                    <article class="project-card featured observe tilt-card" data-project="applitent">
+                        <div class="project-topline"><span data-i18n="featuredLabel">ویژه</span><a href="https://applitent.com/" target="_blank" rel="noopener" data-i18n="openSite">مشاهده سایت</a></div>
+                        <h3>Applitent</h3>
+                        <p data-i18n="applitentSummary">وب‌سایت خدمات حقوقی و پلتفرم تجاری لاراول با جریان‌های احراز هویت، داشبورد، درخواست سرویس و آماده‌سازی سئو.</p>
+                        <div class="project-tags"><span>Laravel</span><span>Legal-tech</span><span>Dashboards</span><span>4×100 Lighthouse</span></div>
+                        <div class="project-tabs" role="tablist" aria-label="Applitent project details">
+                            <button type="button" class="is-active" data-project-tab="problem" data-i18n="tabProblem">مسئله</button>
+                            <button type="button" data-project-tab="work" data-i18n="tabWork">کار من</button>
+                            <button type="button" data-project-tab="outcome" data-i18n="tabOutcome">خروجی</button>
                         </div>
-                        <p data-i18n="applitentSummary">روی یک پلتفرم کسب‌وکاری لاراولی و سایت خدمات حقوقی کار کردم؛ از مسیرهای ورود و ثبت‌نام تا داشبورد، درخواست سرویس، ساختار حقوقی، سئو، ایمیل، سرور و رفع خطاهای محیط واقعی.</p>
-                        <div class="metric-row"><span>Laravel</span><span>Cloudflare</span><span>Lighthouse 4×100</span></div>
-                        <div class="project-tabs" role="tablist" data-project="applitent"></div>
-                        <div class="project-panel" data-project-panel="applitent">پلتفرم خدمات حقوقی به مسیرهای ورود، ثبت‌نام، درخواست سرویس، صفحات اعتمادساز و زیرساخت پایدار نیاز داشت.</div>
-                        <a class="btn primary-btn" href="https://applitent.com" target="_blank" rel="noopener" data-i18n="visitApplitent" data-i18n-aria-label="visitApplitentAria" aria-label="باز کردن Applitent در تب جدید">باز کردن Applitent</a>
+                        <p class="project-panel" aria-live="polite">یک پلتفرم خدمات حقوقی به مسیرهای ورود، ثبت‌نام، درخواست خدمت، صفحات اعتمادساز و زیرساخت پایدار نیاز داشت.</p>
                     </article>
-
-                    <article class="project-card observe tilt-card" data-project-card="fannkala">
-                        <div class="project-top">
-                            <div>
-                                <span class="project-label" data-i18n="storeLabel">فروشگاه</span>
-                                <h3>Fannkala</h3>
-                            </div>
-                            <span class="project-type">WooCommerce</span>
+                    <article class="project-card observe tilt-card" data-project="fannkala">
+                        <h3>Fannkala</h3>
+                        <p data-i18n="fannkalaSummary">فروشگاه وردپرس و ووکامرس با تمرکز روی ساختار، تجربه خرید، نگه‌داری و سرعت.</p>
+                        <div class="project-tags"><span>WordPress</span><span>WooCommerce</span><span>Performance</span></div>
+                        <div class="project-tabs" role="tablist" aria-label="Fannkala project details">
+                            <button type="button" class="is-active" data-project-tab="problem" data-i18n="tabProblem">مسئله</button>
+                            <button type="button" data-project-tab="work" data-i18n="tabWork">کار من</button>
+                            <button type="button" data-project-tab="outcome" data-i18n="tabOutcome">خروجی</button>
                         </div>
-                        <p data-i18n="fannkalaSummary">بهینه‌سازی و نگه‌داری فروشگاه وردپرسی با تمرکز روی ساختار محصول، تجربه خرید، سرعت و مدیریت ساده‌تر محتوا.</p>
-                        <div class="tag-row"><span>WordPress</span><span>WooCommerce</span><span>Elementor</span><span>Performance</span></div>
-                        <div class="project-tabs" role="tablist" data-project="fannkala"></div>
-                        <div class="project-panel" data-project-panel="fannkala">فروشگاه به ساختار واضح‌تر، تجربه خرید بهتر و نگه‌داری ساده‌تر نیاز داشت.</div>
-                        <a class="inline-link" href="https://fannkala.com" target="_blank" rel="noopener" data-i18n="visitSite">بازدید سایت</a>
+                        <p class="project-panel" aria-live="polite">فروشگاه به ساختار واضح‌تر، تجربه خرید بهتر و نگه‌داری ساده‌تر نیاز داشت.</p>
                     </article>
-
-                    <article class="project-card observe tilt-card" data-project-card="parstek">
-                        <div class="project-top">
-                            <div>
-                                <span class="project-label" data-i18n="corporateLabel">سایت شرکتی</span>
-                                <h3>Parstek</h3>
-                            </div>
-                            <span class="project-type">Corporate</span>
+                    <article class="project-card observe tilt-card" data-project="parstek">
+                        <h3>Parstek</h3>
+                        <p data-i18n="parstekSummary">سایت شرکتی با مسیرهای محتوایی روشن‌تر، رابط حرفه‌ای‌تر و سفارشی‌سازی وردپرس.</p>
+                        <div class="project-tags"><span>Corporate</span><span>WordPress</span><span>UX</span></div>
+                        <div class="project-tabs" role="tablist" aria-label="Parstek project details">
+                            <button type="button" class="is-active" data-project-tab="problem" data-i18n="tabProblem">مسئله</button>
+                            <button type="button" data-project-tab="work" data-i18n="tabWork">کار من</button>
+                            <button type="button" data-project-tab="outcome" data-i18n="tabOutcome">خروجی</button>
                         </div>
-                        <p data-i18n="parstekSummary">ساختاردهی سایت شرکتی، صفحات معرفی، رابط کاربری، سفارشی‌سازی قالب و بهبود تجربه کاربری.</p>
-                        <div class="tag-row"><span>WordPress</span><span>UI</span><span>Theme</span><span>Performance</span></div>
-                        <div class="project-tabs" role="tablist" data-project="parstek"></div>
-                        <div class="project-panel" data-project-panel="parstek">سایت شرکتی باید معرفی خدمات و مسیرهای محتوایی را شفاف‌تر نشان می‌داد.</div>
-                        <a class="inline-link" href="https://parstek.ir" target="_blank" rel="noopener" data-i18n="visitSite">بازدید سایت</a>
+                        <p class="project-panel" aria-live="polite">سایت شرکتی باید معرفی خدمات و مسیرهای محتوایی را شفاف‌تر نشان می‌داد.</p>
                     </article>
                 </div>
             </div>
         </section>
 
-        <section id="stack" class="section stack-section" aria-labelledby="stack-title">
+        <section id="stack" class="section compact-section" aria-labelledby="stack-title">
             <div class="container">
-                <div class="section-header observe">
-                    <p class="section-kicker" data-i18n="stackKicker">Stack Bento</p>
-                    <h2 id="stack-title" data-i18n="stackTitle">توانایی‌ها در قالب یک داشبورد جمع‌وجور</h2>
+                <div class="section-heading observe">
+                    <p class="section-kicker" data-i18n="stackKicker">جعبه‌ابزار</p>
+                    <h2 id="stack-title" data-i18n="stackTitle">ترکیب مهارت‌هایی که برای یک محصول واقعی کنار هم لازم می‌شوند.</h2>
                 </div>
                 <div class="stack-grid">
-                    <article class="stack-card observe tilt-card stack-backend"><span class="stack-icon">{ }</span><h3>Backend</h3><p>PHP, Laravel, MySQL, APIs, Auth</p></article>
-                    <article class="stack-card observe tilt-card stack-frontend"><span class="stack-icon">↗</span><h3>Frontend</h3><p>React, JavaScript, Responsive UI, Motion, Dashboard UX</p></article>
-                    <article class="stack-card observe tilt-card stack-wordpress"><span class="stack-icon">W</span><h3>WordPress</h3><p>WordPress, WooCommerce, Elementor, Plugins, Hooks, Shortcodes</p></article>
-                    <article class="stack-card observe tilt-card stack-seo"><span class="stack-icon">◎</span><h3>SEO / Performance</h3><p>Sitemap, Metadata, Caching, Lighthouse, Technical SEO</p></article>
-                    <article class="stack-card observe tilt-card stack-infra"><span class="stack-icon">⚡</span><h3>Infrastructure</h3><p>VPS, nginx, SSL, DNS, Cloudflare, Mail, Debugging</p></article>
+                    <article class="stack-card observe tilt-card"><span class="stack-icon">{ }</span><h3>Backend</h3><p>PHP, Laravel, MySQL, APIs, Auth</p></article>
+                    <article class="stack-card observe tilt-card"><span class="stack-icon">↗</span><h3>Frontend</h3><p>JavaScript, Responsive UI, Motion, Dashboard UX</p></article>
+                    <article class="stack-card observe tilt-card"><span class="stack-icon">W</span><h3>WordPress</h3><p>WordPress, WooCommerce, Elementor, Plugins, Hooks</p></article>
+                    <article class="stack-card observe tilt-card"><span class="stack-icon">◎</span><h3>SEO / Performance</h3><p>Sitemap, Metadata, Caching, Lighthouse, Technical SEO</p></article>
+                    <article class="stack-card observe tilt-card"><span class="stack-icon">⚡</span><h3>Infrastructure</h3><p>VPS, nginx, SSL, DNS, Cloudflare, Mail, Debugging</p></article>
                 </div>
             </div>
         </section>
@@ -214,7 +190,7 @@
         <section class="section compact-section" aria-labelledby="deliver-title">
             <div class="container deliver-grid">
                 <article class="deliver-card observe tilt-card">
-                    <p class="section-kicker" data-i18n="deliverKicker">Delivery</p>
+                    <p class="section-kicker" data-i18n="deliverKicker">تحویل</p>
                     <h2 id="deliver-title" data-i18n="deliverTitle">چه چیزی تحویل می‌دهم؟</h2>
                     <ul class="deliver-list">
                         <li data-i18n="deliver1">داشبورد و جریان کاری قابل استفاده</li>
@@ -224,16 +200,15 @@
                         <li data-i18n="deliver5">عیب‌یابی واقعی از کد تا سرور</li>
                     </ul>
                 </article>
-
                 <article class="ai-card observe tilt-card">
-                    <p class="section-kicker">AI-assisted Workflow</p>
+                    <p class="section-kicker" data-i18n="aiKicker">روند کاری با هوش مصنوعی</p>
+                    <h2 data-i18n="aiTitle">سریع‌تر، اما با کنترل انسانی.</h2>
                     <p data-i18n="aiNote">از ابزارهای هوش مصنوعی برای سرعت بیشتر استفاده می‌کنم، اما معماری، تصمیم فنی، تست، عیب‌یابی و تحویل نهایی با خودم است.</p>
                 </article>
-
                 <article class="health-card observe tilt-card" aria-labelledby="health-title">
-                    <p class="section-kicker" data-i18n="healthKicker">Mini Game</p>
+                    <p class="section-kicker" data-i18n="healthKicker">بازی کوچک</p>
                     <h2 id="health-title" data-i18n="healthTitle">System Health Mini Game</h2>
-                    <div class="health-nodes" aria-label="System health nodes">
+                    <div class="health-nodes" data-i18n-aria-label="healthAria" aria-label="گره‌های سلامت سیستم">
                         <button type="button" data-health="seo">SEO</button>
                         <button type="button" data-health="speed">Speed</button>
                         <button type="button" data-health="security">Security</button>
@@ -247,11 +222,11 @@
         <section id="contact" class="section contact-section" aria-labelledby="contact-title">
             <div class="container">
                 <div class="contact-card observe tilt-card">
-                    <p class="section-kicker" data-i18n="contactKicker">Contact</p>
+                    <p class="section-kicker" data-i18n="contactKicker">تماس</p>
                     <h2 id="contact-title" data-i18n="contactTitle">اگر پروژه‌ای داری که هم ظاهر خوب می‌خواهد، هم منطق درست، هم سئو، سرعت و نگه‌داری، پیام بده.</h2>
                     <div class="outro-actions">
-                        <a class="btn primary-btn" href="mailto:nima.mohebali.b@gmail.com">Email</a>
-                        <a class="btn ghost-btn" href="tel:+989227241378" data-i18n-aria-label="phoneAria" aria-label="تماس با 09227241378">Phone</a>
+                        <a class="btn primary-btn" href="mailto:nima.mohebali.b@gmail.com">nima.mohebali.b@gmail.com</a>
+                        <a class="btn ghost-btn" href="tel:+989227241378" data-i18n-aria-label="phoneAria" aria-label="تماس با 09227241378">09227241378</a>
                         <button class="btn command-btn" type="button" data-copy="email" data-i18n="copyEmail">کپی ایمیل</button>
                         <button class="btn command-btn" type="button" data-copy="phone" data-i18n="copyPhone">کپی شماره</button>
                     </div>
@@ -276,7 +251,7 @@
                     <p class="section-kicker">Command Center</p>
                     <h2 id="command-title" data-i18n="paletteTitle">فرمان سریع</h2>
                 </div>
-                <button class="icon-button" type="button" data-close-command aria-label="Close">×</button>
+                <button class="icon-button" type="button" data-close-command data-i18n-aria-label="closeAria" aria-label="بستن">×</button>
             </div>
             <div class="command-list" id="command-list"></div>
             <p class="command-hint" data-i18n="paletteHint">کلید Escape برای بستن. کلید / برای باز کردن.</p>
