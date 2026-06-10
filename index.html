@@ -59,8 +59,9 @@
                     <span aria-hidden="true">⌘</span><span data-i18n="commandTrigger">فرمان سریع</span><kbd>/</kbd>
                 </button>
                 <div class="language-switch" role="group" data-i18n-aria-label="langAria" aria-label="تغییر زبان">
-                    <button type="button" class="lang-option is-active" data-lang-option="fa">FA</button>
-                    <button type="button" class="lang-option" data-lang-option="en">EN</button>
+                    <span class="lang-indicator" aria-hidden="true"></span>
+                    <button type="button" class="lang-option is-active" data-lang-option="fa">فارسی</button>
+                    <button type="button" class="lang-option" data-lang-option="en">English</button>
                     <span class="lang-status" data-i18n="langStatus">حالت فارسی</span>
                 </div>
             </div>
@@ -72,8 +73,8 @@
             <div class="container hero-grid">
                 <div class="hero-copy observe">
                     <p class="hero-kicker" data-i18n="heroBadge">توسعه‌دهنده فول‌استک وب</p>
-                    <h1 class="hero-title" id="hero-title" data-i18n="heroTitle">وب‌اپلیکیشن، فروشگاه و سایت‌هایی که فقط ظاهر ندارند؛ واقعاً کار می‌کنند.</h1>
-                    <p class="hero-subtitle" data-i18n="heroSubtitle">از لاراول و داشبوردهای کاربردی تا وردپرس، ووکامرس، سئوی فنی، بهینه‌سازی سرعت و عیب‌یابی محیط واقعی سایت.</p>
+                    <h1 class="hero-title" id="hero-title" data-i18n="heroTitle">سایت و وب‌اپلیکیشنی که واقعاً کار می‌کند.</h1>
+                    <p class="hero-subtitle" data-i18n="heroSubtitle">از لاراول و داشبورد تا وردپرس، ووکامرس، سئوی فنی، سرعت و عیب‌یابی محیط واقعی.</p>
                     <div class="hero-chips" aria-label="مهارت‌های کلیدی">
                         <span data-i18n="chip1">Laravel</span>
                         <span data-i18n="chip2">WordPress</span>
@@ -81,27 +82,23 @@
                         <span data-i18n="chip4">SEO / Performance</span>
                     </div>
                     <div class="hero-actions">
-                        <a href="#projects" class="btn primary-btn" data-i18n="heroCtaProjects">دیدن پروژه‌ها</a>
-                        <a href="#contact" class="btn ghost-btn" data-i18n="heroCtaContact">تماس با من</a>
+                        <a href="#projects" class="btn primary-btn magnetic-btn" data-i18n="heroCtaProjects">دیدن پروژه‌ها</a>
+                        <a href="#contact" class="btn ghost-btn magnetic-btn" data-i18n="heroCtaContact">تماس با من</a>
+                        <button class="command-icon-btn magnetic-btn" type="button" data-open-command data-i18n-aria-label="commandAria" aria-label="باز کردن فرمان سریع">⌘</button>
                     </div>
-                    <div class="metric-row" aria-label="highlights">
-                        <span><strong>4×100</strong><small data-i18n="metricLighthouse">گزارش Lighthouse برای Applitent</small></span>
-                        <span><strong>3</strong><small data-i18n="metricProjects">پروژه منتخب</small></span>
-                        <span><strong>0</strong><small data-i18n="metricApis">API خارجی برای این صفحه</small></span>
+                    <div class="hero-tech-chips" aria-label="Hero technologies">
+                        <span>Laravel</span><span>WordPress</span><span>SEO</span><span>Performance</span><span>Infrastructure</span>
                     </div>
                 </div>
                 <div class="hero-visual observe tilt-card">
                     <div class="visual-frame">
                         <img src="./nima-command-center.png" alt="تصویر مرکز فرمان توسعه وب نیما" data-i18n-alt="heroImageAlt" width="900" height="900">
-                        <div class="visual-console" aria-hidden="true">
-                            <span class="console-dot"></span>
-                            <span>deploy: stable</span>
-                            <strong>SEO 100</strong>
                         </div>
-                    </div>
                     <div class="map-node map-node-one">Laravel</div>
-                    <div class="map-node map-node-two">WP</div>
-                    <div class="map-node map-node-three">SSL</div>
+                    <div class="map-node map-node-two">WordPress</div>
+                    <div class="map-node map-node-three">SEO</div>
+                    <div class="map-node map-node-four">Performance</div>
+                    <div class="map-node map-node-five">Infrastructure</div>
                 </div>
             </div>
         </section>
@@ -111,17 +108,17 @@
                 <article class="diagnostics-card observe tilt-card">
                     <p class="section-kicker" data-i18n="diagKicker">عیب‌یابی مرورگر</p>
                     <h2 id="diagnostics-title" data-i18n="diagTitle">نمای امنی از محیط بازدید شما</h2>
-                    <p data-i18n="diagText">این کارت فقط اطلاعات بی‌خطر مرورگر را نشان می‌دهد؛ بدون IP، مکان‌یابی یا API خارجی.</p>
+                    <p data-i18n="diagText">این کارت فقط اطلاعات بی‌خطر مرورگر را نشان می‌دهد؛ بدون IP یا مکان‌یابی.</p>
                     <div class="diagnostics-grid" id="diagnostics-grid" aria-live="polite"></div>
                 </article>
                 <article class="focus-card observe tilt-card" aria-labelledby="focus-title">
                     <p class="section-kicker" data-i18n="focusKicker">تمرکز همکاری</p>
                     <h2 id="focus-title" data-i18n="focusTitle">برای کارفرما یا مشتری، خروجی مهم است.</h2>
-                    <div class="focus-toggle" role="group" data-i18n-aria-label="focusAria" aria-label="انتخاب نوع همکاری">
-                        <button type="button" class="is-active" data-focus="employer" data-i18n="focusEmployer">کارفرما</button>
-                        <button type="button" data-focus="client" data-i18n="focusClient">مشتری</button>
+                    <div class="focus-toggle audience-tabs" role="group" data-i18n-aria-label="focusAria" aria-label="انتخاب نوع همکاری">
+                        <button type="button" class="is-active" data-focus="employer" data-i18n="focusEmployer">برای کارفرما</button>
+                        <button type="button" data-focus="client" data-i18n="focusClient">برای مشتری</button>
                     </div>
-                    <p id="focus-copy" data-i18n="focusEmployerText">برای تیم‌ها، روی کد قابل نگه‌داری، مستندسازی مسیرها، عیب‌یابی تولید و تحویل قابل اتکا تمرکز می‌کنم.</p>
+                    <ul class="audience-points" id="focus-points" aria-live="polite"></ul>
                 </article>
             </div>
         </section>
@@ -134,10 +131,16 @@
                 </div>
                 <div class="projects-grid">
                     <article class="project-card featured observe tilt-card" data-project="applitent">
-                        <div class="project-topline"><span data-i18n="featuredLabel">ویژه</span><a href="https://applitent.com/" target="_blank" rel="noopener" data-i18n="openSite">مشاهده سایت</a></div>
+                        <div class="project-topline"><span data-i18n="featuredLabel">ویژه</span><a href="https://applitent.com" target="_blank" rel="noopener" data-i18n="openSite">مشاهده سایت</a></div>
                         <h3>Applitent</h3>
                         <p data-i18n="applitentSummary">وب‌سایت خدمات حقوقی و پلتفرم تجاری لاراول با جریان‌های احراز هویت، داشبورد، درخواست سرویس و آماده‌سازی سئو.</p>
-                        <div class="project-tags"><span>Laravel</span><span>Legal-tech</span><span>Dashboards</span><span>4×100 Lighthouse</span></div>
+                        <div class="project-tags"><span>Laravel</span><span>Legal-tech</span><span>Dashboards</span><span>Lighthouse proof</span></div>
+                        <div class="lighthouse-scores observe" aria-label="Lighthouse scores">
+                            <div class="score-meter"><strong>100</strong><small data-i18n="scorePerformance">سرعت</small></div>
+                            <div class="score-meter"><strong>100</strong><small data-i18n="scoreAccessibility">دسترسی‌پذیری</small></div>
+                            <div class="score-meter"><strong>100</strong><small data-i18n="scoreBestPractices">استانداردها</small></div>
+                            <div class="score-meter"><strong>100</strong><small data-i18n="scoreSeo">سئو</small></div>
+                        </div>
                         <div class="project-tabs" role="tablist" aria-label="Applitent project details">
                             <button type="button" class="is-active" data-project-tab="problem" data-i18n="tabProblem">مسئله</button>
                             <button type="button" data-project-tab="work" data-i18n="tabWork">کار من</button>
@@ -146,6 +149,7 @@
                         <p class="project-panel" aria-live="polite">یک پلتفرم خدمات حقوقی به مسیرهای ورود، ثبت‌نام، درخواست خدمت، صفحات اعتمادساز و زیرساخت پایدار نیاز داشت.</p>
                     </article>
                     <article class="project-card observe tilt-card" data-project="fannkala">
+                        <div class="project-topline"><span>WordPress</span><a href="https://fannkala.com" target="_blank" rel="noopener" data-i18n="openSite">مشاهده سایت</a></div>
                         <h3>Fannkala</h3>
                         <p data-i18n="fannkalaSummary">فروشگاه وردپرس و ووکامرس با تمرکز روی ساختار، تجربه خرید، نگه‌داری و سرعت.</p>
                         <div class="project-tags"><span>WordPress</span><span>WooCommerce</span><span>Performance</span></div>
@@ -157,6 +161,7 @@
                         <p class="project-panel" aria-live="polite">فروشگاه به ساختار واضح‌تر، تجربه خرید بهتر و نگه‌داری ساده‌تر نیاز داشت.</p>
                     </article>
                     <article class="project-card observe tilt-card" data-project="parstek">
+                        <div class="project-topline"><span>Corporate</span><a href="https://parstek.ir" target="_blank" rel="noopener" data-i18n="openSite">مشاهده سایت</a></div>
                         <h3>Parstek</h3>
                         <p data-i18n="parstekSummary">سایت شرکتی با مسیرهای محتوایی روشن‌تر، رابط حرفه‌ای‌تر و سفارشی‌سازی وردپرس.</p>
                         <div class="project-tags"><span>Corporate</span><span>WordPress</span><span>UX</span></div>
@@ -204,17 +209,42 @@
                     <p class="section-kicker" data-i18n="aiKicker">روند کاری با هوش مصنوعی</p>
                     <h2 data-i18n="aiTitle">سریع‌تر، اما با کنترل انسانی.</h2>
                     <p data-i18n="aiNote">از ابزارهای هوش مصنوعی برای سرعت بیشتر استفاده می‌کنم، اما معماری، تصمیم فنی، تست، عیب‌یابی و تحویل نهایی با خودم است.</p>
+                    <div class="ai-console" aria-label="AI workflow">
+                        <span data-i18n="aiStep1">ایده‌پردازی سریع‌تر</span>
+                        <span data-i18n="aiStep2">تصمیم فنی با من</span>
+                        <span data-i18n="aiStep3">تست و تحویل نهایی با من</span>
+                    </div>
                 </article>
                 <article class="health-card observe tilt-card" aria-labelledby="health-title">
                     <p class="section-kicker" data-i18n="healthKicker">بازی کوچک</p>
-                    <h2 id="health-title" data-i18n="healthTitle">System Health Mini Game</h2>
+                    <h2 id="health-title" data-i18n="healthTitle">راه‌اندازی مرکز فرمان</h2>
+                    <div class="launch-meter"><span id="launch-progress"></span></div>
                     <div class="health-nodes" data-i18n-aria-label="healthAria" aria-label="گره‌های سلامت سیستم">
                         <button type="button" data-health="seo">SEO</button>
                         <button type="button" data-health="speed">Speed</button>
                         <button type="button" data-health="security">Security</button>
                         <button type="button" data-health="ux">UX</button>
                     </div>
-                    <p class="health-result" id="health-result" aria-live="polite" data-i18n="healthHint">چهار گره را فعال کن.</p>
+                    <p class="health-result" id="health-result" aria-live="polite" data-i18n="healthHint">چهار سیستم را روشن کن.</p>
+                    <div class="launch-confetti" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+                    <button class="btn primary-btn launch-cta" type="button" data-launch-contact hidden data-i18n="healthCta">شروع پروژه</button>
+                </article>
+            </div>
+        </section>
+
+
+        <section class="section compact-section audio-section" id="soundtrack" aria-labelledby="audio-title" hidden>
+            <div class="container">
+                <article class="audio-dock observe tilt-card">
+                    <div>
+                        <p class="section-kicker">Audio</p>
+                        <h2 id="audio-title" data-i18n="audioTitle">موسیقی مرکز فرمان</h2>
+                    </div>
+                    <button class="audio-play" type="button" data-audio-toggle data-i18n-aria-label="audioPlay" aria-label="پخش موسیقی">▶</button>
+                    <div class="audio-eq" aria-hidden="true"><span></span><span></span><span></span></div>
+                    <div class="audio-track"><span id="audio-progress"></span></div>
+                    <time id="audio-time">0:00 / 0:00</time>
+                    <audio id="command-audio" preload="metadata" src="assets/audio/command-center.mp3"></audio>
                 </article>
             </div>
         </section>
@@ -224,11 +254,9 @@
                 <div class="contact-card observe tilt-card">
                     <p class="section-kicker" data-i18n="contactKicker">تماس</p>
                     <h2 id="contact-title" data-i18n="contactTitle">اگر پروژه‌ای داری که هم ظاهر خوب می‌خواهد، هم منطق درست، هم سئو، سرعت و نگه‌داری، پیام بده.</h2>
-                    <div class="outro-actions">
-                        <a class="btn primary-btn" href="mailto:nima.mohebali.b@gmail.com">nima.mohebali.b@gmail.com</a>
-                        <a class="btn ghost-btn" href="tel:+989227241378" data-i18n-aria-label="phoneAria" aria-label="تماس با 09227241378">09227241378</a>
-                        <button class="btn command-btn" type="button" data-copy="email" data-i18n="copyEmail">کپی ایمیل</button>
-                        <button class="btn command-btn" type="button" data-copy="phone" data-i18n="copyPhone">کپی شماره</button>
+                    <div class="contact-actions">
+                        <div class="contact-item"><a href="mailto:nima.mohebali.b@gmail.com"><span><small>Email</small><strong>nima.mohebali.b@gmail.com</strong></span></a><button type="button" data-copy="email" data-i18n-aria-label="copyEmail" aria-label="کپی ایمیل">⧉</button></div>
+                        <div class="contact-item"><a href="tel:+989227241378" data-i18n-aria-label="phoneAria" aria-label="تماس با 09227241378"><span><small>Phone</small><strong>09227241378</strong></span></a><button type="button" data-copy="phone" data-i18n-aria-label="copyPhone" aria-label="کپی شماره">⧉</button></div>
                     </div>
                     <p class="copy-status" aria-live="polite" id="copy-status"></p>
                 </div>

@@ -32,8 +32,8 @@
             langAria: "تغییر زبان",
             langStatus: "حالت فارسی",
             heroBadge: "توسعه‌دهنده فول‌استک وب",
-            heroTitle: "وب‌اپلیکیشن، فروشگاه و سایت‌هایی که فقط ظاهر ندارند؛ واقعاً کار می‌کنند.",
-            heroSubtitle: "از لاراول و داشبوردهای کاربردی تا وردپرس، ووکامرس، سئوی فنی، بهینه‌سازی سرعت و عیب‌یابی محیط واقعی سایت.",
+            heroTitle: "سایت و وب‌اپلیکیشنی که واقعاً کار می‌کند.",
+            heroSubtitle: "از لاراول و داشبورد تا وردپرس، ووکامرس، سئوی فنی، سرعت و عیب‌یابی محیط واقعی.",
             heroCtaProjects: "دیدن پروژه‌ها",
             heroCtaContact: "تماس با من",
             heroImageAlt: "تصویر مرکز فرمان توسعه وب نیما",
@@ -43,17 +43,17 @@
             chip4: "SEO / Performance",
             metricLighthouse: "گزارش Lighthouse برای Applitent",
             metricProjects: "پروژه منتخب",
-            metricApis: "API خارجی برای این صفحه",
+            metricApis: "بدون ردیابی بیرونی",
             diagKicker: "عیب‌یابی مرورگر",
             diagTitle: "نمای امنی از محیط بازدید شما",
-            diagText: "این کارت فقط اطلاعات بی‌خطر مرورگر را نشان می‌دهد؛ بدون IP، مکان‌یابی یا API خارجی.",
+            diagText: "این کارت فقط اطلاعات بی‌خطر مرورگر را نشان می‌دهد؛ بدون IP یا مکان‌یابی.",
             focusKicker: "تمرکز همکاری",
             focusTitle: "برای کارفرما یا مشتری، خروجی مهم است.",
             focusAria: "انتخاب نوع همکاری",
-            focusEmployer: "کارفرما",
-            focusClient: "مشتری",
-            focusEmployerText: "برای تیم‌ها، روی کد قابل نگه‌داری، مستندسازی مسیرها، عیب‌یابی تولید و تحویل قابل اتکا تمرکز می‌کنم.",
-            focusClientText: "برای مشتری‌ها، مسیر سفارش تا تحویل را روشن نگه می‌دارم و سایت یا فروشگاهی می‌سازم که بعد از تحویل هم قابل مدیریت باشد.",
+            focusEmployer: "برای کارفرما",
+            focusClient: "برای مشتری",
+            focusEmployerText: "یادگیری سریع و کار در تیم|عیب‌یابی واقعی در Production|توانایی اتصال فرانت، بک‌اند و زیرساخت",
+            focusClientText: "سایت قابل نگه‌داری|سئو و سرعت بهتر|پشتیبانی و اصلاح بعد از تحویل",
             projectsKicker: "پروژه‌های منتخب",
             projectsTitle: "سه نمونه که ساختار، سئو، سرعت و عیب‌یابی واقعی در آن‌ها مهم بوده است.",
             featuredLabel: "ویژه",
@@ -77,10 +77,10 @@
             aiTitle: "سریع‌تر، اما با کنترل انسانی.",
             aiNote: "از ابزارهای هوش مصنوعی برای سرعت بیشتر استفاده می‌کنم، اما معماری، تصمیم فنی، تست، عیب‌یابی و تحویل نهایی با خودم است.",
             healthKicker: "بازی کوچک",
-            healthTitle: "System Health Mini Game",
+            healthTitle: "راه‌اندازی مرکز فرمان",
             healthAria: "گره‌های سلامت سیستم",
-            healthHint: "چهار گره را فعال کن.",
-            healthComplete: "سیستم آماده‌تر شد. حالا فقط یک پروژه واقعی کم دارد.",
+            healthHint: "چهار سیستم را روشن کن.",
+            healthComplete: "مرکز فرمان آماده شد. حالا فقط یک پروژه واقعی کم دارد.",
             contactKicker: "تماس",
             contactTitle: "اگر پروژه‌ای داری که هم ظاهر خوب می‌خواهد، هم منطق درست، هم سئو، سرعت و نگه‌داری، پیام بده.",
             copyEmail: "کپی ایمیل",
@@ -101,6 +101,18 @@
             commandCopyEmail: "کپی ایمیل",
             commandCopyPhone: "کپی شماره",
             commandOpenApplitent: "باز کردن Applitent",
+            commandPlayAudio: "پخش موسیقی",
+            audioTitle: "موسیقی مرکز فرمان",
+            audioPlay: "پخش موسیقی",
+            audioPause: "توقف موسیقی",
+            healthCta: "شروع پروژه",
+            scorePerformance: "سرعت",
+            scoreAccessibility: "دسترسی‌پذیری",
+            scoreBestPractices: "استانداردها",
+            scoreSeo: "سئو",
+            aiStep1: "ایده‌پردازی سریع‌تر",
+            aiStep2: "تصمیم فنی با من",
+            aiStep3: "تست و تحویل نهایی با من",
             commandScrollHint: "رفتن به بخش صفحه",
             commandCopyHint: "کپی در کلیپ‌بورد",
             commandLangHint: "بدون بارگذاری دوباره",
@@ -111,16 +123,13 @@
                 viewport: "اندازه صفحه",
                 language: "زبان صفحه",
                 timezone: "منطقه زمانی",
-                online: "وضعیت اتصال",
-                scheme: "طرح رنگ",
+                                scheme: "طرح رنگ",
                 motion: "کاهش حرکت",
                 connection: "نوع اتصال",
                 desktop: "رومیزی",
                 tablet: "تبلت",
                 mobile: "موبایل",
-                onlineValue: "آنلاین",
-                offlineValue: "آفلاین",
-                dark: "تیره",
+                                dark: "تیره",
                 light: "روشن",
                 reduced: "فعال",
                 noPreference: "غیرفعال",
@@ -144,8 +153,8 @@
             langAria: "Change language",
             langStatus: "English mode",
             heroBadge: "Full-Stack Web Developer",
-            heroTitle: "Web apps, stores, and websites that do more than look good — they work.",
-            heroSubtitle: "From Laravel dashboards to WordPress/WooCommerce systems, technical SEO, performance, infrastructure, and production debugging.",
+            heroTitle: "Web systems that actually work.",
+            heroSubtitle: "Laravel dashboards, WordPress/WooCommerce, technical SEO, performance, and production debugging.",
             heroCtaProjects: "View Projects",
             heroCtaContact: "Contact Me",
             heroImageAlt: "Nima developer command-center visual",
@@ -155,17 +164,17 @@
             chip4: "SEO / Performance",
             metricLighthouse: "Applitent Lighthouse report",
             metricProjects: "Featured projects",
-            metricApis: "External APIs on this page",
+            metricApis: "No outside tracking",
             diagKicker: "Browser diagnostics",
             diagTitle: "A safe snapshot of your browsing environment",
-            diagText: "This card only shows safe browser information: no IP lookup, no location lookup, and no external APIs.",
+            diagText: "This card only shows safe browser information: no IP lookup and no location lookup.",
             focusKicker: "Collaboration focus",
             focusTitle: "For employers and clients, the output matters.",
             focusAria: "Choose collaboration type",
-            focusEmployer: "Employer",
-            focusClient: "Client",
-            focusEmployerText: "For teams, I focus on maintainable code, documented flows, production debugging, and reliable delivery.",
-            focusClientText: "For clients, I keep the path from request to delivery clear and build sites or stores that remain manageable after handoff.",
+            focusEmployer: "For Employers",
+            focusClient: "For Clients",
+            focusEmployerText: "Fast learning and team fit|Real production debugging|Connects frontend, backend, and infrastructure",
+            focusClientText: "Maintainable websites|Better SEO and speed|Support and iteration after launch",
             projectsKicker: "Featured projects",
             projectsTitle: "Three examples where structure, SEO, performance, and real debugging mattered.",
             featuredLabel: "Featured",
@@ -189,10 +198,10 @@
             aiTitle: "Faster, but human controlled.",
             aiNote: "I use AI tools to move faster, but architecture, technical decisions, testing, debugging, and final delivery stay under my control.",
             healthKicker: "Mini game",
-            healthTitle: "System Health Mini Game",
+            healthTitle: "Launch the Command Center",
             healthAria: "System health nodes",
-            healthHint: "Activate all four nodes.",
-            healthComplete: "System is cleaner now. It just needs a real project.",
+            healthHint: "Activate all four systems.",
+            healthComplete: "Command Center is ready. It just needs a real project.",
             contactKicker: "Contact",
             contactTitle: "If your project needs a strong interface, solid logic, SEO, speed, and maintainability, send a message.",
             copyEmail: "Copy Email",
@@ -213,6 +222,18 @@
             commandCopyEmail: "Copy Email",
             commandCopyPhone: "Copy Phone",
             commandOpenApplitent: "Open Applitent",
+            commandPlayAudio: "Play soundtrack",
+            audioTitle: "Command Center Soundtrack",
+            audioPlay: "Play soundtrack",
+            audioPause: "Pause soundtrack",
+            healthCta: "Start a Project",
+            scorePerformance: "Performance",
+            scoreAccessibility: "Accessibility",
+            scoreBestPractices: "Best Practices",
+            scoreSeo: "SEO",
+            aiStep1: "Faster exploration",
+            aiStep2: "Architecture stays human-owned",
+            aiStep3: "Final delivery is tested and owned",
             commandScrollHint: "Jump to page section",
             commandCopyHint: "Copy to clipboard",
             commandLangHint: "No reload needed",
@@ -223,16 +244,13 @@
                 viewport: "Viewport",
                 language: "Page language",
                 timezone: "Timezone",
-                online: "Online status",
-                scheme: "Color scheme",
+                                scheme: "Color scheme",
                 motion: "Reduced motion",
                 connection: "Connection type",
                 desktop: "Desktop",
                 tablet: "Tablet",
                 mobile: "Mobile",
-                onlineValue: "Online",
-                offlineValue: "Offline",
-                dark: "Dark",
+                                dark: "Dark",
                 light: "Light",
                 reduced: "Reduced",
                 noPreference: "No preference",
@@ -246,7 +264,7 @@
             applitent: {
                 problem: "یک پلتفرم خدمات حقوقی به مسیرهای ورود، ثبت‌نام، درخواست خدمت، صفحات اعتمادساز و زیرساخت پایدار نیاز داشت.",
                 work: "روی احراز هویت، ثبت‌نام، تأیید ایمیل، بازیابی رمز، ورود و خروج، داشبوردها، جریان درخواست خدمت، سخت‌سازی بارگذاری مدارک، هاب حقوقی، مسیر مشاوره رایگان، نقشه سایت، آماده‌سازی سئو، ایمیل، DNS، SSL، Cloudflare و عیب‌یابی سمت سرور کار کردم.",
-                outcome: "جریان‌ها قابل اتکاتر شدند، نگه‌داری ساده‌تر شد و گزارش Lighthouse سایت به 4×100 رسیده است."
+                outcome: "جریان‌ها قابل اتکاتر شدند، نگه‌داری ساده‌تر شد و چهار امتیاز ۱۰۰ در Lighthouse ثبت شد."
             },
             fannkala: {
                 problem: "فروشگاه به ساختار واضح‌تر، تجربه خرید بهتر و نگه‌داری ساده‌تر نیاز داشت.",
@@ -263,7 +281,7 @@
             applitent: {
                 problem: "A Laravel business platform and legal-tech service website needed reliable auth, registration, service requests, trust pages, and production infrastructure.",
                 work: "I worked on, improved, debugged, implemented, redesigned, hardened, prepared, and maintained auth, registration, email verification, password reset, login/logout flows, dashboards, service request/application flows, upload/document hardening, a legal hub, free consultation CTA flow, sitemap and SEO preparation, mail, DNS, SSL, Cloudflare, and server-side production troubleshooting.",
-                outcome: "The flows became more reliable, maintenance became cleaner, and the site has reached a 4×100 Lighthouse score."
+                outcome: "The flows became more reliable, maintenance became cleaner, and the site reached four 100 Lighthouse scores."
             },
             fannkala: {
                 problem: "The store needed clearer structure, a better buying experience, and easier maintenance.",
@@ -358,7 +376,6 @@
             [labels.viewport, window.innerWidth + "×" + window.innerHeight],
             [labels.language, root.lang + " / " + root.dir],
             [labels.timezone, Intl.DateTimeFormat().resolvedOptions().timeZone || labels.unknown],
-            [labels.online, navigator.onLine ? labels.onlineValue : labels.offlineValue],
             [labels.scheme, colorScheme.matches ? labels.dark : labels.light],
             [labels.motion, reducedMotion.matches ? labels.reduced : labels.noPreference],
             [labels.connection, connection && connection.effectiveType ? connection.effectiveType : labels.unknown]
@@ -370,11 +387,12 @@
 
     function updateFocusCopy() {
         var active = document.querySelector(".focus-toggle .is-active");
-        var copy = document.getElementById("focus-copy");
-        if (!active || !copy) return;
+        var points = document.getElementById("focus-points");
+        if (!active || !points) return;
         var key = active.dataset.focus === "client" ? "focusClientText" : "focusEmployerText";
-        copy.textContent = t(key);
-        copy.dataset.i18n = key;
+        points.innerHTML = t(key).split("|").map(function (item) {
+            return "<li><span>✦</span>" + escapeHtml(item) + "</li>";
+        }).join("");
     }
 
     function renderProjectPanels() {
@@ -401,8 +419,11 @@
             { label: t("commandSwitch"), hint: t("commandLangHint"), action: function () { applyLanguage(currentLanguage === "fa" ? "en" : "fa"); } },
             { label: t("commandCopyEmail"), hint: t("commandCopyHint"), action: function () { copyValue("email"); } },
             { label: t("commandCopyPhone"), hint: t("commandCopyHint"), action: function () { copyValue("phone"); } },
-            { label: t("commandOpenApplitent"), hint: t("commandExternalHint"), action: function () { window.open("https://applitent.com/", "_blank", "noopener"); } }
+            { label: t("commandOpenApplitent"), hint: t("commandExternalHint"), action: function () { window.open("https://applitent.com", "_blank", "noopener"); } }
         ];
+        if (audioAvailable()) {
+            commands.push({ label: t("commandPlayAudio"), hint: t("audioTitle"), action: function () { closeCommandPalette(); toggleAudio(); } });
+        }
         list.innerHTML = "";
         commands.forEach(function (command) {
             var button = document.createElement("button");
@@ -470,8 +491,75 @@
 
     function updateHealthResult() {
         var result = document.getElementById("health-result");
-        if (!result) return;
-        result.textContent = activeHealth.size === 4 ? t("healthComplete") : t("healthHint");
+        var progress = document.getElementById("launch-progress");
+        var card = document.querySelector(".health-card");
+        var cta = document.querySelector("[data-launch-contact]");
+        var percent = Math.round((activeHealth.size / 4) * 100);
+        if (progress) progress.style.width = percent + "%";
+        if (result) result.textContent = activeHealth.size === 4 ? t("healthComplete") : t("healthHint");
+        if (card) card.classList.toggle("is-launched", activeHealth.size === 4);
+        if (cta) cta.hidden = activeHealth.size !== 4;
+    }
+
+
+    function audioAvailable() {
+        var section = document.getElementById("soundtrack");
+        var audio = document.getElementById("command-audio");
+        return !!(section && audio && section.dataset.audioReady === "true");
+    }
+
+    function formatTime(seconds) {
+        if (!isFinite(seconds)) return "0:00";
+        var minutes = Math.floor(seconds / 60);
+        var rest = Math.floor(seconds % 60);
+        return minutes + ":" + String(rest).padStart(2, "0");
+    }
+
+    function updateAudioUi() {
+        var audio = document.getElementById("command-audio");
+        var progress = document.getElementById("audio-progress");
+        var time = document.getElementById("audio-time");
+        var dock = document.querySelector(".audio-dock");
+        var play = document.querySelector("[data-audio-toggle]");
+        if (!audio) return;
+        var percent = audio.duration ? (audio.currentTime / audio.duration) * 100 : 0;
+        if (progress) progress.style.width = percent + "%";
+        if (time) time.textContent = formatTime(audio.currentTime) + " / " + formatTime(audio.duration);
+        if (dock) dock.classList.toggle("is-playing", !audio.paused);
+        if (play) {
+            play.textContent = audio.paused ? "▶" : "Ⅱ";
+            play.setAttribute("aria-label", audio.paused ? t("audioPlay") : t("audioPause"));
+        }
+    }
+
+    function toggleAudio() {
+        var audio = document.getElementById("command-audio");
+        if (!audioAvailable() || !audio) return;
+        if (audio.paused) audio.play().catch(function () {});
+        else audio.pause();
+        updateAudioUi();
+    }
+
+    function initAudio() {
+        var section = document.getElementById("soundtrack");
+        var audio = document.getElementById("command-audio");
+        var play = document.querySelector("[data-audio-toggle]");
+        if (!section || !audio || !play) return;
+        audio.addEventListener("loadedmetadata", function () {
+            section.hidden = false;
+            section.dataset.audioReady = "true";
+            updateAudioUi();
+            renderCommandList();
+        });
+        audio.addEventListener("error", function () {
+            section.hidden = true;
+            section.dataset.audioReady = "false";
+            renderCommandList();
+        });
+        audio.addEventListener("timeupdate", updateAudioUi);
+        audio.addEventListener("play", updateAudioUi);
+        audio.addEventListener("pause", updateAudioUi);
+        play.addEventListener("click", toggleAudio);
     }
 
     function escapeHtml(value) {
@@ -512,7 +600,9 @@
     });
 
     document.querySelectorAll("[data-copy]").forEach(function (button) {
-        button.addEventListener("click", function () {
+        button.addEventListener("click", function (event) {
+            event.preventDefault();
+            event.stopPropagation();
             copyValue(button.dataset.copy);
         });
     });
@@ -524,6 +614,9 @@
             button.setAttribute("aria-pressed", "true");
             updateHealthResult();
         });
+    });
+    document.querySelectorAll("[data-launch-contact]").forEach(function (button) {
+        button.addEventListener("click", function () { scrollToTarget("contact"); });
     });
 
     document.addEventListener("keydown", function (event) {
@@ -539,8 +632,6 @@
     });
 
     window.addEventListener("resize", renderDiagnostics);
-    window.addEventListener("online", renderDiagnostics);
-    window.addEventListener("offline", renderDiagnostics);
     if (typeof reducedMotion.addEventListener === "function") {
         reducedMotion.addEventListener("change", renderDiagnostics);
         colorScheme.addEventListener("change", renderDiagnostics);
@@ -601,6 +692,7 @@
         });
     }
 
+    initAudio();
     applyLanguage(currentLanguage);
     window.nimaApplyLanguage = applyLanguage;
     window.nimaCopyValue = copyValue;
