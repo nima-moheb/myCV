@@ -35,7 +35,8 @@
             langAria: "تغییر زبان",
             langStatus: "حالت فارسی",
             heroBadge: "نیما — اتاق فرمان وب",
-            heroTitle: "سایتت قاطی کرده؟ بفرستش.",
+            heroTitleMain: "سایتت قاطی کرده؟",
+            heroTitleSoft: "بفرستش",
             heroSubtitle: "وردپرس، لاراول، ووکامرس، سئو، سرعت، DNS، ایمیل، فرم‌های خراب، جریان‌های نصفه‌نیمه و باگ‌هایی که کسی حوصله‌شان را ندارد؛ اول نقشه مشکل را درمی‌آورم، بعد تمیز درستش می‌کنم.",
             heroCtaGame: "سایت خراب رو نجات بده",
             heroCtaContact: "بفرست بررسی کنم",
@@ -45,18 +46,27 @@
             terminal1: "✓ آماده بررسی جریان‌های خراب",
             terminal2: "! احتمال تداخل افزونه یا تنظیمات",
             terminal3: "✓ نقشه‌برداری قبل از تعمیر",
-            scanCta: "بررسی امن مرورگر",
-            scanSafe: "بدون IP، بدون موقعیت مکانی",
+            scanCta: "منو بررسی کن",
+            scanFriendly: "برای عیب‌یابی واقعی، محیط کاربر هم بخشی از داستان است.",
+            operatorAlt: "نیما در اتاق فرمان وب",
+            operatorKicker: "اپراتور",
+            operatorName: "نیما",
+            statusWp: "قابل بررسی",
+            statusLaravel: "قابل بررسی",
+            statusDns: "قابل بررسی",
+            statusMailLabel: "ایمیل/فرم",
+            statusMail: "قابل بررسی",
             chaosKicker: "دردسرهای آشنا",
             chaosTitle: "این‌ها همان چیزهایی‌اند که معمولاً کسی حوصله باز کردنشان را ندارد.",
             projectsKicker: "ماموریت‌های واقعی",
-            projectsTitle: "نه عددسازی، نه ادعای الکی؛ چند نمونه از کارهایی که واقعاً دستم بوده.",
+            projectsTitle: "چند نمونه از جاهایی که فقط ظاهر سایت مهم نبود",
+            projectsSubtitle: "ساختار، مسیر کاربر، نگه‌داری، سرعت و عیب‌یابی واقعی هم بخشی از کار بودند.",
             gameKicker: "بازی تعمیر سایت",
             gameTitle: "نبرد با سایت خراب",
             bossName: "سایت خراب",
             gameIntro: "کارت مشکل را بخوان و تعمیر درست را انتخاب کن.",
             resetGame: "شروع دوباره",
-            scanVisitor: "بررسی امن مرورگر",
+            scanVisitor: "منو بررسی کن",
             diagnosisKicker: "تشخیص نیما",
             diagnosisLocked: "کارت تشخیص هنوز قفل است.",
             diagnosisHint: "سایت خراب را شکست بده تا باز شود.",
@@ -65,10 +75,15 @@
             signalTitle: "سیگنال اتاق فرمان",
             audioPlay: "پخش سیگنال",
             audioPause: "توقف سیگنال",
-            audioMissing: "اگر فایل صوتی موجود نباشد، پلیر بی‌صدا و تمیز می‌ماند.",
+            audioMissing: "اگر فایل صوتی موجود نباشد، پلیر عمداً خاموش و مرتب می‌ماند.",
+            tagMade: "ساخته‌ی نیما",
+            tagPersonal: "سیگنال شخصی",
+            tagDraft: "نسخه آزمایشی",
             contactKicker: "قدم بعدی",
             contactTitle: "مشکل سایتت رو بفرست.",
             contactText: "بگو کجای سایت کند، خراب، گیج‌کننده، نیمه‌کاره یا عجیب شده. لازم نیست تمیز و مرتب توضیحش بدهی؛ مرتب کردن مسئله بخشی از کار من است.",
+            emailContext: "بهترین مسیر برای شرح پروژه یا مشکل",
+            phoneContext: "تماس سریع‌تر و مستقیم‌تر",
             copyEmail: "کپی ایمیل",
             copyPhone: "کپی شماره",
             copiedEmail: "ایمیل کپی شد.",
@@ -83,7 +98,7 @@
             commandProjects: "دیدن ماموریت‌ها",
             commandChaos: "دیدن دردسرها",
             commandBoss: "شروع بازی تعمیر سایت",
-            commandScan: "بررسی امن مرورگر",
+            commandScan: "منو بررسی کن",
             commandSignal: "پخش سیگنال نیما",
             commandEmail: "کپی ایمیل",
             commandPhone: "کپی شماره",
@@ -137,7 +152,8 @@
             langAria: "Change language",
             langStatus: "English mode",
             heroBadge: "Nima — Web Chaos Command Center",
-            heroTitle: "Send me the broken thing.",
+            heroTitleMain: "Send me",
+            heroTitleSoft: "the broken thing",
             heroSubtitle: "WordPress, Laravel, WooCommerce, SEO, speed, DNS, mail, weird bugs, broken flows, half-built ideas — I map the mess and make it usable.",
             heroCtaGame: "Fix the broken site",
             heroCtaContact: "Send the broken thing",
@@ -146,19 +162,28 @@
             dashTitle: "Broken-site intake online",
             terminal1: "✓ listening for broken flows",
             terminal2: "! plugin conflict smell detected",
-            terminal3: "✓ taste layer armed",
-            scanCta: "Scan Visitor",
-            scanSafe: "No IP. No geolocation.",
+            terminal3: "✓ mapping before repairing",
+            scanCta: "Scan my setup",
+            scanFriendly: "In real debugging, the user’s environment is part of the story.",
+            operatorAlt: "Nima in the web command center",
+            operatorKicker: "Operator",
+            operatorName: "Nima",
+            statusWp: "Ready to inspect",
+            statusLaravel: "Ready to inspect",
+            statusDns: "Ready to inspect",
+            statusMailLabel: "Mail/forms",
+            statusMail: "Ready to inspect",
             chaosKicker: "Chaos Types",
             chaosTitle: "The kinds of mess I do not run away from.",
-            projectsKicker: "Mission Projects",
-            projectsTitle: "My words and live sites are proof — not fake numbers.",
+            projectsKicker: "Real Missions",
+            projectsTitle: "A few places where the job was bigger than the surface",
+            projectsSubtitle: "Structure, user flow, maintenance, speed, and real debugging mattered too.",
             gameKicker: "Fix the Broken Website",
             gameTitle: "Boss fight: The Broken Site",
             bossName: "The Broken Site",
             gameIntro: "Read the issue card and hit the right repair.",
             resetGame: "Reset game",
-            scanVisitor: "Safe visitor scan",
+            scanVisitor: "Scan my setup",
             diagnosisKicker: "Nima’s diagnosis",
             diagnosisLocked: "Diagnosis card is locked.",
             diagnosisHint: "Beat the boss to unlock it.",
@@ -167,10 +192,15 @@
             signalTitle: "Command Center Signal",
             audioPlay: "Play signal",
             audioPause: "Pause signal",
-            audioMissing: "If no audio file exists, this player stays quiet and graceful.",
+            audioMissing: "If no audio file exists, this player stays intentionally quiet and clean.",
+            tagMade: "Made by Nima",
+            tagPersonal: "Personal signal",
+            tagDraft: "Draft signal",
             contactKicker: "Final unlocked action",
             contactTitle: "Send me the broken thing.",
             contactText: "Tell me what is slow, broken, confusing, unfinished, or weird. You do not need to organize the mess first — that is my job.",
+            emailContext: "Best for describing a project or problem",
+            phoneContext: "Faster, more direct contact",
             copyEmail: "Copy email",
             copyPhone: "Copy phone",
             copiedEmail: "Email copied.",
@@ -185,7 +215,7 @@
             commandProjects: "Open Projects",
             commandChaos: "Show Chaos Types",
             commandBoss: "Start Boss Fight",
-            commandScan: "Scan Visitor",
+            commandScan: "Scan my setup",
             commandSignal: "Play Nima Signal",
             commandEmail: "Copy Email",
             commandPhone: "Copy Phone",
@@ -253,18 +283,18 @@
             {
                 name: "Applitent",
                 url: "https://applitent.com",
-                type: "ماموریت لاراول / Legal-tech",
+                type: "Laravel legal-tech platform",
                 featured: true,
-                mess: "پلتفرم خدمات حقوقی به جریان‌های قابل اعتماد، زیرساخت پایدار و مسیرهای واضح برای کاربر نیاز داشت.",
-                move: "روی ورود و ثبت‌نام، داشبوردها، درخواست سرویس، آپلود امن‌تر، هاب حقوقی، ایمیل، DNS، SSL، Cloudflare، نقشه سایت، سئوی فنی و عیب‌یابی سمت سرور کار کردم.",
-                outcome: "سیستم قابل استفاده‌تر، قابل نگه‌داری‌تر و آماده‌تر شد؛ همراه با Lighthouse 100×4.",
+                mess: "پلتفرمی که جریان کاربر، زیرساخت و اعتماد در آن مهم بود.",
+                move: "ورود، داشبورد، درخواست سرویس، آپلود، ایمیل، DNS/SSL، Cloudflare، نقشه سایت و سئوی فنی.",
+                outcome: "Lighthouse 100×4",
                 chips: ["Laravel", "Auth", "Dashboards", "Cloudflare", "SEO", "Lighthouse 100×4"]
             },
             {
                 name: "Fannkala",
                 url: "https://fannkala.com",
-                type: "ماموریت WordPress / WooCommerce",
-                mess: "فروشگاه به ساختار روشن‌تر، مسیر خرید بهتر و نگه‌داری ساده‌تر نیاز داشت.",
+                type: "WordPress / WooCommerce store",
+                mess: "فروشگاهی که ساختار، خرید و نگه‌داری‌اش باید روشن‌تر می‌شد.",
                 move: "روی ساختار وردپرس و ووکامرس، مسیر خرید، محتوا، تجربه کاربر و بهبود سرعت کار کردم.",
                 outcome: "فروشگاه خواناتر، مرتب‌تر و آماده‌تر برای نگه‌داری و رشد محتوا شد.",
                 chips: ["WordPress", "WooCommerce", "Content", "Performance"]
@@ -272,8 +302,8 @@
             {
                 name: "Parstek",
                 url: "https://parstek.ir",
-                type: "ماموریت سایت شرکتی وردپرس",
-                mess: "سایت شرکتی باید خدمات، مسیرهای محتوا و حس حرفه‌ای برند را شفاف‌تر نشان می‌داد.",
+                type: "Corporate WordPress site",
+                mess: "سایت شرکتی که باید معرفی خدمات و مسیر محتوا را شفاف‌تر نشان می‌داد.",
                 move: "روی ارائه خدمات، مسیرهای محتوا، پولیش رابط کاربری، سفارشی‌سازی قالب و تمیزکاری تجربه کاربر کار کردم.",
                 outcome: "مسیر مطالعه و معرفی برند منظم‌تر و حرفه‌ای‌تر شد.",
                 chips: ["Corporate", "WordPress", "UI polish", "UX cleanup"]
@@ -383,6 +413,10 @@
             element.setAttribute("aria-label", t(element.dataset.i18nAriaLabel));
         });
 
+        document.querySelectorAll("[data-i18n-alt]").forEach(function (element) {
+            element.setAttribute("alt", t(element.dataset.i18nAlt));
+        });
+
         document.querySelectorAll("[data-lang-option]").forEach(function (button) {
             button.classList.toggle("is-active", button.dataset.langOption === currentLanguage);
         });
@@ -418,17 +452,18 @@
         if (!grid) return;
 
         grid.innerHTML = projectCards[currentLanguage].map(function (project) {
-            var chips = project.chips.map(function (chip) {
+            var chips = project.chips.filter(function (chip) { return chip !== "Lighthouse 100×4"; }).map(function (chip) {
                 return '<span class="chip">' + escapeHtml(chip) + '</span>';
             }).join("");
+            var badge = project.featured ? '<div class="lighthouse-badge"><strong>Lighthouse 100×4</strong><span><i>100</i><i>100</i><i>100</i><i>100</i></span></div>' : '';
 
             return [
                 '<article class="mission-card observe is-visible ' + (project.featured ? "featured" : "") + '">',
                 '<span class="mission-type">' + escapeHtml(project.type) + '</span>',
                 '<h3>' + escapeHtml(project.name) + '</h3>',
-                renderMissionRow(currentLanguage === "fa" ? "آشوب" : "The mess", project.mess),
-                renderMissionRow(currentLanguage === "fa" ? "حرکت من" : "My move", project.move),
-                renderMissionRow(currentLanguage === "fa" ? "سیستم پایدارتر شد" : "System stabilized", project.outcome),
+                '<p class="mission-mess">' + escapeHtml(project.mess) + '</p>',
+                '<div class="mission-work"><strong>' + escapeHtml(currentLanguage === "fa" ? "کار من" : "My work") + '</strong><p>' + escapeHtml(project.move) + '</p></div>',
+                '<div class="mission-proof">' + badge + '<span>' + escapeHtml(project.outcome) + '</span></div>',
                 '<div class="chips">' + chips + '</div>',
                 '<a class="live-link" target="_blank" rel="noopener" href="' + escapeHtml(project.url) + '">' + (currentLanguage === "fa" ? "مشاهده سایت زنده" : "Open live site") + '</a>',
                 '</article>'
@@ -462,19 +497,15 @@
         if (!grid) return;
 
         var labels = translations[currentLanguage].diagnostics;
-        var connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
         var items = [
             [labels.device, getDeviceType()],
             [labels.browser, getBrowserName()],
             [labels.viewport, window.innerWidth + "×" + window.innerHeight],
             [labels.language, root.lang + " / " + root.dir],
-            [labels.timezone, Intl.DateTimeFormat().resolvedOptions().timeZone || labels.unknown],
-            [labels.scheme, colorScheme.matches ? labels.dark : labels.light],
-            [labels.motion, reducedMotion.matches ? labels.reduced : labels.noPreference],
-            [labels.connection, connection && connection.effectiveType ? connection.effectiveType : labels.unknown]
+            [labels.motion, reducedMotion.matches ? labels.reduced : labels.noPreference]
         ];
 
-        grid.innerHTML = items.map(function (item) {
+        grid.innerHTML = '<p class="diagnostics-note">' + escapeHtml(t("scanFriendly")) + '</p>' + items.map(function (item) {
             return '<div class="diagnostic-item"><small>' + escapeHtml(item[0]) + '</small><strong>' + escapeHtml(item[1]) + '</strong></div>';
         }).join("");
 
@@ -483,7 +514,6 @@
 
     function scanVisitor() {
         renderDiagnostics(true);
-        scrollToTarget("top");
     }
 
     /* Boss Fight */
@@ -522,6 +552,7 @@
         if (!currentIssue) return;
 
         if (answer === currentIssue.answer) {
+            showRepairEffect(currentIssue.key);
             bossHp = Math.max(0, bossHp - 13);
             gameIndex += 1;
             if (status) status.textContent = t("gameGood");
@@ -533,6 +564,16 @@
 
         if (gameIndex >= gameIssues.length) bossHp = 0;
         renderGame();
+    }
+
+    function showRepairEffect(key) {
+        var stage = document.querySelector(".boss-stage");
+        if (!stage || reducedMotion.matches) return;
+        var label = document.createElement("span");
+        label.className = "repair-float";
+        label.textContent = key === "cache" ? "CACHE CLEARED" : key === "dns" ? "DNS FIXED" : "PATCHED";
+        stage.appendChild(label);
+        window.setTimeout(function () { label.remove(); }, 900);
     }
 
     function shakeGameCard(card) {

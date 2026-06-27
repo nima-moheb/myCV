@@ -34,7 +34,7 @@
             </div>
             <div class="nav-actions">
                 <button class="command-trigger" type="button" data-open-command data-i18n-aria-label="commandAria" aria-label="باز کردن فرمان‌ها"><span>⌘</span><span data-i18n="commandTrigger">فرمان‌ها</span><kbd>/</kbd></button>
-                <div class="language-switch" role="group" data-i18n-aria-label="langAria" aria-label="تغییر زبان"><button type="button" class="lang-option is-active" data-lang-option="fa">فا</button><button type="button" class="lang-option" data-lang-option="en">EN</button><span class="lang-status" data-i18n="langStatus">حالت فارسی</span></div>
+                <div class="language-switch" role="group" data-i18n-aria-label="langAria" aria-label="تغییر زبان"><button type="button" class="lang-option is-active" data-lang-option="fa">FA</button><button type="button" class="lang-option" data-lang-option="en">EN</button><span class="lang-status" data-i18n="langStatus">حالت فارسی</span></div>
             </div>
         </nav>
     </header>
@@ -44,16 +44,16 @@
             <div class="container hero-grid">
                 <div class="hero-copy observe">
                     <p class="hero-kicker" data-i18n="heroBadge">Nima — Web Chaos Command Center</p>
-                    <h1 class="hero-title" id="hero-title" data-i18n="heroTitle">سایتت قاطی کرده؟ بفرستش.</h1>
+                    <h1 class="hero-title" id="hero-title"><span class="hero-title-main" data-i18n="heroTitleMain">سایتت قاطی کرده؟</span><span class="hero-title-soft" data-i18n="heroTitleSoft">بفرستش</span></h1>
                     <p class="hero-subtitle" data-i18n="heroSubtitle">وردپرس، لاراول، ووکامرس، سئو، سرعت، DNS، ایمیل، فرم‌های خراب، جریان‌های نصفه‌نیمه و باگ‌هایی که کسی حوصله‌شان را ندارد؛ اول نقشه مشکل را درمی‌آورم، بعد تمیز درستش می‌کنم.</p>
                     <div class="chaos-strip" aria-label="Web chaos signals"><span>WordPress</span><span>Laravel</span><span>WooCommerce</span><span>DNS</span><span>Mail</span><span>SEO</span><span>Speed</span><span>Weird bugs</span></div>
-                    <div class="hero-actions"><a href="#boss" class="btn primary-btn" data-i18n="heroCtaGame">سایت خراب رو نجات بده</a><a href="#contact" class="btn ghost-btn" data-i18n="heroCtaContact">بفرست بررسی کنم</a><button class="btn console-btn" type="button" data-open-command data-i18n="heroCtaCommand">باز کردن فرمان‌ها</button></div>
+                    <div class="hero-actions hero-actions-minimal"><a href="#contact" class="btn primary-btn" data-i18n="heroCtaContact">بفرست بررسی کنم</a></div>
                 </div>
                 <aside class="dashboard observe" data-i18n-aria-label="dashboardAria" aria-label="داشبورد فرمان">
-                    <div class="dash-top"><span class="pulse-dot"></span><strong data-i18n="dashTitle">ورودی مشکلات باز است</strong><small>03:17 CHAOS</small></div>
+                    <div class="dash-top"><span class="pulse-dot"></span><strong data-i18n="dashTitle">ورودی مشکلات باز است</strong></div><div class="operator-card"><img src="./nima-command-center.png" alt="نیما در اتاق فرمان وب" data-i18n-alt="operatorAlt"><div><small data-i18n="operatorKicker">اپراتور</small><strong data-i18n="operatorName">نیما</strong></div></div>
                     <div class="terminal-card"><p>$ diagnose --messy-site</p><p class="ok" data-i18n="terminal1">✓ آماده بررسی جریان‌های خراب</p><p class="warn" data-i18n="terminal2">! احتمال تداخل افزونه یا تنظیمات</p><p class="ok" data-i18n="terminal3">✓ نقشه‌برداری قبل از تعمیر</p></div>
-                    <div class="system-cards"><div><small>DNS</small><strong>unstable?</strong></div><div><small>SSL</small><strong>maybe</strong></div><div><small>Checkout</small><strong>haunted</strong></div><div><small>SEO</small><strong>missing map</strong></div></div>
-                    <button class="scan-card" type="button" data-scan-visitor><span data-i18n="scanCta">بررسی امن مرورگر</span><small data-i18n="scanSafe">بدون IP، بدون موقعیت مکانی</small></button>
+                    <div class="system-cards"><div><small>WordPress</small><strong data-i18n="statusWp">قابل بررسی</strong></div><div><small>Laravel</small><strong data-i18n="statusLaravel">قابل بررسی</strong></div><div><small>DNS/SSL</small><strong data-i18n="statusDns">قابل بررسی</strong></div><div><small data-i18n="statusMailLabel">ایمیل/فرم</small><strong data-i18n="statusMail">قابل بررسی</strong></div></div>
+                    <button class="scan-card" type="button" data-scan-visitor><span data-i18n="scanCta">منو بررسی کن</span><small data-i18n="scanFriendly">برای عیب‌یابی واقعی، محیط کاربر هم بخشی از داستان است.</small></button>
                     <div class="diagnostics-grid" id="diagnostics-grid" hidden aria-live="polite"></div>
                 </aside>
             </div>
@@ -64,28 +64,28 @@
         </section>
 
         <section class="section" id="projects" aria-labelledby="projects-title">
-            <div class="container"><div class="section-heading observe"><p class="section-kicker" data-i18n="projectsKicker">ماموریت‌های واقعی</p><h2 id="projects-title" data-i18n="projectsTitle">نه عددسازی، نه ادعای الکی؛ چند نمونه از کارهایی که واقعاً دستم بوده.</h2></div><div class="mission-grid" id="mission-grid"></div></div>
+            <div class="container"><div class="section-heading observe"><p class="section-kicker" data-i18n="projectsKicker">ماموریت‌های واقعی</p><h2 id="projects-title" data-i18n="projectsTitle">چند نمونه از جاهایی که فقط ظاهر سایت مهم نبود</h2><p data-i18n="projectsSubtitle">ساختار، مسیر کاربر، نگه‌داری، سرعت و عیب‌یابی واقعی هم بخشی از کار بودند.</p></div><div class="mission-grid" id="mission-grid"></div></div>
         </section>
 
         <section class="section split-section" id="boss" aria-labelledby="boss-title">
             <div class="container game-layout">
                 <article class="game-card observe" id="game-card">
                     <p class="section-kicker" data-i18n="gameKicker">بازی تعمیر سایت</p><h2 id="boss-title" data-i18n="gameTitle">نبرد با سایت خراب</h2>
-                    <div class="boss-row"><div class="boss-face" aria-hidden="true">☠︎</div><div class="boss-meter"><div><strong data-i18n="bossName">سایت خراب</strong><span id="boss-hp-label">100%</span></div><span id="boss-hp"></span></div></div>
+                    <div class="boss-stage"><div class="boss-face" aria-hidden="true"><span class="boss-screen">☠︎</span><span class="boss-sparks"></span></div><div class="repair-beam" aria-hidden="true"></div></div><div class="boss-row"><div class="boss-meter"><div><strong data-i18n="bossName">سایت خراب</strong><span id="boss-hp-label">100%</span></div><span id="boss-hp"></span></div></div>
                     <p class="game-status" id="game-status" aria-live="polite" data-i18n="gameIntro">کارت مشکل را بخوان و تعمیر درست را انتخاب کن.</p>
                     <div class="issue-card" id="issue-card" tabindex="0"></div><div class="repair-actions" id="repair-actions"></div>
-                    <div class="game-actions"><button class="btn ghost-btn" type="button" data-reset-game data-i18n="resetGame">شروع دوباره</button><button class="btn console-btn" type="button" data-scan-visitor data-i18n="scanVisitor">بررسی امن مرورگر</button></div>
+                    <div class="game-actions"><button class="btn ghost-btn" type="button" data-reset-game data-i18n="resetGame">شروع دوباره</button></div>
                 </article>
                 <aside class="diagnosis-card observe" id="diagnosis-card" aria-live="polite"><p class="section-kicker" data-i18n="diagnosisKicker">تشخیص نیما</p><h3 data-i18n="diagnosisLocked">کارت تشخیص هنوز قفل است.</h3><p data-i18n="diagnosisHint">سایت خراب را شکست بده تا باز شود.</p></aside>
             </div>
         </section>
 
         <section class="section signal-section" id="signal" aria-labelledby="signal-title">
-            <div class="container"><article class="signal-player observe" id="signal-player" data-audio-ready="false"><div><p class="section-kicker">Nima Signal Player</p><h2 id="signal-title" data-i18n="signalTitle">Command Center Signal</h2><div class="vibe-tags"><span>Psychedelic</span><span>Fusion</span><span>Rap</span><span>Dark Electronic</span></div></div><button class="signal-play" type="button" data-audio-toggle data-i18n-aria-label="audioPlay" aria-label="پخش سیگنال">▶</button><div class="wave" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div><div class="signal-progress"><span id="audio-progress"></span></div><time id="audio-time">0:00 / 0:00</time><p class="audio-note" id="audio-note" data-i18n="audioMissing">اگر فایل صوتی موجود نباشد، پلیر بی‌صدا و تمیز می‌ماند.</p><audio id="command-audio" preload="metadata" src="assets/audio/command-center.mp3"></audio></article></div>
+            <div class="container"><article class="signal-player observe" id="signal-player" data-audio-ready="false"><div class="signal-copy"><p class="section-kicker">Nima Signal Player</p><h2 id="signal-title" data-i18n="signalTitle">Command Center Signal</h2><div class="vibe-tags"><span data-i18n="tagMade">ساخته‌ی نیما</span><span data-i18n="tagPersonal">سیگنال شخصی</span><span data-i18n="tagDraft">نسخه آزمایشی</span></div></div><button class="signal-play" type="button" data-audio-toggle data-i18n-aria-label="audioPlay" aria-label="پخش سیگنال">▶</button><div class="wave" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div><div class="signal-progress"><span id="audio-progress"></span></div><time id="audio-time">0:00 / 0:00</time><p class="audio-note" id="audio-note" data-i18n="audioMissing">اگر فایل صوتی موجود نباشد، پلیر بی‌صدا و تمیز می‌ماند.</p><audio id="command-audio" preload="metadata" src="assets/audio/command-center.mp3"></audio></article></div>
         </section>
 
         <section class="section contact-section" id="contact" aria-labelledby="contact-title">
-            <div class="container"><article class="contact-card observe"><p class="section-kicker" data-i18n="contactKicker">قدم بعدی</p><h2 id="contact-title" data-i18n="contactTitle">مشکل سایتت رو بفرست.</h2><p data-i18n="contactText">بگو کجای سایت کند، خراب، گیج‌کننده، نیمه‌کاره یا عجیب شده. لازم نیست تمیز و مرتب توضیحش بدهی؛ مرتب کردن مسئله بخشی از کار من است.</p><div class="contact-actions"><a class="contact-link" href="mailto:nima.mohebali.b@gmail.com"><small>Email</small><strong>nima.mohebali.b@gmail.com</strong></a><button class="copy-btn" type="button" data-copy="email" data-i18n="copyEmail">کپی ایمیل</button><a class="contact-link" href="tel:+989227241378" data-i18n-aria-label="phoneAria" aria-label="تماس با 09227241378"><small>Phone</small><strong>09227241378</strong></a><button class="copy-btn" type="button" data-copy="phone" data-i18n="copyPhone">کپی شماره</button></div><p class="copy-status" id="copy-status" aria-live="polite"></p></article></div>
+            <div class="container"><article class="contact-card observe"><p class="section-kicker" data-i18n="contactKicker">قدم بعدی</p><h2 id="contact-title" data-i18n="contactTitle">مشکل سایتت رو بفرست.</h2><p data-i18n="contactText">بگو کجای سایت کند، خراب، گیج‌کننده، نیمه‌کاره یا عجیب شده. لازم نیست تمیز و مرتب توضیحش بدهی؛ مرتب کردن مسئله بخشی از کار من است.</p><div class="contact-actions"><div class="contact-method"><a class="contact-link" href="mailto:nima.mohebali.b@gmail.com"><small data-i18n="emailContext">بهترین مسیر برای شرح پروژه یا مشکل</small><strong>nima.mohebali.b@gmail.com</strong></a><button class="copy-btn" type="button" data-copy="email" data-i18n="copyEmail">کپی ایمیل</button></div><div class="contact-method"><a class="contact-link" href="tel:+989227241378" data-i18n-aria-label="phoneAria" aria-label="تماس با 09227241378"><small data-i18n="phoneContext">تماس سریع‌تر و مستقیم‌تر</small><strong>09227241378</strong></a><button class="copy-btn" type="button" data-copy="phone" data-i18n="copyPhone">کپی شماره</button></div></div><p class="copy-status" id="copy-status" aria-live="polite"></p></article></div>
         </section>
     </main>
 
