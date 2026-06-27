@@ -50,10 +50,10 @@
                     <div class="hero-actions hero-actions-minimal"><a href="#contact" class="btn primary-btn" data-i18n="heroCtaContact">بفرست بررسی کنم</a></div>
                 </div>
                 <aside class="dashboard observe" data-i18n-aria-label="dashboardAria" aria-label="داشبورد فرمان">
-                    <div class="dash-top"><span class="pulse-dot"></span><strong data-i18n="dashTitle">ورودی مشکلات باز است</strong></div><div class="operator-card"><img src="./nima-command-center.png" alt="نیما در اتاق فرمان وب" data-i18n-alt="operatorAlt"><div><small data-i18n="operatorKicker">اپراتور</small><strong data-i18n="operatorName">نیما</strong></div></div>
-                    <div class="terminal-card"><p>$ diagnose --messy-site</p><p class="ok" data-i18n="terminal1">✓ آماده بررسی جریان‌های خراب</p><p class="warn" data-i18n="terminal2">! احتمال تداخل افزونه یا تنظیمات</p><p class="ok" data-i18n="terminal3">✓ نقشه‌برداری قبل از تعمیر</p></div>
-                    <div class="system-cards"><div><small>WordPress</small><strong data-i18n="statusWp">قابل بررسی</strong></div><div><small>Laravel</small><strong data-i18n="statusLaravel">قابل بررسی</strong></div><div><small>DNS/SSL</small><strong data-i18n="statusDns">قابل بررسی</strong></div><div><small data-i18n="statusMailLabel">ایمیل/فرم</small><strong data-i18n="statusMail">قابل بررسی</strong></div></div>
-                    <button class="scan-card" type="button" data-scan-visitor><span data-i18n="scanCta">منو بررسی کن</span><small data-i18n="scanFriendly">برای عیب‌یابی واقعی، محیط کاربر هم بخشی از داستان است.</small></button>
+                    <div class="dash-top"><span class="pulse-dot"></span><strong data-i18n="dashTitle">ورودی مشکلات باز است</strong></div><figure class="operator-card"><img src="./nima-command-center.png" alt="نیما در اتاق فرمان وب" data-i18n-alt="operatorAlt"></figure>
+                    <div class="terminal-card"><p>$ repair --clean</p><p class="ok" data-i18n="terminal1">&gt; مشکل را می‌خوانم</p><p class="warn" data-i18n="terminal2">&gt; مسیر را پیدا می‌کنم</p><p class="ok" data-i18n="terminal3">&gt; تمیز تعمیر می‌کنم</p></div>
+                    <div class="system-cards system-lights" aria-label="Repair categories"><span>WordPress</span><span>Laravel</span><span>DNS/SSL</span><span data-i18n="statusMailLabel">ایمیل/فرم</span></div>
+                    <button class="scan-card" type="button" data-scan-visitor><span data-i18n="scanCta">سیستم منو بخون</span></button>
                     <div class="diagnostics-grid" id="diagnostics-grid" hidden aria-live="polite"></div>
                 </aside>
             </div>
@@ -70,8 +70,8 @@
         <section class="section split-section" id="boss" aria-labelledby="boss-title">
             <div class="container game-layout">
                 <article class="game-card observe" id="game-card">
-                    <p class="section-kicker" data-i18n="gameKicker">بازی تعمیر سایت</p><h2 id="boss-title" data-i18n="gameTitle">نبرد با سایت خراب</h2>
-                    <div class="boss-stage"><div class="boss-face" aria-hidden="true"><span class="boss-screen">☠︎</span><span class="boss-sparks"></span></div><div class="repair-beam" aria-hidden="true"></div></div><div class="boss-row"><div class="boss-meter"><div><strong data-i18n="bossName">سایت خراب</strong><span id="boss-hp-label">100%</span></div><span id="boss-hp"></span></div></div>
+                    <p class="section-kicker" data-i18n="gameKicker">بازی تعمیر سایت</p><h2 id="boss-title" data-i18n="gameTitle">شبیه‌ساز تعمیر سایت</h2>
+                    <div class="boss-stage repair-sim-stage"><div class="sim-window" aria-hidden="true"><span></span><span></span><span></span><strong>404</strong></div><div class="repair-beam" aria-hidden="true"></div></div><div class="boss-row"><div class="boss-meter"><div><strong data-i18n="bossName">پیشرفت تعمیر</strong><span id="boss-hp-label">0%</span></div><span id="boss-hp"></span></div></div>
                     <p class="game-status" id="game-status" aria-live="polite" data-i18n="gameIntro">کارت مشکل را بخوان و تعمیر درست را انتخاب کن.</p>
                     <div class="issue-card" id="issue-card" tabindex="0"></div><div class="repair-actions" id="repair-actions"></div>
                     <div class="game-actions"><button class="btn ghost-btn" type="button" data-reset-game data-i18n="resetGame">شروع دوباره</button></div>
@@ -81,7 +81,7 @@
         </section>
 
         <section class="section signal-section" id="signal" aria-labelledby="signal-title">
-            <div class="container"><article class="signal-player observe" id="signal-player" data-audio-ready="false"><div class="signal-copy"><p class="section-kicker">Nima Signal Player</p><h2 id="signal-title" data-i18n="signalTitle">Command Center Signal</h2><div class="vibe-tags"><span data-i18n="tagMade">ساخته‌ی نیما</span><span data-i18n="tagPersonal">سیگنال شخصی</span><span data-i18n="tagDraft">نسخه آزمایشی</span></div></div><button class="signal-play" type="button" data-audio-toggle data-i18n-aria-label="audioPlay" aria-label="پخش سیگنال">▶</button><div class="wave" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div><div class="signal-progress"><span id="audio-progress"></span></div><time id="audio-time">0:00 / 0:00</time><p class="audio-note" id="audio-note" data-i18n="audioMissing">اگر فایل صوتی موجود نباشد، پلیر بی‌صدا و تمیز می‌ماند.</p><audio id="command-audio" preload="metadata" src="assets/audio/command-center.mp3"></audio></article></div>
+            <div class="container"><article class="signal-player observe" id="signal-player" data-audio-ready="false"><div class="signal-copy"><p class="section-kicker">Nima Signal Player</p><h2 id="signal-title" data-i18n="signalTitle">Command Center Signal</h2><div class="vibe-tags"><span data-i18n="tagMade">ساخته‌ی نیما</span><span data-i18n="tagPersonal">سیگنال شخصی</span></div></div><button class="signal-play" type="button" data-audio-toggle data-i18n-aria-label="audioPlay" aria-label="پخش سیگنال">▶</button><div class="wave" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div><div class="signal-scrub"><time id="audio-current">0:00</time><button class="signal-progress" type="button" data-audio-seek aria-label="Audio timeline"><span id="audio-progress"></span><i id="audio-thumb"></i></button><time id="audio-duration">0:00</time></div><p class="audio-note" id="audio-note" data-i18n="audioMissing">اگر فایل صوتی موجود نباشد، پلیر بی‌صدا و تمیز می‌ماند.</p><audio id="command-audio" preload="metadata" src="assets/audio/command-center.mp3"></audio></article></div>
         </section>
 
         <section class="section contact-section" id="contact" aria-labelledby="contact-title">
