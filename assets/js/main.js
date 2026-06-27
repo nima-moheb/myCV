@@ -3,133 +3,116 @@
 
     document.documentElement.classList.add("js");
 
+    /* Data */
     var root = document.documentElement;
-    var storageKey = "nima-cv-language";
+    var storageKey = "nima-chaos-language";
     var email = "nima.mohebali.b@gmail.com";
     var phone = "09227241378";
-    var phoneIntl = "+989227241378";
     var currentLanguage = localStorage.getItem(storageKey) === "en" ? "en" : "fa";
-    var activeHealth = new Set();
+    var lastFocusedElement = null;
+    var debugMode = false;
+    var gameIndex = 0;
+    var bossHp = 100;
     var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
     var colorScheme = window.matchMedia("(prefers-color-scheme: dark)");
-    var lastFocusedElement = null;
 
     var translations = {
         fa: {
             skip: "رفتن به محتوای اصلی",
-            metaTitle: "نیما | مرکز فرمان توسعه وب",
-            metaDescription: "رزومه و پورتفولیوی تعاملی نیما؛ توسعه‌دهنده فول‌استک وب برای لاراول، وردپرس، ووکامرس، سئوی فنی، سرعت، زیرساخت و عیب‌یابی سایت‌های واقعی.",
+            metaTitle: "نیما — Web Chaos Command Center",
+            metaDescription: "نیما — مرکز فرمان آشوب وب. چیز خراب را بفرست: وردپرس، لاراول، ووکامرس، سئو، سرعت، DNS، ایمیل، باگ‌های عجیب و جریان‌های نیمه‌کاره.",
             headerAria: "ناوبری اصلی",
-            brandAria: "بازگشت به ابتدای صفحه",
+            brandAria: "بازگشت به بالا",
             navAria: "لینک‌های صفحه",
             brandName: "نیما",
-            brandRole: "مرکز فرمان توسعه وب",
-            navProjects: "پروژه‌ها",
-            navStack: "توانایی‌ها",
-            navContact: "تماس",
-            commandTrigger: "فرمان سریع",
-            commandAria: "باز کردن فرمان سریع",
+            brandRole: "مرکز فرمان آشوب وب",
+            navChaos: "آشوب‌ها",
+            navProjects: "ماموریت‌ها",
+            navBoss: "باس‌فایت",
+            navContact: "ارسال خرابی",
+            commandTrigger: "لانچر",
+            commandAria: "باز کردن لانچر فرمان",
             langAria: "تغییر زبان",
             langStatus: "حالت فارسی",
-            heroBadge: "توسعه‌دهنده فول‌استک وب",
-            heroTitle: "سایت و وب‌اپلیکیشنی که واقعاً کار می‌کند.",
-            heroSubtitle: "از لاراول و داشبورد تا وردپرس، ووکامرس، سئوی فنی، سرعت و عیب‌یابی محیط واقعی.",
-            heroCtaProjects: "دیدن پروژه‌ها",
-            heroCtaContact: "تماس با من",
-            heroImageAlt: "تصویر مرکز فرمان توسعه وب نیما",
-            chip1: "Laravel",
-            chip2: "WordPress",
-            chip3: "WooCommerce",
-            chip4: "SEO / Performance",
-            metricLighthouse: "گزارش Lighthouse برای Applitent",
-            metricProjects: "پروژه منتخب",
-            metricApis: "بدون ردیابی بیرونی",
-            diagKicker: "عیب‌یابی مرورگر",
-            diagTitle: "نمای امنی از محیط بازدید شما",
-            diagText: "این کارت فقط اطلاعات بی‌خطر مرورگر را نشان می‌دهد؛ بدون IP یا مکان‌یابی.",
-            focusKicker: "تمرکز همکاری",
-            focusTitle: "برای کارفرما یا مشتری، خروجی مهم است.",
-            focusAria: "انتخاب نوع همکاری",
-            focusEmployer: "برای کارفرما",
-            focusClient: "برای مشتری",
-            focusEmployerText: "یادگیری سریع و کار در تیم|عیب‌یابی واقعی در Production|توانایی اتصال فرانت، بک‌اند و زیرساخت",
-            focusClientText: "سایت قابل نگه‌داری|سئو و سرعت بهتر|پشتیبانی و اصلاح بعد از تحویل",
-            projectsKicker: "پروژه‌های منتخب",
-            projectsTitle: "سه نمونه که ساختار، سئو، سرعت و عیب‌یابی واقعی در آن‌ها مهم بوده است.",
-            featuredLabel: "ویژه",
-            openSite: "مشاهده سایت",
-            applitentSummary: "وب‌سایت خدمات حقوقی و پلتفرم تجاری لاراول با جریان‌های احراز هویت، داشبورد، درخواست سرویس و آماده‌سازی سئو.",
-            fannkalaSummary: "فروشگاه وردپرس و ووکامرس با تمرکز روی ساختار، تجربه خرید، نگه‌داری و سرعت.",
-            parstekSummary: "سایت شرکتی با مسیرهای محتوایی روشن‌تر، رابط حرفه‌ای‌تر و سفارشی‌سازی وردپرس.",
-            tabProblem: "مسئله",
-            tabWork: "کار من",
-            tabOutcome: "خروجی",
-            stackKicker: "جعبه‌ابزار",
-            stackTitle: "ترکیب مهارت‌هایی که برای یک محصول واقعی کنار هم لازم می‌شوند.",
-            deliverKicker: "تحویل",
-            deliverTitle: "چه چیزی تحویل می‌دهم؟",
-            deliver1: "داشبورد و جریان کاری قابل استفاده",
-            deliver2: "فروشگاه و سایت قابل نگه‌داری",
-            deliver3: "سئوی فنی و ساختار تمیز",
-            deliver4: "سرعت بهتر و تجربه کاربری بهتر",
-            deliver5: "عیب‌یابی واقعی از کد تا سرور",
-            aiKicker: "روند کاری با هوش مصنوعی",
-            aiTitle: "سریع‌تر، اما با کنترل انسانی.",
-            aiNote: "از ابزارهای هوش مصنوعی برای سرعت بیشتر استفاده می‌کنم، اما معماری، تصمیم فنی، تست، عیب‌یابی و تحویل نهایی با خودم است.",
-            healthKicker: "بازی کوچک",
-            healthTitle: "راه‌اندازی مرکز فرمان",
-            healthAria: "گره‌های سلامت سیستم",
-            healthHint: "چهار سیستم را روشن کن.",
-            healthComplete: "مرکز فرمان آماده شد. حالا فقط یک پروژه واقعی کم دارد.",
-            contactKicker: "تماس",
-            contactTitle: "اگر پروژه‌ای داری که هم ظاهر خوب می‌خواهد، هم منطق درست، هم سئو، سرعت و نگه‌داری، پیام بده.",
+            heroBadge: "Nima — Web Chaos Command Center",
+            heroTitle: "چیز خراب را بفرست.",
+            heroSubtitle: "وردپرس، لاراول، ووکامرس، سئو، سرعت، DNS، ایمیل، باگ‌های عجیب، جریان‌های شکسته و ایده‌های نیمه‌ساخته؛ من نقشه‌شان را می‌کشم و قابل استفاده‌شان می‌کنم.",
+            heroCtaGame: "خرابی را تعمیر کن",
+            heroCtaContact: "چیز خراب را بفرست",
+            heroCtaCommand: "باز کردن کنسول",
+            dashboardAria: "داشبورد فرمان",
+            dashTitle: "دریافت خرابی فعال است",
+            terminal1: "✓ آماده برای جریان‌های شکسته",
+            terminal2: "! بوی تداخل افزونه می‌آید",
+            terminal3: "✓ لایه سلیقه مسلح شد",
+            scanCta: "اسکن امن بازدیدکننده",
+            scanSafe: "بدون IP، بدون مکان‌یابی",
+            chaosKicker: "Chaos Types",
+            chaosTitle: "خرابی‌هایی که از دیدنشان فرار نمی‌کنم.",
+            projectsKicker: "Mission Projects",
+            projectsTitle: "کلمات و سایت‌های زنده، مدرک من‌اند؛ نه عددهای جعلی.",
+            gameKicker: "Fix the Broken Website",
+            gameTitle: "باس‌فایت: The Broken Site",
+            bossName: "The Broken Site",
+            gameIntro: "کارت خرابی را بخوان و تعمیر درست را بزن.",
+            resetGame: "شروع دوباره",
+            scanVisitor: "اسکن امن بازدیدکننده",
+            diagnosisKicker: "Nima’s diagnosis",
+            diagnosisLocked: "کارت تشخیص قفل است.",
+            diagnosisHint: "باس را شکست بده تا باز شود.",
+            diagnosisUnlocked: "مشکل معمولاً فقط یک باگ نیست.",
+            diagnosisText: "معمولاً ساختار، جریان، سرور، محتوا و نگه‌داری با هم می‌جنگند. اول نقشه می‌کشم، بعد تعمیر می‌کنم.",
+            signalTitle: "Command Center Signal",
+            audioPlay: "پخش سیگنال",
+            audioPause: "توقف سیگنال",
+            audioMissing: "اگر فایل صوتی موجود نباشد، پلیر بی‌صدا و تمیز می‌ماند.",
+            contactKicker: "Final unlocked action",
+            contactTitle: "چیز خراب را بفرست.",
+            contactText: "بگو چه چیزی کند، خراب، گیج‌کننده، نیمه‌تمام یا عجیب است. لازم نیست مسئله را مرتب کنی؛ مرتب کردنش کار من است.",
             copyEmail: "کپی ایمیل",
             copyPhone: "کپی شماره",
             copiedEmail: "ایمیل کپی شد.",
             copiedPhone: "شماره کپی شد.",
-            copyFailed: "کپی خودکار انجام نشد؛ می‌توانی متن را دستی برداری.",
+            copyFailed: "کپی خودکار انجام نشد؛ متن را دستی بردار.",
             phoneAria: "تماس با 09227241378",
-            footerText: "نیما — مرکز فرمان توسعه وب",
+            footerText: "نیما — Web Chaos Command Center",
             backTop: "بازگشت به بالا",
-            paletteTitle: "فرمان سریع",
-            paletteHint: "کلید Escape برای بستن. کلید / برای باز کردن.",
+            paletteTitle: "لانچر فرمان",
+            paletteHint: "/ برای باز کردن، Escape برای بستن.",
             closeAria: "بستن",
-            commandProjects: "دیدن پروژه‌ها",
-            commandStack: "دیدن توانایی‌ها",
-            commandContact: "تماس",
-            commandSwitch: "تغییر زبان به انگلیسی",
-            commandCopyEmail: "کپی ایمیل",
-            commandCopyPhone: "کپی شماره",
-            commandOpenApplitent: "باز کردن Applitent",
-            commandPlayAudio: "پخش موسیقی",
-            audioTitle: "موسیقی مرکز فرمان",
-            audioPlay: "پخش موسیقی",
-            audioPause: "توقف موسیقی",
-            healthCta: "شروع پروژه",
-            scorePerformance: "سرعت",
-            scoreAccessibility: "دسترسی‌پذیری",
-            scoreBestPractices: "استانداردها",
-            scoreSeo: "سئو",
-            aiStep1: "ایده‌پردازی سریع‌تر",
-            aiStep2: "تصمیم فنی با من",
-            aiStep3: "تست و تحویل نهایی با من",
-            commandScrollHint: "رفتن به بخش صفحه",
-            commandCopyHint: "کپی در کلیپ‌بورد",
-            commandLangHint: "بدون بارگذاری دوباره",
-            commandExternalHint: "باز شدن در پنجره تازه",
+            commandProjects: "Open Projects",
+            commandChaos: "Show Chaos Types",
+            commandBoss: "Start Boss Fight",
+            commandScan: "Scan Visitor",
+            commandSignal: "Play Nima Signal",
+            commandEmail: "Copy Email",
+            commandPhone: "Copy Phone",
+            commandSwitch: "Switch Language",
+            commandContact: "Send broken thing",
+            commandApplitent: "Open Applitent",
+            commandFannkala: "Open Fannkala",
+            commandParstek: "Open Parstek",
+            commandDebug: "Toggle Debug Mode",
+            hintScroll: "رفتن به بخش",
+            hintCopy: "کپی در کلیپ‌بورد",
+            hintExternal: "باز شدن در تب تازه",
+            hintConsole: "فرمان سیستمی",
+            gameWin: "System stable. Now send me your real broken thing.",
+            gameGood: "تعمیر درست. آشوب کمتر شد.",
+            gameBad: "حرکت اشتباه؛ سایت بیشتر غر زد.",
             diagnostics: {
-                device: "نوع دستگاه",
+                device: "دستگاه",
                 browser: "مرورگر",
                 viewport: "اندازه صفحه",
                 language: "زبان صفحه",
                 timezone: "منطقه زمانی",
-                                scheme: "طرح رنگ",
+                scheme: "طرح رنگ",
                 motion: "کاهش حرکت",
-                connection: "نوع اتصال",
+                connection: "اتصال",
                 desktop: "رومیزی",
                 tablet: "تبلت",
                 mobile: "موبایل",
-                                dark: "تیره",
+                dark: "تیره",
                 light: "روشن",
                 reduced: "فعال",
                 noPreference: "غیرفعال",
@@ -138,119 +121,100 @@
         },
         en: {
             skip: "Skip to main content",
-            metaTitle: "Nima | Developer Command Center",
-            metaDescription: "Interactive CV and portfolio for Nima, a full-stack web developer working across Laravel, WordPress, WooCommerce, technical SEO, performance, infrastructure, and production debugging.",
+            metaTitle: "Nima — Web Chaos Command Center",
+            metaDescription: "Nima — Web Chaos Command Center. Send me the broken thing: WordPress, Laravel, WooCommerce, SEO, speed, DNS, mail, weird bugs, broken flows, and half-built ideas.",
             headerAria: "Primary navigation",
             brandAria: "Back to top",
             navAria: "Page links",
             brandName: "Nima",
-            brandRole: "Developer Command Center",
-            navProjects: "Projects",
-            navStack: "Stack",
-            navContact: "Contact",
-            commandTrigger: "Command Center",
-            commandAria: "Open command palette",
+            brandRole: "Web Chaos Command Center",
+            navChaos: "Chaos",
+            navProjects: "Missions",
+            navBoss: "Boss fight",
+            navContact: "Send broken thing",
+            commandTrigger: "Launcher",
+            commandAria: "Open command launcher",
             langAria: "Change language",
             langStatus: "English mode",
-            heroBadge: "Full-Stack Web Developer",
-            heroTitle: "Web systems that actually work.",
-            heroSubtitle: "Laravel dashboards, WordPress/WooCommerce, technical SEO, performance, and production debugging.",
-            heroCtaProjects: "View Projects",
-            heroCtaContact: "Contact Me",
-            heroImageAlt: "Nima developer command-center visual",
-            chip1: "Laravel",
-            chip2: "WordPress",
-            chip3: "WooCommerce",
-            chip4: "SEO / Performance",
-            metricLighthouse: "Applitent Lighthouse report",
-            metricProjects: "Featured projects",
-            metricApis: "No outside tracking",
-            diagKicker: "Browser diagnostics",
-            diagTitle: "A safe snapshot of your browsing environment",
-            diagText: "This card only shows safe browser information: no IP lookup and no location lookup.",
-            focusKicker: "Collaboration focus",
-            focusTitle: "For employers and clients, the output matters.",
-            focusAria: "Choose collaboration type",
-            focusEmployer: "For Employers",
-            focusClient: "For Clients",
-            focusEmployerText: "Fast learning and team fit|Real production debugging|Connects frontend, backend, and infrastructure",
-            focusClientText: "Maintainable websites|Better SEO and speed|Support and iteration after launch",
-            projectsKicker: "Featured projects",
-            projectsTitle: "Three examples where structure, SEO, performance, and real debugging mattered.",
-            featuredLabel: "Featured",
-            openSite: "Open site",
-            applitentSummary: "Laravel business platform and legal-tech service website with auth, dashboards, service requests, and SEO preparation.",
-            fannkalaSummary: "WordPress and WooCommerce store focused on structure, buying experience, maintenance, and speed.",
-            parstekSummary: "Corporate WordPress site with clearer content paths, more polished UI, and theme customization.",
-            tabProblem: "Problem",
-            tabWork: "My Work",
-            tabOutcome: "Outcome",
-            stackKicker: "Stack bento",
-            stackTitle: "The combined skills a real product needs side by side.",
-            deliverKicker: "Delivery",
-            deliverTitle: "What I deliver",
-            deliver1: "Usable dashboards and workflows",
-            deliver2: "Maintainable stores and websites",
-            deliver3: "Technical SEO and clean structure",
-            deliver4: "Better speed and user experience",
-            deliver5: "Real debugging from code to server",
-            aiKicker: "AI-assisted workflow",
-            aiTitle: "Faster, but human controlled.",
-            aiNote: "I use AI tools to move faster, but architecture, technical decisions, testing, debugging, and final delivery stay under my control.",
-            healthKicker: "Mini game",
-            healthTitle: "Launch the Command Center",
-            healthAria: "System health nodes",
-            healthHint: "Activate all four systems.",
-            healthComplete: "Command Center is ready. It just needs a real project.",
-            contactKicker: "Contact",
-            contactTitle: "If your project needs a strong interface, solid logic, SEO, speed, and maintainability, send a message.",
-            copyEmail: "Copy Email",
-            copyPhone: "Copy Phone",
+            heroBadge: "Nima — Web Chaos Command Center",
+            heroTitle: "Send me the broken thing.",
+            heroSubtitle: "WordPress, Laravel, WooCommerce, SEO, speed, DNS, mail, weird bugs, broken flows, half-built ideas — I map the mess and make it usable.",
+            heroCtaGame: "Fix the broken site",
+            heroCtaContact: "Send the broken thing",
+            heroCtaCommand: "Open console",
+            dashboardAria: "Command dashboard",
+            dashTitle: "Broken-site intake online",
+            terminal1: "✓ listening for broken flows",
+            terminal2: "! plugin conflict smell detected",
+            terminal3: "✓ taste layer armed",
+            scanCta: "Scan Visitor",
+            scanSafe: "No IP. No geolocation.",
+            chaosKicker: "Chaos Types",
+            chaosTitle: "The kinds of mess I do not run away from.",
+            projectsKicker: "Mission Projects",
+            projectsTitle: "My words and live sites are proof — not fake numbers.",
+            gameKicker: "Fix the Broken Website",
+            gameTitle: "Boss fight: The Broken Site",
+            bossName: "The Broken Site",
+            gameIntro: "Read the issue card and hit the right repair.",
+            resetGame: "Reset game",
+            scanVisitor: "Safe visitor scan",
+            diagnosisKicker: "Nima’s diagnosis",
+            diagnosisLocked: "Diagnosis card is locked.",
+            diagnosisHint: "Beat the boss to unlock it.",
+            diagnosisUnlocked: "The problem is rarely just one bug.",
+            diagnosisText: "It is usually structure, flow, server, content, and maintenance fighting each other. I map first, then repair.",
+            signalTitle: "Command Center Signal",
+            audioPlay: "Play signal",
+            audioPause: "Pause signal",
+            audioMissing: "If no audio file exists, this player stays quiet and graceful.",
+            contactKicker: "Final unlocked action",
+            contactTitle: "Send me the broken thing.",
+            contactText: "Tell me what is slow, broken, confusing, unfinished, or weird. You do not need to organize the mess first — that is my job.",
+            copyEmail: "Copy email",
+            copyPhone: "Copy phone",
             copiedEmail: "Email copied.",
             copiedPhone: "Phone copied.",
-            copyFailed: "Automatic copy failed; you can copy the text manually.",
+            copyFailed: "Automatic copy failed; copy it manually.",
             phoneAria: "Call 09227241378",
-            footerText: "Nima — Developer Command Center",
+            footerText: "Nima — Web Chaos Command Center",
             backTop: "Back to top",
-            paletteTitle: "Quick command",
-            paletteHint: "Escape closes. / opens.",
+            paletteTitle: "Command launcher",
+            paletteHint: "/ opens. Escape closes.",
             closeAria: "Close",
-            commandProjects: "View Projects",
-            commandStack: "View Stack",
-            commandContact: "Contact",
-            commandSwitch: "Switch Language to Persian",
-            commandCopyEmail: "Copy Email",
-            commandCopyPhone: "Copy Phone",
-            commandOpenApplitent: "Open Applitent",
-            commandPlayAudio: "Play soundtrack",
-            audioTitle: "Command Center Soundtrack",
-            audioPlay: "Play soundtrack",
-            audioPause: "Pause soundtrack",
-            healthCta: "Start a Project",
-            scorePerformance: "Performance",
-            scoreAccessibility: "Accessibility",
-            scoreBestPractices: "Best Practices",
-            scoreSeo: "SEO",
-            aiStep1: "Faster exploration",
-            aiStep2: "Architecture stays human-owned",
-            aiStep3: "Final delivery is tested and owned",
-            commandScrollHint: "Jump to page section",
-            commandCopyHint: "Copy to clipboard",
-            commandLangHint: "No reload needed",
-            commandExternalHint: "Opens in a new tab",
+            commandProjects: "Open Projects",
+            commandChaos: "Show Chaos Types",
+            commandBoss: "Start Boss Fight",
+            commandScan: "Scan Visitor",
+            commandSignal: "Play Nima Signal",
+            commandEmail: "Copy Email",
+            commandPhone: "Copy Phone",
+            commandSwitch: "Switch Language",
+            commandContact: "Contact / Send broken thing",
+            commandApplitent: "Open Applitent",
+            commandFannkala: "Open Fannkala",
+            commandParstek: "Open Parstek",
+            commandDebug: "Toggle Debug Mode",
+            hintScroll: "Jump to section",
+            hintCopy: "Copy to clipboard",
+            hintExternal: "Open in a new tab",
+            hintConsole: "System command",
+            gameWin: "System stable. Now send me your real broken thing.",
+            gameGood: "Correct repair. Chaos reduced.",
+            gameBad: "Wrong move. The site growled louder.",
             diagnostics: {
-                device: "Device type",
+                device: "Device",
                 browser: "Browser",
                 viewport: "Viewport",
                 language: "Page language",
                 timezone: "Timezone",
-                                scheme: "Color scheme",
+                scheme: "Color scheme",
                 motion: "Reduced motion",
-                connection: "Connection type",
+                connection: "Connection",
                 desktop: "Desktop",
                 tablet: "Tablet",
                 mobile: "Mobile",
-                                dark: "Dark",
+                dark: "Dark",
                 light: "Light",
                 reduced: "Reduced",
                 noPreference: "No preference",
@@ -259,115 +223,244 @@
         }
     };
 
-    var projectContent = {
-        fa: {
-            applitent: {
-                problem: "یک پلتفرم خدمات حقوقی به مسیرهای ورود، ثبت‌نام، درخواست خدمت، صفحات اعتمادساز و زیرساخت پایدار نیاز داشت.",
-                work: "روی احراز هویت، ثبت‌نام، تأیید ایمیل، بازیابی رمز، ورود و خروج، داشبوردها، جریان درخواست خدمت، سخت‌سازی بارگذاری مدارک، هاب حقوقی، مسیر مشاوره رایگان، نقشه سایت، آماده‌سازی سئو، ایمیل، DNS، SSL، Cloudflare و عیب‌یابی سمت سرور کار کردم.",
-                outcome: "جریان‌ها قابل اتکاتر شدند، نگه‌داری ساده‌تر شد و چهار امتیاز ۱۰۰ در Lighthouse ثبت شد."
-            },
-            fannkala: {
-                problem: "فروشگاه به ساختار واضح‌تر، تجربه خرید بهتر و نگه‌داری ساده‌تر نیاز داشت.",
-                work: "روی تنظیمات وردپرس و ووکامرس، صفحات کلیدی، محتوا، سرعت و تمیزتر شدن تجربه کاربر کار کردم.",
-                outcome: "فروشگاه خواناتر، قابل نگه‌داری‌تر و آماده‌تر برای رشد محتوا شد."
-            },
-            parstek: {
-                problem: "سایت شرکتی باید معرفی خدمات و مسیرهای محتوایی را شفاف‌تر نشان می‌داد.",
-                work: "ساختار صفحات، رابط کاربری، سفارشی‌سازی قالب و جزئیات تجربه کاربری را بهبود دادم.",
-                outcome: "نمایش برند و مسیر مطالعه برای کاربر منظم‌تر و حرفه‌ای‌تر شد."
-            }
-        },
-        en: {
-            applitent: {
-                problem: "A Laravel business platform and legal-tech service website needed reliable auth, registration, service requests, trust pages, and production infrastructure.",
-                work: "I worked on, improved, debugged, implemented, redesigned, hardened, prepared, and maintained auth, registration, email verification, password reset, login/logout flows, dashboards, service request/application flows, upload/document hardening, a legal hub, free consultation CTA flow, sitemap and SEO preparation, mail, DNS, SSL, Cloudflare, and server-side production troubleshooting.",
-                outcome: "The flows became more reliable, maintenance became cleaner, and the site reached four 100 Lighthouse scores."
-            },
-            fannkala: {
-                problem: "The store needed clearer structure, a better buying experience, and easier maintenance.",
-                work: "I worked on WordPress and WooCommerce configuration, key pages, content structure, performance, and a cleaner user experience.",
-                outcome: "The store became easier to scan, maintain, and grow with content."
-            },
-            parstek: {
-                problem: "The corporate site needed clearer service presentation and content paths.",
-                work: "I improved page structure, UI, WordPress theme customization, and user-experience details.",
-                outcome: "The brand presentation and browsing path became more organized and professional."
-            }
-        }
+    var chaosCards = {
+        fa: [
+            ["WP/WOO", "وردپرس یا ووکامرس شکسته", "فروشگاه بالا می‌آید، اما اعتماد، خرید یا نگه‌داری گیر می‌کند."],
+            ["SPEED", "سایت کند", "دارایی‌های سنگین، کش بد، هاست خسته یا ساختار نامرتب."],
+            ["PLUGIN", "تداخل افزونه/قالب", "وقتی همه چیز جداگانه درست است ولی کنار هم دعوا می‌کنند."],
+            ["LARAVEL", "داشبورد و جریان لاراول", "احراز هویت، پنل، درخواست سرویس و مسیرهای نیمه‌کاره."],
+            ["DNS/SSL", "DNS، SSL، Cloudflare", "دامنه، قفل سبز، ریدایرکت و لایه زیرساختی که اعصاب می‌خواهد."],
+            ["MAIL", "ایمیل ارسال نمی‌شود", "SMTP، فرم تماس، اعلان‌ها و پیام‌هایی که در خلأ گم می‌شوند."],
+            ["SEO", "سئوی ساختاری و محتوا", "نقشه سایت، متا، مسیر محتوا و تمیزکاری معنی‌دار."],
+            ["FLOW", "فرآیند کسب‌وکار نیمه‌ساخته", "چیزی که با اکسل، فرم، واتساپ و امید زنده مانده."],
+            ["WEIRD", "باگ عجیب", "همان چیزی که هیچ‌کس دوست ندارد دست بزند."]
+        ],
+        en: [
+            ["WP/WOO", "Broken WordPress / WooCommerce", "The site loads, but trust, checkout, or maintenance keeps breaking."],
+            ["SPEED", "Slow websites", "Heavy assets, bad cache, tired hosting, or messy structure."],
+            ["PLUGIN", "Plugin/theme conflicts", "Everything is fine alone, then fights in the same room."],
+            ["LARAVEL", "Laravel dashboards and flows", "Auth, panels, service requests, and unfinished product paths."],
+            ["DNS/SSL", "DNS, SSL, Cloudflare", "Domains, green locks, redirects, and infrastructure layers."],
+            ["MAIL", "Email not sending", "SMTP, contact forms, notifications, and messages lost in space."],
+            ["SEO", "SEO structure and cleanup", "Sitemaps, metadata, content paths, and meaningful cleanup."],
+            ["FLOW", "Half-built business workflows", "The thing currently held together by spreadsheets, forms, WhatsApp, and hope."],
+            ["WEIRD", "Weird bugs", "The bug nobody wants to touch."]
+        ]
     };
 
+    var projectCards = {
+        fa: [
+            {
+                name: "Applitent",
+                url: "https://applitent.com",
+                type: "Laravel / Legal-tech mission",
+                featured: true,
+                mess: "پلتفرم خدمات حقوقی به جریان‌های قابل اتکا، زیرساخت پایدار و مسیرهای اعتمادساز نیاز داشت.",
+                move: "روی احراز هویت، داشبوردها، درخواست سرویس، سخت‌سازی آپلود، هاب حقوقی، ایمیل، DNS، SSL، Cloudflare، نقشه سایت، سئوی فنی و عیب‌یابی سمت سرور کار کردم.",
+                outcome: "سیستم قابل استفاده‌تر و قابل نگه‌داری‌تر شد؛ با اثبات Lighthouse 100×4.",
+                chips: ["Laravel", "Auth", "Dashboards", "Cloudflare", "SEO", "Lighthouse 100×4"]
+            },
+            {
+                name: "Fannkala",
+                url: "https://fannkala.com",
+                type: "WordPress / WooCommerce mission",
+                mess: "فروشگاه به ساختار روشن‌تر، تجربه خرید بهتر و نگه‌داری ساده‌تر نیاز داشت.",
+                move: "روی ساختار وردپرس و ووکامرس، مسیر خرید، محتوا، تمیزکاری تجربه کاربر و سرعت/عملکرد کار کردم.",
+                outcome: "فروشگاه خواناتر، مرتب‌تر و آماده‌تر برای نگه‌داری و رشد محتوا شد.",
+                chips: ["WordPress", "WooCommerce", "Content", "Performance"]
+            },
+            {
+                name: "Parstek",
+                url: "https://parstek.ir",
+                type: "Corporate WordPress mission",
+                mess: "سایت شرکتی باید خدمات، مسیرهای محتوا و حس حرفه‌ای را شفاف‌تر نشان می‌داد.",
+                move: "روی ارائه خدمات، مسیرهای محتوا، پولیش UI، سفارشی‌سازی قالب و تمیزکاری UX کار کردم.",
+                outcome: "مسیر مطالعه و معرفی برند منظم‌تر و حرفه‌ای‌تر شد.",
+                chips: ["Corporate", "WordPress", "UI polish", "UX cleanup"]
+            }
+        ],
+        en: [
+            {
+                name: "Applitent",
+                url: "https://applitent.com",
+                type: "Laravel / Legal-tech mission",
+                featured: true,
+                mess: "A legal-services platform needed reliable flows, stable infrastructure, and trust-building paths.",
+                move: "I worked on auth flows, dashboards, service requests, upload hardening, legal hub, mail, DNS, SSL, Cloudflare, sitemap, technical SEO, and server-side troubleshooting.",
+                outcome: "The system became more usable and maintainable, with Lighthouse 100×4 as proof.",
+                chips: ["Laravel", "Auth", "Dashboards", "Cloudflare", "SEO", "Lighthouse 100×4"]
+            },
+            {
+                name: "Fannkala",
+                url: "https://fannkala.com",
+                type: "WordPress / WooCommerce mission",
+                mess: "The store needed clearer structure, a smoother buying experience, and easier maintenance.",
+                move: "I worked on WordPress/WooCommerce structure, buying paths, content, UX cleanup, and speed/performance cleanup.",
+                outcome: "The store became clearer, cleaner, and easier to maintain and grow with content.",
+                chips: ["WordPress", "WooCommerce", "Content", "Performance"]
+            },
+            {
+                name: "Parstek",
+                url: "https://parstek.ir",
+                type: "Corporate WordPress mission",
+                mess: "The corporate site needed clearer service presentation, content paths, and professional polish.",
+                move: "I worked on service presentation, content paths, UI polish, theme customization, and UX cleanup.",
+                outcome: "The brand presentation and browsing path became more organized and credible.",
+                chips: ["Corporate", "WordPress", "UI polish", "UX cleanup"]
+            }
+        ]
+    };
+
+    var gameIssues = [
+        { key: "dns", fa: "دامنه گاهی باز می‌شود، گاهی نه. مسیرها بو می‌دهند.", en: "The domain works sometimes, then disappears. Routing smells wrong.", answer: "DNS" },
+        { key: "ssl", fa: "مرورگر داد می‌زند اتصال امن نیست.", en: "The browser screams that the connection is not secure.", answer: "SSL" },
+        { key: "cache", fa: "تغییرات انجام شده ولی سایت نسخه قدیمی را نشان می‌دهد.", en: "Changes are deployed, but visitors still see the old version.", answer: "Cache" },
+        { key: "plugin", fa: "بعد از آپدیت، فرم/سبد خرید ناگهان شکست.", en: "After an update, the form or checkout suddenly broke.", answer: "Plugin conflict" },
+        { key: "assets", fa: "صفحه با تصویر و اسکریپت‌های سنگین خفه شده است.", en: "The page is choking on heavy images and scripts.", answer: "Slow assets" },
+        { key: "checkout", fa: "کاربر می‌خواهد پول بدهد، اما جریان پرداخت/فرم گیر می‌کند.", en: "A user wants to pay or submit, but the flow gets stuck.", answer: "Broken checkout/form" },
+        { key: "seo", fa: "گوگل نقشه، عنوان و مسیر محتوایی درست نمی‌بیند.", en: "Search engines cannot see a clean map, title, or content path.", answer: "SEO missing" },
+        { key: "mail", fa: "فرم می‌گوید ارسال شد؛ صندوق ایمیل چیزی نمی‌بیند.", en: "The form says sent; the inbox sees nothing.", answer: "Email not sending" }
+    ];
+
+    var repairOptions = ["DNS", "SSL", "Cache", "Plugin conflict", "Slow assets", "Broken checkout/form", "SEO missing", "Email not sending"];
+
+    /* Utilities */
     function t(key) {
         return translations[currentLanguage][key] || translations.fa[key] || key;
     }
 
+    function escapeHtml(value) {
+        return String(value).replace(/[&<>"]/g, function (character) {
+            return {
+                "&": "&amp;",
+                "<": "&lt;",
+                ">": "&gt;",
+                '"': "&quot;"
+            }[character];
+        });
+    }
+
     function setMeta(name, content) {
         var element = document.querySelector('meta[name="' + name + '"]');
-        if (element) {
-            element.setAttribute("content", content);
-        }
+        if (element) element.content = content;
     }
 
     function setMetaProperty(property, content) {
         var element = document.querySelector('meta[property="' + property + '"]');
-        if (element) {
-            element.setAttribute("content", content);
-        }
+        if (element) element.content = content;
     }
 
+    function scrollToTarget(id) {
+        var element = document.getElementById(id);
+        if (!element) return;
+        element.scrollIntoView({
+            behavior: reducedMotion.matches ? "auto" : "smooth",
+            block: "start"
+        });
+    }
+
+    /* Language */
     function applyLanguage(language) {
         currentLanguage = language === "en" ? "en" : "fa";
         localStorage.setItem(storageKey, currentLanguage);
+
         root.lang = currentLanguage;
         root.dir = currentLanguage === "fa" ? "rtl" : "ltr";
         document.title = t("metaTitle");
+
         setMeta("description", t("metaDescription"));
-        setMetaProperty("og:title", t("metaTitle"));
-        setMetaProperty("og:description", t("heroTitle"));
-        setMetaProperty("og:locale", currentLanguage === "fa" ? "fa_IR" : "en_US");
         setMeta("twitter:title", t("metaTitle"));
         setMeta("twitter:description", t("metaDescription"));
+        setMetaProperty("og:title", t("metaTitle"));
+        setMetaProperty("og:description", t("metaDescription"));
+        setMetaProperty("og:locale", currentLanguage === "fa" ? "fa_IR" : "en_US");
 
         document.querySelectorAll("[data-i18n]").forEach(function (element) {
             element.textContent = t(element.dataset.i18n);
         });
-        document.querySelectorAll("[data-i18n-alt]").forEach(function (element) {
-            element.setAttribute("alt", t(element.dataset.i18nAlt));
-        });
+
         document.querySelectorAll("[data-i18n-aria-label]").forEach(function (element) {
             element.setAttribute("aria-label", t(element.dataset.i18nAriaLabel));
         });
+
         document.querySelectorAll("[data-lang-option]").forEach(function (button) {
             button.classList.toggle("is-active", button.dataset.langOption === currentLanguage);
         });
 
-        updateFocusCopy();
-        renderDiagnostics();
-        renderProjectPanels();
+        renderChaosCards();
+        renderProjectCards();
+        renderGame();
         renderCommandList();
-        updateHealthResult();
+        renderDiagnostics(false);
+        updateAudioUi();
     }
 
+    /* Rendering */
+    function renderChaosCards() {
+        var grid = document.getElementById("chaos-grid");
+        if (!grid) return;
+
+        grid.innerHTML = chaosCards[currentLanguage].map(function (card) {
+            return [
+                '<article class="chaos-card observe is-visible">',
+                '<button type="button" data-chaos-focus>',
+                '<span class="alert-code">' + escapeHtml(card[0]) + '</span>',
+                '<h3>' + escapeHtml(card[1]) + '</h3>',
+                '<p>' + escapeHtml(card[2]) + '</p>',
+                '</button>',
+                '</article>'
+            ].join("");
+        }).join("");
+    }
+
+    function renderProjectCards() {
+        var grid = document.getElementById("mission-grid");
+        if (!grid) return;
+
+        grid.innerHTML = projectCards[currentLanguage].map(function (project) {
+            var chips = project.chips.map(function (chip) {
+                return '<span class="chip">' + escapeHtml(chip) + '</span>';
+            }).join("");
+
+            return [
+                '<article class="mission-card observe is-visible ' + (project.featured ? "featured" : "") + '">',
+                '<span class="mission-type">' + escapeHtml(project.type) + '</span>',
+                '<h3>' + escapeHtml(project.name) + '</h3>',
+                renderMissionRow(currentLanguage === "fa" ? "آشوب" : "The mess", project.mess),
+                renderMissionRow(currentLanguage === "fa" ? "حرکت من" : "My move", project.move),
+                renderMissionRow(currentLanguage === "fa" ? "سیستم پایدارتر شد" : "System stabilized", project.outcome),
+                '<div class="chips">' + chips + '</div>',
+                '<a class="live-link" target="_blank" rel="noopener" href="' + escapeHtml(project.url) + '">' + (currentLanguage === "fa" ? "مشاهده سایت زنده" : "Open live site") + '</a>',
+                '</article>'
+            ].join("");
+        }).join("");
+    }
+
+    function renderMissionRow(label, text) {
+        return '<div class="mission-row"><strong>' + escapeHtml(label) + '</strong><p>' + escapeHtml(text) + '</p></div>';
+    }
+
+    /* Diagnostics */
     function getBrowserName() {
         var agent = navigator.userAgent;
         if (agent.indexOf("Edg/") > -1) return "Microsoft Edge";
-        if (agent.indexOf("OPR/") > -1 || agent.indexOf("Opera") > -1) return "Opera";
-        if (agent.indexOf("Chrome/") > -1 && agent.indexOf("Chromium") === -1) return "Chrome";
         if (agent.indexOf("Firefox/") > -1) return "Firefox";
+        if (agent.indexOf("Chrome/") > -1 && agent.indexOf("Chromium") === -1) return "Chrome";
         if (agent.indexOf("Safari/") > -1 && agent.indexOf("Chrome/") === -1) return "Safari";
         return translations[currentLanguage].diagnostics.unknown;
     }
 
     function getDeviceType() {
         var labels = translations[currentLanguage].diagnostics;
-        var width = window.innerWidth;
-        if (width < 640) return labels.mobile;
-        if (width < 980) return labels.tablet;
+        if (window.innerWidth < 640) return labels.mobile;
+        if (window.innerWidth < 980) return labels.tablet;
         return labels.desktop;
     }
 
-    function renderDiagnostics() {
+    function renderDiagnostics(showPanel) {
         var grid = document.getElementById("diagnostics-grid");
         if (!grid) return;
+
         var labels = translations[currentLanguage].diagnostics;
         var connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
         var items = [
@@ -380,52 +473,127 @@
             [labels.motion, reducedMotion.matches ? labels.reduced : labels.noPreference],
             [labels.connection, connection && connection.effectiveType ? connection.effectiveType : labels.unknown]
         ];
+
         grid.innerHTML = items.map(function (item) {
             return '<div class="diagnostic-item"><small>' + escapeHtml(item[0]) + '</small><strong>' + escapeHtml(item[1]) + '</strong></div>';
         }).join("");
+
+        if (showPanel) grid.hidden = false;
     }
 
-    function updateFocusCopy() {
-        var active = document.querySelector(".focus-toggle .is-active");
-        var points = document.getElementById("focus-points");
-        if (!active || !points) return;
-        var key = active.dataset.focus === "client" ? "focusClientText" : "focusEmployerText";
-        points.innerHTML = t(key).split("|").map(function (item) {
-            return "<li><span>✦</span>" + escapeHtml(item) + "</li>";
+    function scanVisitor() {
+        renderDiagnostics(true);
+        scrollToTarget("top");
+    }
+
+    /* Boss Fight */
+    function renderGame() {
+        updateBossMeter();
+
+        var issue = document.getElementById("issue-card");
+        var actions = document.getElementById("repair-actions");
+        if (!issue || !actions) return;
+
+        if (gameIndex >= gameIssues.length) {
+            issue.textContent = t("gameWin");
+            actions.innerHTML = '<a class="btn primary-btn" href="#contact">' + escapeHtml(t("heroCtaContact")) + '</a>';
+            unlockDiagnosis();
+            return;
+        }
+
+        var currentIssue = gameIssues[gameIndex];
+        issue.textContent = currentLanguage === "fa" ? currentIssue.fa : currentIssue.en;
+        actions.innerHTML = repairOptions.map(function (option) {
+            return '<button type="button" data-repair="' + escapeHtml(option) + '">' + escapeHtml(option) + '</button>';
         }).join("");
     }
 
-    function renderProjectPanels() {
-        document.querySelectorAll(".project-card[data-project]").forEach(function (card) {
-            var project = card.dataset.project;
-            var activeTab = card.querySelector("[data-project-tab].is-active") || card.querySelector("[data-project-tab]");
-            var panel = card.querySelector(".project-panel");
-            if (!activeTab || !panel || !projectContent[currentLanguage][project]) return;
-            var tab = activeTab.dataset.projectTab;
-            panel.textContent = projectContent[currentLanguage][project][tab];
-            card.querySelectorAll("[data-project-tab]").forEach(function (button) {
-                button.setAttribute("aria-selected", button === activeTab ? "true" : "false");
-            });
-        });
+    function updateBossMeter() {
+        var hp = document.getElementById("boss-hp");
+        var label = document.getElementById("boss-hp-label");
+        if (hp) hp.style.width = bossHp + "%";
+        if (label) label.textContent = bossHp + "%";
+    }
+
+    function repairIssue(answer) {
+        var card = document.getElementById("game-card");
+        var status = document.getElementById("game-status");
+        var currentIssue = gameIssues[gameIndex];
+        if (!currentIssue) return;
+
+        if (answer === currentIssue.answer) {
+            bossHp = Math.max(0, bossHp - 13);
+            gameIndex += 1;
+            if (status) status.textContent = t("gameGood");
+        } else {
+            bossHp = Math.min(100, bossHp + 5);
+            if (status) status.textContent = t("gameBad");
+            shakeGameCard(card);
+        }
+
+        if (gameIndex >= gameIssues.length) bossHp = 0;
+        renderGame();
+    }
+
+    function shakeGameCard(card) {
+        if (!card) return;
+        card.classList.remove("shake");
+        void card.offsetWidth;
+        card.classList.add("shake");
+    }
+
+    function resetGame() {
+        gameIndex = 0;
+        bossHp = 100;
+
+        var status = document.getElementById("game-status");
+        var diagnosis = document.getElementById("diagnosis-card");
+        if (status) status.textContent = t("gameIntro");
+        if (diagnosis) {
+            diagnosis.classList.remove("unlocked");
+            diagnosis.innerHTML = '<p class="section-kicker">' + escapeHtml(t("diagnosisKicker")) + '</p><h3 data-i18n="diagnosisLocked">' + escapeHtml(t("diagnosisLocked")) + '</h3><p data-i18n="diagnosisHint">' + escapeHtml(t("diagnosisHint")) + '</p>';
+        }
+
+        renderGame();
+    }
+
+    function unlockDiagnosis() {
+        var diagnosis = document.getElementById("diagnosis-card");
+        if (!diagnosis) return;
+
+        diagnosis.classList.add("unlocked");
+        diagnosis.innerHTML = [
+            '<p class="section-kicker">' + escapeHtml(t("diagnosisKicker")) + '</p>',
+            '<h3>' + escapeHtml(t("diagnosisUnlocked")) + '</h3>',
+            '<p>' + escapeHtml(t("diagnosisText")) + '</p>'
+        ].join("");
+    }
+
+    /* Command Launcher */
+    function getCommands() {
+        return [
+            { label: t("commandProjects"), hint: t("hintScroll"), action: function () { closeCommandPalette(); scrollToTarget("projects"); } },
+            { label: t("commandChaos"), hint: t("hintScroll"), action: function () { closeCommandPalette(); scrollToTarget("chaos"); } },
+            { label: t("commandBoss"), hint: t("hintScroll"), action: function () { closeCommandPalette(); scrollToTarget("boss"); } },
+            { label: t("commandScan"), hint: t("hintConsole"), action: function () { closeCommandPalette(); scanVisitor(); } },
+            { label: t("commandSignal"), hint: t("hintConsole"), action: function () { closeCommandPalette(); toggleAudio(); } },
+            { label: t("commandEmail"), hint: t("hintCopy"), action: function () { copyValue("email"); } },
+            { label: t("commandPhone"), hint: t("hintCopy"), action: function () { copyValue("phone"); } },
+            { label: t("commandSwitch"), hint: t("hintConsole"), action: function () { applyLanguage(currentLanguage === "fa" ? "en" : "fa"); } },
+            { label: t("commandContact"), hint: t("hintScroll"), action: function () { closeCommandPalette(); scrollToTarget("contact"); } },
+            { label: t("commandApplitent"), hint: t("hintExternal"), action: function () { window.open("https://applitent.com", "_blank", "noopener"); } },
+            { label: t("commandFannkala"), hint: t("hintExternal"), action: function () { window.open("https://fannkala.com", "_blank", "noopener"); } },
+            { label: t("commandParstek"), hint: t("hintExternal"), action: function () { window.open("https://parstek.ir", "_blank", "noopener"); } },
+            { label: t("commandDebug"), hint: t("hintConsole"), action: toggleDebugMode }
+        ];
     }
 
     function renderCommandList() {
         var list = document.getElementById("command-list");
         if (!list) return;
-        var commands = [
-            { label: t("commandProjects"), hint: t("commandScrollHint"), action: function () { closeCommandPalette(); scrollToTarget("projects"); } },
-            { label: t("commandStack"), hint: t("commandScrollHint"), action: function () { closeCommandPalette(); scrollToTarget("stack"); } },
-            { label: t("commandContact"), hint: t("commandScrollHint"), action: function () { closeCommandPalette(); scrollToTarget("contact"); } },
-            { label: t("commandSwitch"), hint: t("commandLangHint"), action: function () { applyLanguage(currentLanguage === "fa" ? "en" : "fa"); } },
-            { label: t("commandCopyEmail"), hint: t("commandCopyHint"), action: function () { copyValue("email"); } },
-            { label: t("commandCopyPhone"), hint: t("commandCopyHint"), action: function () { copyValue("phone"); } },
-            { label: t("commandOpenApplitent"), hint: t("commandExternalHint"), action: function () { window.open("https://applitent.com", "_blank", "noopener"); } }
-        ];
-        if (audioAvailable()) {
-            commands.push({ label: t("commandPlayAudio"), hint: t("audioTitle"), action: function () { closeCommandPalette(); toggleAudio(); } });
-        }
+
         list.innerHTML = "";
-        commands.forEach(function (command) {
+        getCommands().forEach(function (command) {
             var button = document.createElement("button");
             button.type = "button";
             button.innerHTML = "<span>" + escapeHtml(command.label) + "</span><small>" + escapeHtml(command.hint) + "</small>";
@@ -434,17 +602,14 @@
         });
     }
 
-    function scrollToTarget(id) {
-        var target = document.getElementById(id);
-        if (target) target.scrollIntoView({ behavior: reducedMotion.matches ? "auto" : "smooth", block: "start" });
-    }
-
     function openCommandPalette() {
         var dialog = document.getElementById("command-dialog");
         if (!dialog) return;
+
         lastFocusedElement = document.activeElement;
         dialog.hidden = false;
         document.body.style.overflow = "hidden";
+
         var firstCommand = dialog.querySelector(".command-list button");
         if (firstCommand) firstCommand.focus();
     }
@@ -452,19 +617,29 @@
     function closeCommandPalette() {
         var dialog = document.getElementById("command-dialog");
         if (!dialog || dialog.hidden) return;
+
         dialog.hidden = true;
         document.body.style.overflow = "";
+
         if (lastFocusedElement && typeof lastFocusedElement.focus === "function") {
             lastFocusedElement.focus();
         }
     }
 
+    function toggleDebugMode() {
+        debugMode = !debugMode;
+        document.body.classList.toggle("debug-mode", debugMode);
+        scanVisitor();
+    }
+
+    /* Copy Actions */
     function copyValue(type) {
         var value = type === "phone" ? phone : email;
         var status = document.getElementById("copy-status");
         var finish = function (message) {
             if (status) status.textContent = message;
         };
+
         if (navigator.clipboard && navigator.clipboard.writeText) {
             navigator.clipboard.writeText(value).then(function () {
                 finish(type === "phone" ? t("copiedPhone") : t("copiedEmail"));
@@ -479,33 +654,20 @@
     function fallbackCopy(value, finish, type) {
         var temporary = document.createElement("textarea");
         temporary.value = value;
-        temporary.setAttribute("readonly", "");
         temporary.style.position = "fixed";
         temporary.style.opacity = "0";
         document.body.appendChild(temporary);
         temporary.select();
+
         var copied = document.execCommand("copy");
         temporary.remove();
         finish(copied ? (type === "phone" ? t("copiedPhone") : t("copiedEmail")) : t("copyFailed"));
     }
 
-    function updateHealthResult() {
-        var result = document.getElementById("health-result");
-        var progress = document.getElementById("launch-progress");
-        var card = document.querySelector(".health-card");
-        var cta = document.querySelector("[data-launch-contact]");
-        var percent = Math.round((activeHealth.size / 4) * 100);
-        if (progress) progress.style.width = percent + "%";
-        if (result) result.textContent = activeHealth.size === 4 ? t("healthComplete") : t("healthHint");
-        if (card) card.classList.toggle("is-launched", activeHealth.size === 4);
-        if (cta) cta.hidden = activeHealth.size !== 4;
-    }
-
-
+    /* Audio */
     function audioAvailable() {
-        var section = document.getElementById("soundtrack");
-        var audio = document.getElementById("command-audio");
-        return !!(section && audio && section.dataset.audioReady === "true");
+        var player = document.getElementById("signal-player");
+        return !!(player && player.dataset.audioReady === "true");
     }
 
     function formatTime(seconds) {
@@ -519,125 +681,105 @@
         var audio = document.getElementById("command-audio");
         var progress = document.getElementById("audio-progress");
         var time = document.getElementById("audio-time");
-        var dock = document.querySelector(".audio-dock");
-        var play = document.querySelector("[data-audio-toggle]");
+        var buttons = document.querySelectorAll("[data-audio-toggle]");
         if (!audio) return;
-        var percent = audio.duration ? (audio.currentTime / audio.duration) * 100 : 0;
-        if (progress) progress.style.width = percent + "%";
-        if (time) time.textContent = formatTime(audio.currentTime) + " / " + formatTime(audio.duration);
-        if (dock) dock.classList.toggle("is-playing", !audio.paused);
-        if (play) {
-            play.textContent = audio.paused ? "▶" : "Ⅱ";
-            play.setAttribute("aria-label", audio.paused ? t("audioPlay") : t("audioPause"));
+
+        if (progress) {
+            progress.style.width = (audio.duration ? (audio.currentTime / audio.duration) * 100 : 0) + "%";
         }
+
+        if (time) {
+            time.textContent = formatTime(audio.currentTime) + " / " + formatTime(audio.duration);
+        }
+
+        buttons.forEach(function (button) {
+            button.textContent = audio.paused ? "▶" : "Ⅱ";
+            button.setAttribute("aria-label", audio.paused ? t("audioPlay") : t("audioPause"));
+        });
     }
 
     function toggleAudio() {
         var audio = document.getElementById("command-audio");
         if (!audioAvailable() || !audio) return;
+
         if (audio.paused) audio.play().catch(function () {});
         else audio.pause();
+
         updateAudioUi();
     }
 
     function initAudio() {
-        var section = document.getElementById("soundtrack");
+        var player = document.getElementById("signal-player");
         var audio = document.getElementById("command-audio");
-        var play = document.querySelector("[data-audio-toggle]");
-        if (!section || !audio || !play) return;
+        if (!player || !audio) return;
+
         audio.addEventListener("loadedmetadata", function () {
-            section.hidden = false;
-            section.dataset.audioReady = "true";
+            player.dataset.audioReady = "true";
+            var note = document.getElementById("audio-note");
+            if (note) note.hidden = true;
             updateAudioUi();
-            renderCommandList();
         });
+
         audio.addEventListener("error", function () {
-            section.hidden = true;
-            section.dataset.audioReady = "false";
-            renderCommandList();
+            player.dataset.audioReady = "false";
+            updateAudioUi();
         });
-        audio.addEventListener("timeupdate", updateAudioUi);
-        audio.addEventListener("play", updateAudioUi);
-        audio.addEventListener("pause", updateAudioUi);
-        play.addEventListener("click", toggleAudio);
-    }
 
-    function escapeHtml(value) {
-        return String(value).replace(/[&<>"]/g, function (character) {
-            return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[character];
+        ["timeupdate", "play", "pause"].forEach(function (eventName) {
+            audio.addEventListener(eventName, updateAudioUi);
         });
     }
 
-    document.querySelectorAll("[data-lang-option]").forEach(function (button) {
-        button.addEventListener("click", function () {
-            applyLanguage(button.dataset.langOption);
-        });
-    });
+    /* Events */
+    function handleDocumentClick(event) {
+        var repairButton = event.target.closest("[data-repair]");
+        var resetButton = event.target.closest("[data-reset-game]");
+        var openCommandButton = event.target.closest("[data-open-command]");
+        var closeCommandButton = event.target.closest("[data-close-command]");
+        var scanButton = event.target.closest("[data-scan-visitor]");
+        var copyButton = event.target.closest("[data-copy]");
+        var audioButton = event.target.closest("[data-audio-toggle]");
+        var languageButton = event.target.closest("[data-lang-option]");
 
-    document.querySelectorAll(".focus-toggle button").forEach(function (button) {
-        button.addEventListener("click", function () {
-            document.querySelectorAll(".focus-toggle button").forEach(function (item) { item.classList.remove("is-active"); });
-            button.classList.add("is-active");
-            updateFocusCopy();
-        });
-    });
+        if (repairButton) repairIssue(repairButton.dataset.repair);
+        if (resetButton) resetGame();
+        if (openCommandButton) openCommandPalette();
+        if (closeCommandButton) closeCommandPalette();
+        if (scanButton) scanVisitor();
+        if (audioButton) toggleAudio();
 
-    document.querySelectorAll(".project-tabs button").forEach(function (button) {
-        button.addEventListener("click", function () {
-            var tabs = button.closest(".project-tabs");
-            if (!tabs) return;
-            tabs.querySelectorAll("button").forEach(function (item) { item.classList.remove("is-active"); });
-            button.classList.add("is-active");
-            renderProjectPanels();
-        });
-    });
-
-    document.querySelectorAll("[data-open-command]").forEach(function (button) {
-        button.addEventListener("click", openCommandPalette);
-    });
-    document.querySelectorAll("[data-close-command]").forEach(function (button) {
-        button.addEventListener("click", closeCommandPalette);
-    });
-
-    document.querySelectorAll("[data-copy]").forEach(function (button) {
-        button.addEventListener("click", function (event) {
+        if (copyButton) {
             event.preventDefault();
-            event.stopPropagation();
-            copyValue(button.dataset.copy);
-        });
-    });
+            copyValue(copyButton.dataset.copy);
+        }
 
-    document.querySelectorAll("[data-health]").forEach(function (button) {
-        button.addEventListener("click", function () {
-            activeHealth.add(button.dataset.health);
-            button.classList.add("is-active");
-            button.setAttribute("aria-pressed", "true");
-            updateHealthResult();
-        });
-    });
-    document.querySelectorAll("[data-launch-contact]").forEach(function (button) {
-        button.addEventListener("click", function () { scrollToTarget("contact"); });
-    });
+        if (languageButton) {
+            applyLanguage(languageButton.dataset.langOption);
+        }
+    }
 
-    document.addEventListener("keydown", function (event) {
+    function handleKeyboard(event) {
         var target = event.target;
         var isTyping = target && (target.matches("input, textarea, select") || target.isContentEditable);
+
         if (event.key === "/" && !isTyping) {
             event.preventDefault();
             openCommandPalette();
         }
+
         if (event.key === "Escape") {
             closeCommandPalette();
         }
-    });
-
-    window.addEventListener("resize", renderDiagnostics);
-    if (typeof reducedMotion.addEventListener === "function") {
-        reducedMotion.addEventListener("change", renderDiagnostics);
-        colorScheme.addEventListener("change", renderDiagnostics);
     }
 
-    if ("IntersectionObserver" in window) {
+    function initObservers() {
+        if (!("IntersectionObserver" in window)) {
+            document.querySelectorAll(".observe").forEach(function (element) {
+                element.classList.add("is-visible");
+            });
+            return;
+        }
+
         var observer = new IntersectionObserver(function (entries) {
             entries.forEach(function (entry) {
                 if (entry.isIntersecting) {
@@ -646,54 +788,50 @@
                 }
             });
         }, { threshold: 0.12 });
-        document.querySelectorAll(".observe").forEach(function (element) { observer.observe(element); });
-    } else {
-        document.querySelectorAll(".observe").forEach(function (element) { element.classList.add("is-visible"); });
+
+        document.querySelectorAll(".observe").forEach(function (element) {
+            observer.observe(element);
+        });
     }
 
-    if (!reducedMotion.matches) {
+    function initCursorGlow() {
+        if (reducedMotion.matches) return;
+
         var glow = document.querySelector(".cursor-glow");
-        var pointer = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
-        var scheduledGlow = false;
-        document.addEventListener("pointermove", function (event) {
-            pointer.x = event.clientX;
-            pointer.y = event.clientY;
-            if (!scheduledGlow) {
-                scheduledGlow = true;
-                requestAnimationFrame(function () {
-                    scheduledGlow = false;
-                    if (glow) {
-                        glow.style.opacity = "1";
-                        glow.style.left = pointer.x + "px";
-                        glow.style.top = pointer.y + "px";
-                    }
-                });
-            }
-        });
+        var scheduled = false;
 
-        document.querySelectorAll(".tilt-card").forEach(function (card) {
-            var scheduledTilt = false;
-            var tiltEvent = null;
-            card.addEventListener("pointermove", function (event) {
-                tiltEvent = event;
-                if (scheduledTilt) return;
-                scheduledTilt = true;
-                requestAnimationFrame(function () {
-                    scheduledTilt = false;
-                    var rect = card.getBoundingClientRect();
-                    var x = ((tiltEvent.clientX - rect.left) / rect.width - 0.5) * 5;
-                    var y = ((tiltEvent.clientY - rect.top) / rect.height - 0.5) * -5;
-                    card.style.transform = "perspective(900px) rotateX(" + y.toFixed(2) + "deg) rotateY(" + x.toFixed(2) + "deg)";
-                });
-            });
-            card.addEventListener("pointerleave", function () {
-                card.style.transform = "";
+        document.addEventListener("pointermove", function (event) {
+            if (scheduled) return;
+            scheduled = true;
+
+            requestAnimationFrame(function () {
+                scheduled = false;
+                if (!glow) return;
+                glow.style.opacity = "1";
+                glow.style.left = event.clientX + "px";
+                glow.style.top = event.clientY + "px";
             });
         });
     }
 
-    initAudio();
-    applyLanguage(currentLanguage);
+    function init() {
+        document.addEventListener("click", handleDocumentClick);
+        document.addEventListener("keydown", handleKeyboard);
+        window.addEventListener("resize", function () { renderDiagnostics(false); });
+
+        if (typeof reducedMotion.addEventListener === "function") {
+            reducedMotion.addEventListener("change", function () { renderDiagnostics(false); });
+            colorScheme.addEventListener("change", function () { renderDiagnostics(false); });
+        }
+
+        initAudio();
+        applyLanguage(currentLanguage);
+        initObservers();
+        initCursorGlow();
+    }
+
+    init();
+
     window.nimaApplyLanguage = applyLanguage;
     window.nimaCopyValue = copyValue;
 })();
