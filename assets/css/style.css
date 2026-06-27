@@ -571,14 +571,36 @@ html[dir="rtl"] .hero-title {
 
 .scratch-card {
     position: relative;
-    margin-top: 0.9rem;
-    border: 1px solid rgba(255,255,255,0.13);
-    border-radius: 24px;
+    margin-top: clamp(1.25rem, 3vw, 2rem);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 28px;
     background:
-        radial-gradient(circle at 85% 0, rgba(255,211,110,0.14), transparent 10rem),
-        linear-gradient(145deg, rgba(255,255,255,0.085), rgba(255,255,255,0.035));
-    padding: 1rem;
+        radial-gradient(circle at 88% 0, rgba(255,211,110,0.22), transparent 12rem),
+        radial-gradient(circle at 8% 18%, rgba(118,255,216,0.14), transparent 13rem),
+        linear-gradient(145deg, rgba(255,255,255,0.1), rgba(255,255,255,0.038));
+    padding: clamp(1rem, 2.4vw, 1.35rem);
     overflow: hidden;
+    box-shadow: 0 24px 70px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.12);
+}
+
+.scratch-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(120deg, transparent, rgba(255,255,255,0.08), transparent 42%),
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.035) 0 1px, transparent 1px 4.5rem);
+    opacity: 0.55;
+    pointer-events: none;
+}
+
+.scratch-card > * {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-support-card {
+    max-width: 45rem;
 }
 
 .scratch-kicker {
@@ -603,18 +625,21 @@ html[dir="rtl"] .hero-title {
 .scratch-list {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.5rem;
-    margin-top: 0.85rem;
+    gap: 0.62rem;
+    margin-top: 1rem;
 }
 
 .scratch-list span {
-    border: 1px solid rgba(118,255,216,0.14);
-    border-radius: 14px;
-    background: rgba(0,0,0,0.16);
-    padding: 0.55rem;
+    border: 1px solid rgba(118,255,216,0.18);
+    border-radius: 16px;
+    background:
+        radial-gradient(circle at 12% 0, rgba(118,255,216,0.14), transparent 5rem),
+        rgba(0,0,0,0.18);
+    padding: 0.68rem 0.72rem;
     color: #efeaf7;
-    font-size: 0.9rem;
-    font-weight: 900;
+    font-size: 0.92rem;
+    font-weight: 930;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 0 24px rgba(118,255,216,0.055);
 }
 
 .diagnostics-grid {
@@ -1507,6 +1532,16 @@ html[dir="rtl"] .boss-meter span#boss-hp { top: 1.9rem; }
     .contact-method, .contact-link { min-width: 0; }
 }
 
+@media (max-width: 920px) {
+    .hero-support-card {
+        max-width: none;
+    }
+
+    .scratch-list {
+        grid-template-columns: 1fr;
+    }
+}
+
 @media (max-width: 430px) {
     .hero-title { font-size: clamp(2.35rem, 13vw, 3.35rem); }
     .hero-subtitle { font-size: 1rem; }
@@ -1687,15 +1722,29 @@ html[dir="rtl"] .system-lights span {
 .system-lights span {
     display: grid;
     place-items: center;
-    min-height: 4.6rem;
+    min-height: 6.35rem;
     border-radius: 22px;
-    padding: 0.95rem;
+    padding: 1rem 0.85rem;
     text-align: center;
     line-height: 1.2;
 }
 
 .system-lights span::before {
     content: none;
+}
+
+.system-lights .system-module {
+    align-content: center;
+    gap: 0.34rem;
+    background:
+        radial-gradient(circle at 50% 0, rgba(118,255,216,0.12), transparent 5.8rem),
+        linear-gradient(160deg, rgba(255,255,255,0.1), rgba(255,255,255,0.04));
+}
+
+.system-lights .system-module i {
+    width: 2.45rem;
+    height: 2.45rem;
+    box-shadow: 0 0 28px rgba(118,255,216,0.1);
 }
 
 .diagnostics-dialog[hidden] {
