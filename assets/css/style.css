@@ -1253,3 +1253,105 @@ html[dir="rtl"] .boss-meter span#boss-hp {
     .contact-method { grid-template-columns: 1fr; }
     .copy-btn { justify-self: stretch; }
 }
+
+/* QA correction pass: hero, signal, simulator, scrubber, overflow */
+html { overflow-x: clip; }
+body { overflow-x: clip; }
+main, section, .container, .hero-grid, .hero-copy, .dashboard, .game-layout, .game-card, .diagnosis-card, .signal-player, .contact-card { min-width: 0; max-width: 100%; }
+img, svg, video, canvas { max-width: 100%; height: auto; }
+
+.hero-title { max-width: none; white-space: nowrap; font-size: clamp(3rem, 5.9vw, 5.85rem); line-height: 1.02; letter-spacing: -0.045em; }
+.hero-title span { display: inline; }
+.hero-title-soft { display: inline-block; margin-inline-start: 0.22em; margin-top: 0; font-size: 0.43em; vertical-align: baseline; }
+html[dir="rtl"] .hero-title { letter-spacing: -0.025em; }
+html[dir="ltr"] .hero-title { font-size: clamp(2.8rem, 5.5vw, 5.4rem); }
+
+.chaos-strip { border-radius: 28px; overflow: hidden; isolation: isolate; }
+.chaos-strip::before { content: ""; position: absolute; inset: -40%; background: conic-gradient(from 0deg, transparent, rgba(118,255,216,0.26), rgba(255,111,181,0.22), rgba(255,211,110,0.2), transparent 55%); animation: rgbSweep 2.6s linear infinite; z-index: -1; }
+.chaos-strip span, .chip, .vibe-tags span { box-shadow: 0 0 0 rgba(118,255,216,0); }
+.chaos-strip span { animation-duration: 3.2s; }
+.chaos-strip span:nth-child(odd)::after { content: ""; display: inline-block; width: 0.24rem; height: 0.9rem; margin-inline-start: 0.45rem; border-radius: 999px; background: var(--mint); vertical-align: -0.12rem; animation: eqBar 0.72s ease-in-out infinite; }
+.chaos-strip span:nth-child(2n)::after { background: var(--pink); animation-delay: 0.18s; }
+.chaos-strip span:nth-child(3n)::after { background: var(--amber); animation-delay: 0.32s; }
+
+.operator-card { display: block; margin: 1rem 0; padding: 0; border-radius: 30px; background: transparent; border-color: rgba(118,255,216,0.22); overflow: hidden; }
+.operator-card img { display: block; width: 100%; height: clamp(21rem, 37vw, 34rem); object-fit: cover; object-position: center; border-radius: 30px; box-shadow: 0 28px 70px rgba(0,0,0,0.42), 0 0 55px rgba(118,255,216,0.12); }
+.operator-card small, .operator-card strong { display: none; }
+
+.system-lights { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.system-lights span { position: relative; min-width: 0; border: 1px solid rgba(118,255,216,0.18); border-radius: 999px; padding: 0.64rem 0.5rem; background: rgba(255,255,255,0.055); text-align: center; font-weight: 950; overflow: hidden; }
+.system-lights span::before { content: ""; display: inline-block; width: 0.55rem; height: 0.55rem; margin-inline-end: 0.36rem; border-radius: 999px; background: var(--mint); box-shadow: 0 0 16px var(--mint); animation: lightPulse 1.1s ease-in-out infinite; }
+.system-lights span:nth-child(2)::before { background: var(--pink); box-shadow: 0 0 16px var(--pink); animation-delay: 0.2s; }
+.system-lights span:nth-child(3)::before { background: var(--amber); box-shadow: 0 0 16px var(--amber); animation-delay: 0.4s; }
+.system-lights span:nth-child(4)::before { background: var(--violet); box-shadow: 0 0 16px var(--violet); animation-delay: 0.6s; }
+
+.diagnostics-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); max-height: 23rem; overflow: auto; }
+.diagnostic-item { min-width: 0; }
+.diagnostic-item strong { overflow-wrap: anywhere; }
+
+.chip { position: relative; border-color: rgba(118,255,216,0.22); background: linear-gradient(135deg, rgba(118,255,216,0.12), rgba(255,111,181,0.08)); animation: missionChipGlow 2.4s ease-in-out infinite; }
+.chips .chip:nth-child(2n) { animation-delay: 0.35s; }
+.chips .chip:nth-child(3n) { animation-delay: 0.7s; }
+.mission-proof { border: 1px solid rgba(255,211,110,0.28); box-shadow: inset 0 0 24px rgba(255,211,110,0.08), 0 0 34px rgba(255,211,110,0.08); }
+.lighthouse-badge { padding: 0.45rem; border-radius: 16px; background: rgba(118,255,216,0.11); box-shadow: 0 0 30px rgba(118,255,216,0.12); }
+
+.game-layout { grid-template-columns: minmax(0, 1fr) minmax(260px, 340px); }
+.repair-sim-stage { min-height: 8.5rem; margin: 0.2rem 0 1rem; }
+.repair-sim-stage::before { content: none; }
+.sim-window { position: relative; display: grid; grid-template-columns: repeat(3, 0.65rem) 1fr; align-items: center; gap: 0.4rem; width: min(100%, 22rem); border: 1px solid rgba(255,255,255,0.12); border-radius: 20px; padding: 0.8rem; background: linear-gradient(180deg, rgba(255,255,255,0.1), rgba(0,0,0,0.22)); box-shadow: 0 20px 60px rgba(0,0,0,0.28); }
+.sim-window span { width: 0.65rem; height: 0.65rem; border-radius: 999px; background: var(--danger); }
+.sim-window span:nth-child(2) { background: var(--amber); }
+.sim-window span:nth-child(3) { background: var(--mint); }
+.sim-window strong { grid-column: 1 / -1; margin-top: 0.6rem; border-radius: 16px; padding: 1rem; background: repeating-linear-gradient(90deg, rgba(255,93,115,0.16) 0 8px, rgba(118,255,216,0.08) 8px 16px); text-align: center; font-size: clamp(2rem, 7vw, 3.6rem); line-height: 1; letter-spacing: 0.08em; }
+.boss-meter { height: auto; margin-top: 0; padding-top: 1.7rem; }
+.boss-meter > div { position: absolute; inset: 0 0 auto; align-items: center; }
+.boss-meter span#boss-hp { top: 1.9rem; height: 0.72rem; right: auto; }
+html[dir="rtl"] .boss-meter span#boss-hp { top: 1.9rem; }
+
+.signal-player { grid-template-columns: minmax(0,1fr) 4.4rem minmax(260px,0.9fr); }
+.signal-scrub { display: grid; grid-template-columns: auto minmax(9rem,1fr) auto; align-items: center; gap: 0.65rem; min-width: 0; }
+.signal-progress { position: relative; width: 100%; height: 1rem; padding: 0; border: 0; border-radius: 999px; background: rgba(255,255,255,0.14); overflow: visible; cursor: pointer; }
+.signal-progress span { display: block; width: 0; height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--mint), var(--pink)); }
+.signal-progress i { position: absolute; top: 50%; left: 0; width: 1.1rem; height: 1.1rem; border: 3px solid #071018; border-radius: 999px; background: var(--mint); transform: translate(-50%, -50%); box-shadow: 0 0 20px rgba(118,255,216,0.45); pointer-events: none; }
+.signal-scrub time { font-variant-numeric: tabular-nums; font-weight: 950; color: #efe8ff; }
+
+@keyframes rgbSweep { to { transform: rotate(1turn); } }
+@keyframes eqBar { 50% { height: 1.45rem; transform: translateY(-0.18rem); box-shadow: 0 0 16px currentColor; } }
+@keyframes lightPulse { 50% { transform: scale(1.45); opacity: 0.72; } }
+@keyframes missionChipGlow { 50% { transform: translateY(-1px) scale(1.025); box-shadow: 0 0 22px rgba(118,255,216,0.14); } }
+
+@media (max-width: 920px) {
+    .container { width: min(100% - 1rem, var(--container)); }
+    .hero-grid { gap: 1rem; }
+    .hero-title { white-space: normal; max-width: 100%; font-size: clamp(2.8rem, 14vw, 4.35rem); line-height: 1.05; overflow-wrap: normal; }
+    .hero-title span { display: inline; }
+    .hero-title-soft { font-size: 0.46em; }
+    .hero-actions .btn { width: auto; max-width: 100%; }
+    .chaos-strip { width: 100%; max-width: 100%; flex-wrap: wrap; justify-content: center; overflow: hidden; border-radius: 24px; }
+    .chaos-strip span { flex: 1 1 auto; min-width: max-content; text-align: center; }
+    .operator-card img { height: clamp(17rem, 82vw, 25rem); border-radius: 24px; }
+    .system-lights { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .diagnostics-grid { grid-template-columns: 1fr; max-height: none; }
+    .game-layout { grid-template-columns: 1fr; }
+    .repair-sim-stage { min-height: 7.5rem; }
+    .repair-actions { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.55rem; }
+    .repair-actions button { min-height: 3rem; padding: 0.62rem; font-size: 0.88rem; }
+    .issue-card { font-size: 1rem; margin: 0.7rem 0; }
+    .signal-player { grid-template-columns: minmax(0,1fr) 4rem; }
+    .signal-scrub { grid-column: 1 / -1; grid-template-columns: auto minmax(0,1fr) auto; }
+    .wave, .audio-note { grid-column: 1 / -1; }
+    .contact-method, .contact-link { min-width: 0; }
+}
+
+@media (max-width: 430px) {
+    .hero-title { font-size: clamp(2.35rem, 13vw, 3.35rem); }
+    .hero-subtitle { font-size: 1rem; }
+    .chaos-strip span { min-width: 0; flex-basis: calc(50% - 0.5rem); font-size: 0.78rem; padding-inline: 0.45rem; }
+    .repair-actions { grid-template-columns: 1fr; }
+    .system-lights span { font-size: 0.84rem; }
+    .signal-scrub { font-size: 0.82rem; gap: 0.45rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .chaos-strip::before, .chaos-strip span, .chaos-strip span::after, .chip, .system-lights span::before { animation: none !important; }
+}

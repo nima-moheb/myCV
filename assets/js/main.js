@@ -43,14 +43,12 @@
             heroCtaCommand: "باز کردن فرمان‌ها",
             dashboardAria: "داشبورد فرمان",
             dashTitle: "ورودی مشکلات باز است",
-            terminal1: "✓ آماده بررسی جریان‌های خراب",
-            terminal2: "! احتمال تداخل افزونه یا تنظیمات",
-            terminal3: "✓ نقشه‌برداری قبل از تعمیر",
-            scanCta: "منو بررسی کن",
-            scanFriendly: "برای عیب‌یابی واقعی، محیط کاربر هم بخشی از داستان است.",
+            terminal1: "> مشکل را می‌خوانم",
+            terminal2: "> مسیر را پیدا می‌کنم",
+            terminal3: "> تمیز تعمیر می‌کنم",
+            scanCta: "سیستم منو بخون",
+            scanFriendly: "نمای سریع محیطی که سایت را با آن می‌بینی.",
             operatorAlt: "نیما در اتاق فرمان وب",
-            operatorKicker: "اپراتور",
-            operatorName: "نیما",
             statusWp: "قابل بررسی",
             statusLaravel: "قابل بررسی",
             statusDns: "قابل بررسی",
@@ -61,15 +59,15 @@
             projectsKicker: "ماموریت‌های واقعی",
             projectsTitle: "چند نمونه از جاهایی که فقط ظاهر سایت مهم نبود",
             projectsSubtitle: "ساختار، مسیر کاربر، نگه‌داری، سرعت و عیب‌یابی واقعی هم بخشی از کار بودند.",
-            gameKicker: "بازی تعمیر سایت",
-            gameTitle: "نبرد با سایت خراب",
-            bossName: "سایت خراب",
+            gameKicker: "شبیه‌ساز تعمیر سایت",
+            gameTitle: "شبیه‌ساز تعمیر سایت",
+            bossName: "پیشرفت تعمیر",
             gameIntro: "کارت مشکل را بخوان و تعمیر درست را انتخاب کن.",
             resetGame: "شروع دوباره",
-            scanVisitor: "منو بررسی کن",
+            scanVisitor: "سیستم منو بخون",
             diagnosisKicker: "تشخیص نیما",
             diagnosisLocked: "کارت تشخیص هنوز قفل است.",
-            diagnosisHint: "سایت خراب را شکست بده تا باز شود.",
+            diagnosisHint: "چند تعمیر درست بزن تا باز شود.",
             diagnosisUnlocked: "مشکل معمولاً فقط یک باگ نیست.",
             diagnosisText: "معمولاً چند چیز با هم گره خورده‌اند: ساختار، جریان کاربر، سرور، محتوا و نگه‌داری. اول نقشه مشکل را درمی‌آورم، بعد تعمیر می‌کنم.",
             signalTitle: "سیگنال اتاق فرمان",
@@ -78,7 +76,6 @@
             audioMissing: "اگر فایل صوتی موجود نباشد، پلیر عمداً خاموش و مرتب می‌ماند.",
             tagMade: "ساخته‌ی نیما",
             tagPersonal: "سیگنال شخصی",
-            tagDraft: "نسخه آزمایشی",
             contactKicker: "قدم بعدی",
             contactTitle: "مشکل سایتت رو بفرست.",
             contactText: "بگو کجای سایت کند، خراب، گیج‌کننده، نیمه‌کاره یا عجیب شده. لازم نیست تمیز و مرتب توضیحش بدهی؛ مرتب کردن مسئله بخشی از کار من است.",
@@ -124,6 +121,15 @@
                 scheme: "طرح رنگ",
                 motion: "کاهش حرکت",
                 connection: "اتصال",
+                dpr: "تراکم پیکسل",
+                cores: "هسته CPU",
+                memory: "حافظه",
+                touch: "لمسی",
+                online: "وضعیت",
+                yes: "بله",
+                no: "نه",
+                onlineValue: "آنلاین",
+                offlineValue: "آفلاین",
                 desktop: "رومیزی",
                 tablet: "تبلت",
                 mobile: "موبایل",
@@ -160,33 +166,31 @@
             heroCtaCommand: "Open console",
             dashboardAria: "Command dashboard",
             dashTitle: "Broken-site intake online",
-            terminal1: "✓ listening for broken flows",
-            terminal2: "! plugin conflict smell detected",
-            terminal3: "✓ mapping before repairing",
-            scanCta: "Scan my setup",
-            scanFriendly: "In real debugging, the user’s environment is part of the story.",
+            terminal1: "> read the mess",
+            terminal2: "> map the path",
+            terminal3: "> repair cleanly",
+            scanCta: "Read my setup",
+            scanFriendly: "A quick read of the setup viewing this site.",
             operatorAlt: "Nima in the web command center",
-            operatorKicker: "Operator",
-            operatorName: "Nima",
-            statusWp: "Ready to inspect",
-            statusLaravel: "Ready to inspect",
-            statusDns: "Ready to inspect",
+            statusWp: "WordPress",
+            statusLaravel: "Laravel",
+            statusDns: "DNS/SSL",
             statusMailLabel: "Mail/forms",
-            statusMail: "Ready to inspect",
+            statusMail: "Mail/forms",
             chaosKicker: "Chaos Types",
             chaosTitle: "The kinds of mess I do not run away from.",
             projectsKicker: "Real Missions",
             projectsTitle: "A few places where the job was bigger than the surface",
             projectsSubtitle: "Structure, user flow, maintenance, speed, and real debugging mattered too.",
-            gameKicker: "Fix the Broken Website",
-            gameTitle: "Boss fight: The Broken Site",
-            bossName: "The Broken Site",
+            gameKicker: "Repair Simulator",
+            gameTitle: "Repair Simulator",
+            bossName: "Repair progress",
             gameIntro: "Read the issue card and hit the right repair.",
             resetGame: "Reset game",
-            scanVisitor: "Scan my setup",
+            scanVisitor: "Read my setup",
             diagnosisKicker: "Nima’s diagnosis",
             diagnosisLocked: "Diagnosis card is locked.",
-            diagnosisHint: "Beat the boss to unlock it.",
+            diagnosisHint: "Make a few clean repairs to unlock it.",
             diagnosisUnlocked: "The problem is rarely just one bug.",
             diagnosisText: "It is usually structure, flow, server, content, and maintenance fighting each other. I map first, then repair.",
             signalTitle: "Command Center Signal",
@@ -195,7 +199,6 @@
             audioMissing: "If no audio file exists, this player stays intentionally quiet and clean.",
             tagMade: "Made by Nima",
             tagPersonal: "Personal signal",
-            tagDraft: "Draft signal",
             contactKicker: "Final unlocked action",
             contactTitle: "Send me the broken thing.",
             contactText: "Tell me what is slow, broken, confusing, unfinished, or weird. You do not need to organize the mess first — that is my job.",
@@ -241,6 +244,15 @@
                 scheme: "Color scheme",
                 motion: "Reduced motion",
                 connection: "Connection",
+                dpr: "Pixel ratio",
+                cores: "CPU cores",
+                memory: "Memory",
+                touch: "Touch",
+                online: "Status",
+                yes: "Yes",
+                no: "No",
+                onlineValue: "Online",
+                offlineValue: "Offline",
                 desktop: "Desktop",
                 tablet: "Tablet",
                 mobile: "Mobile",
@@ -497,15 +509,24 @@
         if (!grid) return;
 
         var labels = translations[currentLanguage].diagnostics;
+        var connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
         var items = [
             [labels.device, getDeviceType()],
             [labels.browser, getBrowserName()],
             [labels.viewport, window.innerWidth + "×" + window.innerHeight],
-            [labels.language, root.lang + " / " + root.dir],
-            [labels.motion, reducedMotion.matches ? labels.reduced : labels.noPreference]
+            [labels.language, navigator.language || root.lang],
+            [labels.timezone, Intl.DateTimeFormat().resolvedOptions().timeZone || labels.unknown],
+            [labels.scheme, colorScheme.matches ? labels.dark : labels.light],
+            [labels.motion, reducedMotion.matches ? labels.reduced : labels.noPreference],
+            [labels.connection, connection && connection.effectiveType ? connection.effectiveType : labels.unknown],
+            [labels.dpr, String(window.devicePixelRatio || 1)],
+            [labels.cores, navigator.hardwareConcurrency ? String(navigator.hardwareConcurrency) : labels.unknown],
+            [labels.memory, navigator.deviceMemory ? navigator.deviceMemory + " GB" : labels.unknown],
+            [labels.touch, ("ontouchstart" in window || navigator.maxTouchPoints > 0) ? labels.yes : labels.no],
+            [labels.online, navigator.onLine ? labels.onlineValue : labels.offlineValue]
         ];
 
-        grid.innerHTML = '<p class="diagnostics-note">' + escapeHtml(t("scanFriendly")) + '</p>' + items.map(function (item) {
+        grid.innerHTML = items.map(function (item) {
             return '<div class="diagnostic-item"><small>' + escapeHtml(item[0]) + '</small><strong>' + escapeHtml(item[1]) + '</strong></div>';
         }).join("");
 
@@ -541,8 +562,9 @@
     function updateBossMeter() {
         var hp = document.getElementById("boss-hp");
         var label = document.getElementById("boss-hp-label");
-        if (hp) hp.style.width = bossHp + "%";
-        if (label) label.textContent = bossHp + "%";
+        var repaired = 100 - bossHp;
+        if (hp) hp.style.width = repaired + "%";
+        if (label) label.textContent = repaired + "%";
     }
 
     function repairIssue(answer) {
@@ -721,17 +743,17 @@
     function updateAudioUi() {
         var audio = document.getElementById("command-audio");
         var progress = document.getElementById("audio-progress");
-        var time = document.getElementById("audio-time");
+        var current = document.getElementById("audio-current");
+        var duration = document.getElementById("audio-duration");
+        var thumb = document.getElementById("audio-thumb");
         var buttons = document.querySelectorAll("[data-audio-toggle]");
         if (!audio) return;
 
-        if (progress) {
-            progress.style.width = (audio.duration ? (audio.currentTime / audio.duration) * 100 : 0) + "%";
-        }
-
-        if (time) {
-            time.textContent = formatTime(audio.currentTime) + " / " + formatTime(audio.duration);
-        }
+        var percent = audio.duration ? (audio.currentTime / audio.duration) * 100 : 0;
+        if (progress) progress.style.width = percent + "%";
+        if (thumb) thumb.style.left = percent + "%";
+        if (current) current.textContent = formatTime(audio.currentTime);
+        if (duration) duration.textContent = formatTime(audio.duration);
 
         buttons.forEach(function (button) {
             button.textContent = audio.paused ? "▶" : "Ⅱ";
@@ -746,6 +768,17 @@
         if (audio.paused) audio.play().catch(function () {});
         else audio.pause();
 
+        updateAudioUi();
+    }
+
+    function seekAudio(event) {
+        var audio = document.getElementById("command-audio");
+        var track = event.currentTarget;
+        if (!audioAvailable() || !audio || !audio.duration || !track) return;
+
+        var rect = track.getBoundingClientRect();
+        var ratio = Math.min(1, Math.max(0, (event.clientX - rect.left) / rect.width));
+        audio.currentTime = ratio * audio.duration;
         updateAudioUi();
     }
 
@@ -766,8 +799,12 @@
             updateAudioUi();
         });
 
-        ["timeupdate", "play", "pause"].forEach(function (eventName) {
+        ["timeupdate", "play", "pause", "durationchange"].forEach(function (eventName) {
             audio.addEventListener(eventName, updateAudioUi);
+        });
+
+        document.querySelectorAll("[data-audio-seek]").forEach(function (track) {
+            track.addEventListener("click", seekAudio);
         });
     }
 
