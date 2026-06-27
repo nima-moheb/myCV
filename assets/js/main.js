@@ -48,6 +48,7 @@
             terminal2: "> مسیر را پیدا می‌کنم",
             terminal3: "> تمیز تعمیر می‌کنم",
             scanCta: "سیستم منو بخون",
+            diagnosticsTitle: "اسکن محیط",
             scanFriendly: "نمای سریع محیطی که سایت را با آن می‌بینی.",
             operatorAlt: "نیما در اتاق فرمان وب",
             statusWp: "قابل بررسی",
@@ -171,6 +172,7 @@
             terminal2: "> map the path",
             terminal3: "> repair cleanly",
             scanCta: "Read my setup",
+            diagnosticsTitle: "Environment scan",
             scanFriendly: "A quick read of the setup viewing this site.",
             operatorAlt: "Nima in the web command center",
             statusWp: "WordPress",
@@ -300,7 +302,7 @@
                 featured: true,
                 mess: "پلتفرمی که جریان کاربر، زیرساخت و اعتماد در آن مهم بود.",
                 move: "ورود، داشبورد، درخواست سرویس، آپلود، ایمیل، DNS/SSL، Cloudflare، نقشه سایت و سئوی فنی.",
-                outcome: "Lighthouse 100×4",
+                outcome: "",
                 chips: ["Laravel", "Auth", "Dashboards", "Cloudflare", "SEO", "Lighthouse 100×4"]
             },
             {
@@ -330,7 +332,7 @@
                 featured: true,
                 mess: "A legal-services platform needed reliable flows, stable infrastructure, and trust-building paths.",
                 move: "I worked on auth flows, dashboards, service requests, upload hardening, legal hub, mail, DNS, SSL, Cloudflare, sitemap, technical SEO, and server-side troubleshooting.",
-                outcome: "The system became more usable and maintainable, with Lighthouse 100×4 as proof.",
+                outcome: "",
                 chips: ["Laravel", "Auth", "Dashboards", "Cloudflare", "SEO", "Lighthouse 100×4"]
             },
             {
@@ -468,7 +470,7 @@
             var chips = project.chips.filter(function (chip) { return chip !== "Lighthouse 100×4"; }).map(function (chip) {
                 return '<span class="chip">' + escapeHtml(chip) + '</span>';
             }).join("");
-            var badge = project.featured ? '<div class="lighthouse-badge"><strong>Lighthouse 100×4</strong><span><i>100</i><i>100</i><i>100</i><i>100</i></span></div>' : '';
+            var badge = project.featured ? '<div class="mission-proof"><div class="lighthouse-badge"><strong>Lighthouse 100×4</strong><span><i>100</i><i>100</i><i>100</i><i>100</i></span></div></div>' : '<div class="mission-proof mission-proof-spacer" aria-hidden="true"></div>';
 
             return [
                 '<article class="mission-card observe is-visible ' + (project.featured ? "featured" : "") + '">',
@@ -476,7 +478,7 @@
                 '<h3>' + escapeHtml(project.name) + '</h3>',
                 '<p class="mission-mess">' + escapeHtml(project.mess) + '</p>',
                 '<div class="mission-work"><strong>' + escapeHtml(currentLanguage === "fa" ? "کار من" : "My work") + '</strong><p>' + escapeHtml(project.move) + '</p></div>',
-                '<div class="mission-proof">' + badge + '<span>' + escapeHtml(project.outcome) + '</span></div>',
+                badge,
                 '<div class="chips">' + chips + '</div>',
                 '<a class="live-link" target="_blank" rel="noopener" href="' + escapeHtml(project.url) + '">' + (currentLanguage === "fa" ? "مشاهده سایت زنده" : "Open live site") + '</a>',
                 '</article>'
@@ -531,17 +533,32 @@
             return '<div class="diagnostic-item"><small>' + escapeHtml(item[0]) + '</small><strong>' + escapeHtml(item[1]) + '</strong></div>';
         }).join("");
 
-        if (showPanel) {
-            diagnosticsOpen = true;
-            grid.hidden = false;
-        } else if (!diagnosticsOpen) {
-            grid.hidden = true;
-        }
+        grid.hidden = !showPanel;
+    }
+
+    function openDiagnosticsPanel() {
+        var dialog = document.getElementById("diagnostics-dialog");
+        if (!dialog) return;
+
+        diagnosticsOpen = true;
+        renderDiagnostics(true);
+        dialog.hidden = false;
+        document.body.style.overflow = "hidden";
+
+        var closeButton = dialog.querySelector("[data-close-diagnostics]");
+        if (closeButton) closeButton.focus();
+    }
+
+    function closeDiagnosticsPanel() {
+        var dialog = document.getElementById("diagnostics-dialog");
+        diagnosticsOpen = false;
+        renderDiagnostics(false);
+        if (dialog) dialog.hidden = true;
+        if (document.getElementById("command-dialog").hidden) document.body.style.overflow = "";
     }
 
     function scanVisitor() {
-        diagnosticsOpen = true;
-        renderDiagnostics(true);
+        openDiagnosticsPanel();
     }
 
     /* Boss Fight */
@@ -821,6 +838,7 @@
         var resetButton = event.target.closest("[data-reset-game]");
         var openCommandButton = event.target.closest("[data-open-command]");
         var closeCommandButton = event.target.closest("[data-close-command]");
+        var closeDiagnosticsButton = event.target.closest("[data-close-diagnostics]");
         var scanButton = event.target.closest("[data-scan-visitor]");
         var copyButton = event.target.closest("[data-copy]");
         var audioButton = event.target.closest("[data-audio-toggle]");
@@ -830,6 +848,7 @@
         if (resetButton) resetGame();
         if (openCommandButton) openCommandPalette();
         if (closeCommandButton) closeCommandPalette();
+        if (closeDiagnosticsButton) closeDiagnosticsPanel();
         if (scanButton) scanVisitor();
         if (audioButton) toggleAudio();
 
@@ -854,6 +873,7 @@
 
         if (event.key === "Escape") {
             closeCommandPalette();
+            closeDiagnosticsPanel();
         }
     }
 

@@ -54,7 +54,6 @@
                     <div class="terminal-card"><p>$ repair --clean</p><p class="ok" data-i18n="terminal1">&gt; مشکل را می‌خوانم</p><p class="warn" data-i18n="terminal2">&gt; مسیر را پیدا می‌کنم</p><p class="ok" data-i18n="terminal3">&gt; تمیز تعمیر می‌کنم</p></div>
                     <div class="system-cards system-lights" aria-label="Repair categories"><span>WordPress</span><span>Laravel</span><span>DNS/SSL</span><span data-i18n="statusMailLabel">ایمیل/فرم</span></div>
                     <button class="scan-card" type="button" data-scan-visitor><span data-i18n="scanCta">سیستم منو بخون</span></button>
-                    <div class="diagnostics-grid" id="diagnostics-grid" hidden aria-live="polite"></div>
                 </aside>
             </div>
         </section>
@@ -92,6 +91,7 @@
     <footer class="page-footer"><div class="container footer-content"><p data-i18n="footerText">نیما — Web Chaos Command Center</p><a href="#top" data-i18n="backTop">بازگشت به بالا</a></div></footer>
     <div class="mobile-dock" aria-label="Pocket console"><button type="button" data-open-command>⌘</button><a href="#boss">☠︎</a><a href="#contact">✉</a><button type="button" data-audio-toggle>▶</button></div>
 
+    <div class="diagnostics-dialog" id="diagnostics-dialog" role="dialog" aria-modal="true" aria-labelledby="diagnostics-title" hidden><div class="diagnostics-backdrop" data-close-diagnostics></div><div class="diagnostics-panel" role="document"><div class="diagnostics-head"><div><p class="section-kicker">Environment Scan</p><h2 id="diagnostics-title" data-i18n="diagnosticsTitle">اسکن محیط</h2></div><button class="icon-button" type="button" data-close-diagnostics data-i18n-aria-label="closeAria" aria-label="بستن">×</button></div><div class="diagnostics-grid" id="diagnostics-grid" hidden aria-live="polite"></div></div></div>
     <div class="command-dialog" id="command-dialog" role="dialog" aria-modal="true" aria-labelledby="command-title" hidden><div class="command-backdrop" data-close-command></div><div class="command-panel" role="document"><div class="command-head"><div><p class="section-kicker">System Console</p><h2 id="command-title" data-i18n="paletteTitle">فرمان‌ها</h2></div><button class="icon-button" type="button" data-close-command data-i18n-aria-label="closeAria" aria-label="بستن">×</button></div><div class="command-list" id="command-list"></div><p class="command-hint" data-i18n="paletteHint">/ برای باز کردن، Escape برای بستن.</p></div></div>
     <script src="assets/js/main.js"></script>
 </body>
