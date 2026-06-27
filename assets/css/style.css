@@ -1904,3 +1904,54 @@ html[dir="rtl"] .system-lights span {
 @media (prefers-reduced-motion: reduce) {
     .site-rescue-stage::before, .tool-button, .rescue-hud span { animation: none !important; transition: none !important; }
 }
+
+/* 3D Debug Lab */
+.debug-lab-card { overflow: hidden; }
+.debug-lab-shell { display: grid; gap: 0.9rem; }
+.debug-lab-stage {
+    position: relative;
+    min-height: 28rem;
+    border: 1px solid rgba(118,255,216,0.18);
+    border-radius: 30px;
+    overflow: hidden;
+    perspective: 900px;
+    isolation: isolate;
+    background: radial-gradient(circle at 50% 52%, rgba(118,255,216,0.18), transparent 8rem), radial-gradient(circle at 18% 20%, rgba(255,111,181,0.16), transparent 12rem), #050711;
+    box-shadow: inset 0 0 80px rgba(118,255,216,0.06), 0 24px 70px rgba(0,0,0,0.28);
+    touch-action: manipulation;
+}
+.lab-wall, .lab-floor { position: absolute; pointer-events: none; }
+.lab-wall-back { inset: 0 8% 38%; transform: translateZ(-90px) rotateX(3deg); background: linear-gradient(rgba(118,255,216,0.12) 1px, transparent 1px), linear-gradient(90deg, rgba(118,255,216,0.08) 1px, transparent 1px), radial-gradient(circle at 50% 100%, rgba(140,123,255,0.24), transparent 55%); background-size: 46px 46px, 46px 46px, auto; opacity: 0.74; }
+.lab-wall-left { inset: 0 auto 24% 0; width: 24%; transform-origin: left center; transform: rotateY(62deg); background: linear-gradient(90deg, rgba(255,255,255,0.08), transparent); }
+.lab-wall-right { inset: 0 0 24% auto; width: 24%; transform-origin: right center; transform: rotateY(-62deg); background: linear-gradient(270deg, rgba(255,255,255,0.08), transparent); }
+.lab-floor { inset: 36% -12% -18%; transform: rotateX(68deg); transform-origin: top center; background: linear-gradient(rgba(118,255,216,0.18) 2px, transparent 2px), linear-gradient(90deg, rgba(118,255,216,0.12) 2px, transparent 2px), radial-gradient(circle at 50% 10%, rgba(255,211,110,0.15), transparent 42%); background-size: 54px 54px; }
+.lab-core { position: absolute; inset: 50% auto auto 50%; width: 7.4rem; height: 7.4rem; transform: translate(-50%, -42%) translateZ(80px); display: grid; place-items: center; border-radius: 50%; color: #071018; font-weight: 1000; letter-spacing: 0.08em; background: radial-gradient(circle at 35% 28%, #fff, var(--mint) 32%, #1bd7ba 62%, rgba(118,255,216,0.22)); box-shadow: 0 0 24px rgba(118,255,216,0.85), 0 0 90px rgba(118,255,216,0.32); z-index: 4; }
+.lab-core::before, .lab-core::after { content: ""; position: absolute; inset: -1rem; border: 1px solid rgba(118,255,216,0.32); border-radius: inherit; animation: labOrbit 5s linear infinite; }
+.lab-core::after { inset: -2rem; border-color: rgba(255,211,110,0.22); animation-duration: 8s; animation-direction: reverse; }
+.lab-consoles, .lab-beams { position: absolute; inset: 0; z-index: 5; pointer-events: none; }
+.lab-console { pointer-events: auto; position: absolute; width: clamp(5.2rem, 15vw, 7.2rem); min-height: 4.8rem; border: 1px solid rgba(255,93,115,0.45); border-radius: 20px; background: linear-gradient(145deg, rgba(255,93,115,0.2), rgba(255,255,255,0.08)); color: var(--text); font-weight: 1000; box-shadow: 0 14px 30px rgba(0,0,0,0.32), inset 0 0 24px rgba(255,255,255,0.06); transform: translate(-50%, -50%) translateZ(110px) rotateX(7deg); display: grid; place-items: center; gap: 0.1rem; cursor: pointer; animation: labFlicker 2.6s infinite steps(2); }
+.lab-console small { color: #c9bfd5; font-size: 0.72rem; }
+.console-light { width: 0.75rem; height: 0.75rem; border-radius: 50%; background: var(--danger); box-shadow: 0 0 14px var(--danger); }
+.lab-console:hover, .lab-console:focus-visible, .lab-console.is-active { outline: none; border-color: var(--amber); transform: translate(-50%, -56%) translateZ(150px) rotateX(0); box-shadow: 0 0 34px rgba(255,211,110,0.3), inset 0 0 28px rgba(255,211,110,0.1); }
+.lab-console.is-repaired { animation: none; border-color: rgba(118,255,216,0.8); background: linear-gradient(145deg, rgba(118,255,216,0.26), rgba(255,211,110,0.16)); box-shadow: 0 0 28px rgba(118,255,216,0.35), inset 0 0 28px rgba(118,255,216,0.14); }
+.lab-console.is-repaired .console-light { background: var(--mint); box-shadow: 0 0 18px var(--mint), 0 0 34px rgba(255,211,110,0.5); }
+.console-0 { left: 50%; top: 17%; } .console-1 { left: 74%; top: 27%; } .console-2 { left: 83%; top: 52%; } .console-3 { left: 70%; top: 76%; } .console-4 { left: 50%; top: 84%; } .console-5 { left: 30%; top: 76%; } .console-6 { left: 17%; top: 52%; } .console-7 { left: 26%; top: 27%; }
+.lab-beam { position: absolute; left: 50%; top: 50%; height: 3px; width: 22%; transform-origin: left center; opacity: 0.12; background: linear-gradient(90deg, transparent, var(--mint), transparent); filter: drop-shadow(0 0 8px var(--mint)); }
+.lab-beam.is-lit { opacity: 0.9; }
+.beam-0 { transform: rotate(-90deg); } .beam-1 { transform: rotate(-45deg); } .beam-2 { transform: rotate(0deg); } .beam-3 { transform: rotate(45deg); } .beam-4 { transform: rotate(90deg); } .beam-5 { transform: rotate(135deg); } .beam-6 { transform: rotate(180deg); } .beam-7 { transform: rotate(225deg); }
+.console-panel { border: 1px solid rgba(255,255,255,0.12); border-radius: 24px; padding: 1rem; background: linear-gradient(145deg, rgba(118,255,216,0.09), rgba(140,123,255,0.08)); }
+.panel-kicker { margin: 0 0 0.35rem; color: var(--mint); font-weight: 1000; font-size: 0.82rem; }
+.console-panel h3 { margin: 0 0 0.3rem; }
+.console-panel p { color: #ddd4e9; font-weight: 780; }
+.repair-actions { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 0.8rem; }
+.repair-actions:empty { display: none; }
+.repair-actions button { min-height: 3.7rem; cursor: pointer; }
+.debug-lab-stage.good-pulse { box-shadow: inset 0 0 100px rgba(118,255,216,0.24), 0 0 46px rgba(118,255,216,0.28); }
+.debug-lab-stage.wrong-pulse { animation: labGlitch 0.38s; }
+.debug-lab-card.is-powered .debug-lab-stage { border-color: rgba(255,211,110,0.44); background: radial-gradient(circle at 50% 52%, rgba(255,211,110,0.26), transparent 11rem), radial-gradient(circle at 18% 20%, rgba(118,255,216,0.22), transparent 12rem), #050711; }
+@keyframes labOrbit { to { transform: rotate(360deg); } }
+@keyframes labFlicker { 50% { filter: brightness(1.22) hue-rotate(-10deg); } 52% { filter: brightness(0.72); } }
+@keyframes labGlitch { 20% { transform: translateX(-4px); filter: hue-rotate(50deg); } 55% { transform: translateX(5px); } 100% { transform: none; filter: none; } }
+@media (max-width: 920px) { .debug-lab-stage { min-height: 21rem; perspective: 620px; } .lab-console { width: 5.25rem; min-height: 4.25rem; font-size: 0.84rem; } .repair-actions { grid-template-columns: 1fr; } }
+@media (max-width: 520px) { .debug-lab-stage { min-height: 18rem; max-height: 62vh; } .lab-core { width: 5.4rem; height: 5.4rem; font-size: 0.75rem; } .lab-console { width: 4.65rem; min-height: 3.85rem; border-radius: 16px; } .lab-console small { display: none; } .debug-lab-hud { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (prefers-reduced-motion: reduce) { .lab-core::before, .lab-core::after, .lab-console, .debug-lab-stage.wrong-pulse { animation: none !important; transition: none !important; } }

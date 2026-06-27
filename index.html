@@ -87,18 +87,23 @@
         </section>
 
         <section class="section split-section" id="boss" aria-labelledby="boss-title">
-            <div class="container game-layout">
-                <article class="game-card observe" id="game-card">
-                    <div class="game-head"><div><p class="section-kicker" data-i18n="gameKicker">بازی نجات سایت</p><h2 id="boss-title" data-i18n="gameTitle">مشکل‌ها دارن به هسته سایت می‌رسن</h2><p data-i18n="gameIntro">ابزار درست را انتخاب کن و قبل از آسیب، مشکل را تعمیر کن.</p></div><button class="btn primary-btn" type="button" data-start-game data-i18n="startGame">شروع بازی</button></div>
-                    <div class="site-rescue-shell">
-                        <div class="rescue-hud" aria-live="polite"><span><b data-i18n="healthLabel">سلامت سایت</b><i id="game-health">100%</i></span><span><b data-i18n="repairedLabel">تعمیر شده</b><i id="game-repaired">0/12</i></span><span><b data-i18n="comboLabel">کمبو</b><i id="game-combo">0x</i></span><span><b data-i18n="selectedToolLabel">ابزار فعال</b><i id="game-selected-tool">DNS</i></span></div>
-                        <div class="boss-stage site-rescue-stage" id="site-rescue-stage"><canvas id="site-rescue-canvas" aria-label="Site Rescue Arcade stage"></canvas></div>
-                        <div class="toolbelt" id="toolbelt" aria-label="Repair toolbelt"></div>
-                        <p class="game-status" id="game-status" aria-live="polite" data-i18n="gameIntro">ابزار درست را انتخاب کن و قبل از آسیب، مشکل را تعمیر کن.</p>
-                        <div class="game-actions"><button class="btn ghost-btn" type="button" data-pause-game data-i18n="pauseGame">مکث</button><button class="btn ghost-btn" type="button" data-reset-game data-i18n="resetGame">شروع دوباره</button></div>
+            <div class="container game-layout debug-lab-layout">
+                <article class="game-card debug-lab-card observe" id="game-card">
+                    <div class="game-head debug-lab-head"><div><p class="section-kicker" data-i18n="gameKicker">اتاق فرمان سه‌بعدی</p><h2 id="boss-title" data-i18n="gameTitle">کنسول‌های خراب را روشن کن</h2><p data-i18n="gameIntro">هر کنسول یک لایه از سایت است. مشکل را باز کن، تعمیر درست را انتخاب کن و هسته سایت را روشن کن.</p></div><button class="btn primary-btn" type="button" data-start-game data-i18n="startGame">ورود به اتاق فرمان</button></div>
+                    <div class="debug-lab-shell">
+                        <div class="rescue-hud debug-lab-hud" aria-live="polite"><span><b data-i18n="repairedLabel">تعمیر شده</b><i id="game-repaired">0/8</i></span><span><b data-i18n="selectedToolLabel">کنسول فعال</b><i id="game-active-console">—</i></span><span><b data-i18n="mistakesLabel">خطا</b><i id="game-mistakes">0</i></span><span><b data-i18n="powerLabel">قدرت اتاق</b><i id="game-power">0%</i></span></div>
+                        <div class="debug-lab-stage" id="debug-lab-stage" aria-label="3D Debug Lab stage">
+                            <div class="lab-wall lab-wall-back" aria-hidden="true"></div><div class="lab-wall lab-wall-left" aria-hidden="true"></div><div class="lab-wall lab-wall-right" aria-hidden="true"></div><div class="lab-floor" aria-hidden="true"></div>
+                            <div class="lab-core" id="lab-core" aria-hidden="true"><span>CORE</span></div>
+                            <div class="lab-beams" id="lab-beams" aria-hidden="true"></div>
+                            <div class="lab-consoles" id="lab-consoles"></div>
+                        </div>
+                        <div class="console-panel" id="console-panel" aria-live="polite"><p class="panel-kicker" data-i18n="chooseRepair">تعمیر درست را انتخاب کن</p><h3 id="panel-title">—</h3><p id="panel-clue" data-i18n="gameIntro">هر کنسول یک لایه از سایت است. مشکل را باز کن، تعمیر درست را انتخاب کن و هسته سایت را روشن کن.</p><div class="repair-actions" id="repair-actions"></div></div>
+                        <p class="game-status" id="game-status" aria-live="polite" data-i18n="gameIntro">هر کنسول یک لایه از سایت است. مشکل را باز کن، تعمیر درست را انتخاب کن و هسته سایت را روشن کن.</p>
+                        <div class="game-actions"><button class="btn ghost-btn" type="button" data-reset-game data-i18n="resetGame">شروع دوباره</button></div>
                     </div>
                 </article>
-                <aside class="diagnosis-card observe" id="diagnosis-card" aria-live="polite"><p class="section-kicker" data-i18n="diagnosisKicker">تشخیص نیما</p><h3 data-i18n="diagnosisLocked">کارت تشخیص هنوز قفل است.</h3><p data-i18n="diagnosisHint">بازی را ببَر تا کارت تشخیص باز شود.</p></aside>
+                <aside class="diagnosis-card observe" id="diagnosis-card" aria-live="polite"><p class="section-kicker" data-i18n="diagnosisKicker">تشخیص نیما</p><h3 data-i18n="diagnosisLocked">تشخیص هنوز قفل است.</h3><p data-i18n="diagnosisHint">همه کنسول‌ها را روشن کن تا باز شود.</p></aside>
             </div>
         </section>
 
