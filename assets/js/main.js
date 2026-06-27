@@ -1,31 +1,837 @@
-(function(){
-"use strict";
-document.documentElement.classList.add("js");
-var root=document.documentElement,storageKey="nima-chaos-language",email="nima.mohebali.b@gmail.com",phone="09227241378",phoneIntl="+989227241378",currentLanguage=localStorage.getItem(storageKey)==="en"?"en":"fa",lastFocusedElement=null,debugMode=false,reducedMotion=window.matchMedia("(prefers-reduced-motion: reduce)"),colorScheme=window.matchMedia("(prefers-color-scheme: dark)");
-var translations={fa:{skip:"رفتن به محتوای اصلی",metaTitle:"نیما — Web Chaos Command Center",metaDescription:"نیما — مرکز فرمان آشوب وب. چیز خراب را بفرست: وردپرس، لاراول، ووکامرس، سئو، سرعت، DNS، ایمیل، باگ‌های عجیب و جریان‌های نیمه‌کاره.",headerAria:"ناوبری اصلی",brandAria:"بازگشت به بالا",navAria:"لینک‌های صفحه",brandName:"نیما",brandRole:"مرکز فرمان آشوب وب",navChaos:"آشوب‌ها",navProjects:"ماموریت‌ها",navBoss:"باس‌فایت",navContact:"ارسال خرابی",commandTrigger:"لانچر",commandAria:"باز کردن لانچر فرمان",langAria:"تغییر زبان",langStatus:"حالت فارسی",heroBadge:"Nima — Web Chaos Command Center",heroTitle:"چیز خراب را بفرست.",heroSubtitle:"وردپرس، لاراول، ووکامرس، سئو، سرعت، DNS، ایمیل، باگ‌های عجیب، جریان‌های شکسته و ایده‌های نیمه‌ساخته؛ من نقشه‌شان را می‌کشم و قابل استفاده‌شان می‌کنم.",heroCtaGame:"خرابی را تعمیر کن",heroCtaContact:"چیز خراب را بفرست",heroCtaCommand:"باز کردن کنسول",dashboardAria:"داشبورد فرمان",dashTitle:"دریافت خرابی فعال است",terminal1:"✓ آماده برای جریان‌های شکسته",terminal2:"! بوی تداخل افزونه می‌آید",terminal3:"✓ لایه سلیقه مسلح شد",scanCta:"اسکن امن بازدیدکننده",scanSafe:"بدون IP، بدون مکان‌یابی",chaosKicker:"Chaos Types",chaosTitle:"خرابی‌هایی که از دیدنشان فرار نمی‌کنم.",projectsKicker:"Mission Projects",projectsTitle:"کلمات و سایت‌های زنده، مدرک من‌اند؛ نه عددهای جعلی.",gameKicker:"Fix the Broken Website",gameTitle:"باس‌فایت: The Broken Site",bossName:"The Broken Site",gameIntro:"کارت خرابی را بخوان و تعمیر درست را بزن.",resetGame:"شروع دوباره",scanVisitor:"اسکن امن بازدیدکننده",diagnosisKicker:"Nima’s diagnosis",diagnosisLocked:"کارت تشخیص قفل است.",diagnosisHint:"باس را شکست بده تا باز شود.",diagnosisUnlocked:"مشکل معمولاً فقط یک باگ نیست.",diagnosisText:"معمولاً ساختار، جریان، سرور، محتوا و نگه‌داری با هم می‌جنگند. اول نقشه می‌کشم، بعد تعمیر می‌کنم.",signalTitle:"Command Center Signal",audioPlay:"پخش سیگنال",audioPause:"توقف سیگنال",audioMissing:"اگر فایل صوتی موجود نباشد، پلیر بی‌صدا و تمیز می‌ماند.",contactKicker:"Final unlocked action",contactTitle:"چیز خراب را بفرست.",contactText:"بگو چه چیزی کند، خراب، گیج‌کننده، نیمه‌تمام یا عجیب است. لازم نیست مسئله را مرتب کنی؛ مرتب کردنش کار من است.",copyEmail:"کپی ایمیل",copyPhone:"کپی شماره",copiedEmail:"ایمیل کپی شد.",copiedPhone:"شماره کپی شد.",copyFailed:"کپی خودکار انجام نشد؛ متن را دستی بردار.",phoneAria:"تماس با 09227241378",footerText:"نیما — Web Chaos Command Center",backTop:"بازگشت به بالا",paletteTitle:"لانچر فرمان",paletteHint:"/ برای باز کردن، Escape برای بستن.",closeAria:"بستن",commandProjects:"Open Projects",commandChaos:"Show Chaos Types",commandBoss:"Start Boss Fight",commandScan:"Scan Visitor",commandSignal:"Play Nima Signal",commandEmail:"Copy Email",commandPhone:"Copy Phone",commandSwitch:"Switch Language",commandContact:"Send broken thing",commandApplitent:"Open Applitent",commandFannkala:"Open Fannkala",commandParstek:"Open Parstek",commandDebug:"Toggle Debug Mode",hintScroll:"رفتن به بخش",hintCopy:"کپی در کلیپ‌بورد",hintExternal:"باز شدن در تب تازه",hintConsole:"فرمان سیستمی",gameWin:"System stable. Now send me your real broken thing.",gameGood:"تعمیر درست. آشوب کمتر شد.",gameBad:"حرکت اشتباه؛ سایت بیشتر غر زد.",diagnostics:{device:"دستگاه",browser:"مرورگر",viewport:"اندازه صفحه",language:"زبان صفحه",timezone:"منطقه زمانی",scheme:"طرح رنگ",motion:"کاهش حرکت",connection:"اتصال",desktop:"رومیزی",tablet:"تبلت",mobile:"موبایل",dark:"تیره",light:"روشن",reduced:"فعال",noPreference:"غیرفعال",unknown:"نامشخص"}},en:{skip:"Skip to main content",metaTitle:"Nima — Web Chaos Command Center",metaDescription:"Nima — Web Chaos Command Center. Send me the broken thing: WordPress, Laravel, WooCommerce, SEO, speed, DNS, mail, weird bugs, broken flows, and half-built ideas.",headerAria:"Primary navigation",brandAria:"Back to top",navAria:"Page links",brandName:"Nima",brandRole:"Web Chaos Command Center",navChaos:"Chaos",navProjects:"Missions",navBoss:"Boss fight",navContact:"Send broken thing",commandTrigger:"Launcher",commandAria:"Open command launcher",langAria:"Change language",langStatus:"English mode",heroBadge:"Nima — Web Chaos Command Center",heroTitle:"Send me the broken thing.",heroSubtitle:"WordPress, Laravel, WooCommerce, SEO, speed, DNS, mail, weird bugs, broken flows, half-built ideas — I map the mess and make it usable.",heroCtaGame:"Fix the broken site",heroCtaContact:"Send the broken thing",heroCtaCommand:"Open console",dashboardAria:"Command dashboard",dashTitle:"Broken-site intake online",terminal1:"✓ listening for broken flows",terminal2:"! plugin conflict smell detected",terminal3:"✓ taste layer armed",scanCta:"Scan Visitor",scanSafe:"No IP. No geolocation.",chaosKicker:"Chaos Types",chaosTitle:"The kinds of mess I do not run away from.",projectsKicker:"Mission Projects",projectsTitle:"My words and live sites are proof — not fake numbers.",gameKicker:"Fix the Broken Website",gameTitle:"Boss fight: The Broken Site",bossName:"The Broken Site",gameIntro:"Read the issue card and hit the right repair.",resetGame:"Reset game",scanVisitor:"Safe visitor scan",diagnosisKicker:"Nima’s diagnosis",diagnosisLocked:"Diagnosis card is locked.",diagnosisHint:"Beat the boss to unlock it.",diagnosisUnlocked:"The problem is rarely just one bug.",diagnosisText:"It is usually structure, flow, server, content, and maintenance fighting each other. I map first, then repair.",signalTitle:"Command Center Signal",audioPlay:"Play signal",audioPause:"Pause signal",audioMissing:"If no audio file exists, this player stays quiet and graceful.",contactKicker:"Final unlocked action",contactTitle:"Send me the broken thing.",contactText:"Tell me what is slow, broken, confusing, unfinished, or weird. You do not need to organize the mess first — that is my job.",copyEmail:"Copy email",copyPhone:"Copy phone",copiedEmail:"Email copied.",copiedPhone:"Phone copied.",copyFailed:"Automatic copy failed; copy it manually.",phoneAria:"Call 09227241378",footerText:"Nima — Web Chaos Command Center",backTop:"Back to top",paletteTitle:"Command launcher",paletteHint:"/ opens. Escape closes.",closeAria:"Close",commandProjects:"Open Projects",commandChaos:"Show Chaos Types",commandBoss:"Start Boss Fight",commandScan:"Scan Visitor",commandSignal:"Play Nima Signal",commandEmail:"Copy Email",commandPhone:"Copy Phone",commandSwitch:"Switch Language",commandContact:"Contact / Send broken thing",commandApplitent:"Open Applitent",commandFannkala:"Open Fannkala",commandParstek:"Open Parstek",commandDebug:"Toggle Debug Mode",hintScroll:"Jump to section",hintCopy:"Copy to clipboard",hintExternal:"Open in a new tab",hintConsole:"System command",gameWin:"System stable. Now send me your real broken thing.",gameGood:"Correct repair. Chaos reduced.",gameBad:"Wrong move. The site growled louder.",diagnostics:{device:"Device",browser:"Browser",viewport:"Viewport",language:"Page language",timezone:"Timezone",scheme:"Color scheme",motion:"Reduced motion",connection:"Connection",desktop:"Desktop",tablet:"Tablet",mobile:"Mobile",dark:"Dark",light:"Light",reduced:"Reduced",noPreference:"No preference",unknown:"Unknown"}}};
-var chaos={fa:[["WP/WOO","وردپرس یا ووکامرس شکسته","فروشگاه بالا می‌آید، اما اعتماد، خرید یا نگه‌داری گیر می‌کند."],["SPEED","سایت کند","دارایی‌های سنگین، کش بد، هاست خسته یا ساختار نامرتب."],["PLUGIN","تداخل افزونه/قالب","وقتی همه چیز جداگانه درست است ولی کنار هم دعوا می‌کنند."],["LARAVEL","داشبورد و جریان لاراول","احراز هویت، پنل، درخواست سرویس و مسیرهای نیمه‌کاره."],["DNS/SSL","DNS، SSL، Cloudflare","دامنه، قفل سبز، ریدایرکت و لایه زیرساختی که اعصاب می‌خواهد."],["MAIL","ایمیل ارسال نمی‌شود","SMTP، فرم تماس، اعلان‌ها و پیام‌هایی که در خلأ گم می‌شوند."],["SEO","سئوی ساختاری و محتوا","نقشه سایت، متا، مسیر محتوا و تمیزکاری معنی‌دار."],["FLOW","فرآیند کسب‌وکار نیمه‌ساخته","چیزی که با اکسل، فرم، واتساپ و امید زنده مانده."],["WEIRD","باگ عجیب","همان چیزی که هیچ‌کس دوست ندارد دست بزند."]],en:[["WP/WOO","Broken WordPress / WooCommerce","The site loads, but trust, checkout, or maintenance keeps breaking."],["SPEED","Slow websites","Heavy assets, bad cache, tired hosting, or messy structure."],["PLUGIN","Plugin/theme conflicts","Everything is fine alone, then fights in the same room."],["LARAVEL","Laravel dashboards and flows","Auth, panels, service requests, and unfinished product paths."],["DNS/SSL","DNS, SSL, Cloudflare","Domains, green locks, redirects, and infrastructure layers."],["MAIL","Email not sending","SMTP, contact forms, notifications, and messages lost in space."],["SEO","SEO structure and cleanup","Sitemaps, metadata, content paths, and meaningful cleanup."],["FLOW","Half-built business workflows","The thing currently held together by spreadsheets, forms, WhatsApp, and hope."],["WEIRD","Weird bugs","The bug nobody wants to touch."]]};
-var projects={fa:[{name:"Applitent",url:"https://applitent.com",type:"Laravel / Legal-tech mission",featured:true,mess:"پلتفرم خدمات حقوقی به جریان‌های قابل اتکا، زیرساخت پایدار و مسیرهای اعتمادساز نیاز داشت.",move:"روی احراز هویت، داشبوردها، درخواست سرویس، سخت‌سازی آپلود، هاب حقوقی، ایمیل، DNS، SSL، Cloudflare، نقشه سایت، سئوی فنی و عیب‌یابی سمت سرور کار کردم.",outcome:"سیستم قابل استفاده‌تر و قابل نگه‌داری‌تر شد؛ با اثبات Lighthouse 100×4.",chips:["Laravel","Auth","Dashboards","Cloudflare","SEO","Lighthouse 100×4"]},{name:"Fannkala",url:"https://fannkala.com",type:"WordPress / WooCommerce mission",mess:"فروشگاه به ساختار روشن‌تر، تجربه خرید بهتر و نگه‌داری ساده‌تر نیاز داشت.",move:"روی ساختار وردپرس و ووکامرس، مسیر خرید، محتوا، تمیزکاری تجربه کاربر و سرعت/عملکرد کار کردم.",outcome:"فروشگاه خواناتر، مرتب‌تر و آماده‌تر برای نگه‌داری و رشد محتوا شد.",chips:["WordPress","WooCommerce","Content","Performance"]},{name:"Parstek",url:"https://parstek.ir",type:"Corporate WordPress mission",mess:"سایت شرکتی باید خدمات، مسیرهای محتوا و حس حرفه‌ای را شفاف‌تر نشان می‌داد.",move:"روی ارائه خدمات، مسیرهای محتوا، پولیش UI، سفارشی‌سازی قالب و تمیزکاری UX کار کردم.",outcome:"مسیر مطالعه و معرفی برند منظم‌تر و حرفه‌ای‌تر شد.",chips:["Corporate","WordPress","UI polish","UX cleanup"]}],en:[{name:"Applitent",url:"https://applitent.com",type:"Laravel / Legal-tech mission",featured:true,mess:"A legal-services platform needed reliable flows, stable infrastructure, and trust-building paths.",move:"I worked on auth flows, dashboards, service requests, upload hardening, legal hub, mail, DNS, SSL, Cloudflare, sitemap, technical SEO, and server-side troubleshooting.",outcome:"The system became more usable and maintainable, with Lighthouse 100×4 as proof.",chips:["Laravel","Auth","Dashboards","Cloudflare","SEO","Lighthouse 100×4"]},{name:"Fannkala",url:"https://fannkala.com",type:"WordPress / WooCommerce mission",mess:"The store needed clearer structure, a smoother buying experience, and easier maintenance.",move:"I worked on WordPress/WooCommerce structure, buying paths, content, UX cleanup, and speed/performance cleanup.",outcome:"The store became clearer, cleaner, and easier to maintain and grow with content.",chips:["WordPress","WooCommerce","Content","Performance"]},{name:"Parstek",url:"https://parstek.ir",type:"Corporate WordPress mission",mess:"The corporate site needed clearer service presentation, content paths, and professional polish.",move:"I worked on service presentation, content paths, UI polish, theme customization, and UX cleanup.",outcome:"The brand presentation and browsing path became more organized and credible.",chips:["Corporate","WordPress","UI polish","UX cleanup"]}]};
-var issues=[{k:"dns",fa:"دامنه گاهی باز می‌شود، گاهی نه. مسیرها بو می‌دهند.",en:"The domain works sometimes, then disappears. Routing smells wrong.",a:"DNS"},{k:"ssl",fa:"مرورگر داد می‌زند اتصال امن نیست.",en:"The browser screams that the connection is not secure.",a:"SSL"},{k:"cache",fa:"تغییرات انجام شده ولی سایت نسخه قدیمی را نشان می‌دهد.",en:"Changes are deployed, but visitors still see the old version.",a:"Cache"},{k:"plugin",fa:"بعد از آپدیت، فرم/سبد خرید ناگهان شکست.",en:"After an update, the form or checkout suddenly broke.",a:"Plugin conflict"},{k:"assets",fa:"صفحه با تصویر و اسکریپت‌های سنگین خفه شده است.",en:"The page is choking on heavy images and scripts.",a:"Slow assets"},{k:"checkout",fa:"کاربر می‌خواهد پول بدهد، اما جریان پرداخت/فرم گیر می‌کند.",en:"A user wants to pay or submit, but the flow gets stuck.",a:"Broken checkout/form"},{k:"seo",fa:"گوگل نقشه، عنوان و مسیر محتوایی درست نمی‌بیند.",en:"Search engines cannot see a clean map, title, or content path.",a:"SEO missing"},{k:"mail",fa:"فرم می‌گوید ارسال شد؛ صندوق ایمیل چیزی نمی‌بیند.",en:"The form says sent; the inbox sees nothing.",a:"Email not sending"}];
-var gameIndex=0,bossHp=100;
-function t(k){return translations[currentLanguage][k]||translations.fa[k]||k}function esc(v){return String(v).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}function setMeta(n,c){var e=document.querySelector('meta[name="'+n+'"]');if(e)e.content=c}function setProp(p,c){var e=document.querySelector('meta[property="'+p+'"]');if(e)e.content=c}
-function applyLanguage(lang){currentLanguage=lang==="en"?"en":"fa";localStorage.setItem(storageKey,currentLanguage);root.lang=currentLanguage;root.dir=currentLanguage==="fa"?"rtl":"ltr";document.title=t("metaTitle");setMeta("description",t("metaDescription"));setProp("og:title",t("metaTitle"));setProp("og:description",t("metaDescription"));setProp("og:locale",currentLanguage==="fa"?"fa_IR":"en_US");setMeta("twitter:title",t("metaTitle"));setMeta("twitter:description",t("metaDescription"));document.querySelectorAll("[data-i18n]").forEach(function(e){e.textContent=t(e.dataset.i18n)});document.querySelectorAll("[data-i18n-aria-label]").forEach(function(e){e.setAttribute("aria-label",t(e.dataset.i18nAriaLabel))});document.querySelectorAll("[data-lang-option]").forEach(function(b){b.classList.toggle("is-active",b.dataset.langOption===currentLanguage)});renderChaos();renderProjects();renderGame();renderCommands();renderDiagnostics(false)}
-function renderChaos(){var grid=document.getElementById("chaos-grid");if(!grid)return;grid.innerHTML=chaos[currentLanguage].map(function(c){return '<article class="chaos-card observe is-visible"><button type="button" data-chaos-focus><span class="alert-code">'+esc(c[0])+'</span><h3>'+esc(c[1])+'</h3><p>'+esc(c[2])+'</p></button></article>'}).join("")}
-function renderProjects(){var grid=document.getElementById("mission-grid");if(!grid)return;grid.innerHTML=projects[currentLanguage].map(function(p){return '<article class="mission-card observe is-visible '+(p.featured?'featured':'')+'"><span class="mission-type">'+esc(p.type)+'</span><h3>'+esc(p.name)+'</h3><div class="mission-row"><strong>'+(currentLanguage==='fa'?'آشوب':'The mess')+'</strong><p>'+esc(p.mess)+'</p></div><div class="mission-row"><strong>'+(currentLanguage==='fa'?'حرکت من':'My move')+'</strong><p>'+esc(p.move)+'</p></div><div class="mission-row"><strong>'+(currentLanguage==='fa'?'سیستم پایدارتر شد':'System stabilized')+'</strong><p>'+esc(p.outcome)+'</p></div><div class="chips">'+p.chips.map(function(ch){return '<span class="chip">'+esc(ch)+'</span>'}).join("")+'</div><a class="live-link" target="_blank" rel="noopener" href="'+esc(p.url)+'">'+(currentLanguage==='fa'?'مشاهده سایت زنده':'Open live site')+'</a></article>'}).join("")}
-function renderGame(){var issue=document.getElementById("issue-card"),actions=document.getElementById("repair-actions"),hp=document.getElementById("boss-hp"),label=document.getElementById("boss-hp-label");if(hp)hp.style.width=bossHp+"%";if(label)label.textContent=bossHp+"%";if(!issue||!actions)return;if(gameIndex>=issues.length){issue.textContent=t("gameWin");actions.innerHTML='<a class="btn primary-btn" href="#contact">'+esc(t("heroCtaContact"))+'</a>';unlockDiagnosis();return}var item=issues[gameIndex];issue.textContent=currentLanguage==="fa"?item.fa:item.en;var options=["DNS","SSL","Cache","Plugin conflict","Slow assets","Broken checkout/form","SEO missing","Email not sending"];actions.innerHTML=options.map(function(o){return '<button type="button" data-repair="'+esc(o)+'">'+esc(o)+'</button>'}).join("")}
-function repair(answer){var card=document.getElementById("game-card"),status=document.getElementById("game-status"),item=issues[gameIndex];if(answer===item.a){bossHp=Math.max(0,bossHp-13);gameIndex++;if(status)status.textContent=t("gameGood")}else{bossHp=Math.min(100,bossHp+5);if(status)status.textContent=t("gameBad");if(card){card.classList.remove("shake");void card.offsetWidth;card.classList.add("shake")}}if(gameIndex>=issues.length)bossHp=0;renderGame()}
-function resetGame(){gameIndex=0;bossHp=100;var status=document.getElementById("game-status");if(status)status.textContent=t("gameIntro");var d=document.getElementById("diagnosis-card");if(d)d.classList.remove("unlocked");renderGame()}
-function unlockDiagnosis(){var d=document.getElementById("diagnosis-card");if(!d)return;d.classList.add("unlocked");d.innerHTML='<p class="section-kicker">'+esc(t("diagnosisKicker"))+'</p><h3>'+esc(t("diagnosisUnlocked"))+'</h3><p>'+esc(t("diagnosisText"))+'</p>'}
-function getBrowserName(){var a=navigator.userAgent;if(a.indexOf("Edg/")>-1)return"Microsoft Edge";if(a.indexOf("Firefox/")>-1)return"Firefox";if(a.indexOf("Chrome/")>-1&&a.indexOf("Chromium")===-1)return"Chrome";if(a.indexOf("Safari/")>-1&&a.indexOf("Chrome/")===-1)return"Safari";return translations[currentLanguage].diagnostics.unknown}function getDevice(){var l=translations[currentLanguage].diagnostics,w=innerWidth;return w<640?l.mobile:w<980?l.tablet:l.desktop}
-function renderDiagnostics(show){var grid=document.getElementById("diagnostics-grid");if(!grid)return;var l=translations[currentLanguage].diagnostics,c=navigator.connection||navigator.mozConnection||navigator.webkitConnection,items=[[l.device,getDevice()],[l.browser,getBrowserName()],[l.viewport,innerWidth+"×"+innerHeight],[l.language,root.lang+" / "+root.dir],[l.timezone,Intl.DateTimeFormat().resolvedOptions().timeZone||l.unknown],[l.scheme,colorScheme.matches?l.dark:l.light],[l.motion,reducedMotion.matches?l.reduced:l.noPreference],[l.connection,c&&c.effectiveType?c.effectiveType:l.unknown]];grid.innerHTML=items.map(function(i){return '<div class="diagnostic-item"><small>'+esc(i[0])+'</small><strong>'+esc(i[1])+'</strong></div>'}).join("");if(show)grid.hidden=false}
-function scanVisitor(){renderDiagnostics(true);scrollToTarget("top")}
-function scrollToTarget(id){var e=document.getElementById(id);if(e)e.scrollIntoView({behavior:reducedMotion.matches?"auto":"smooth",block:"start"})}
-function copyValue(type){var value=type==="phone"?phone:email,status=document.getElementById("copy-status"),done=function(m){if(status)status.textContent=m};if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(value).then(function(){done(type==="phone"?t("copiedPhone"):t("copiedEmail"))}).catch(function(){fallbackCopy(value,done,type)})}else fallbackCopy(value,done,type)}function fallbackCopy(value,done,type){var ta=document.createElement("textarea");ta.value=value;ta.style.position="fixed";ta.style.opacity="0";document.body.appendChild(ta);ta.select();var ok=document.execCommand("copy");ta.remove();done(ok?(type==="phone"?t("copiedPhone"):t("copiedEmail")):t("copyFailed"))}
-function renderCommands(){var list=document.getElementById("command-list");if(!list)return;var cmds=[ [t("commandProjects"),t("hintScroll"),function(){closeCommandPalette();scrollToTarget("projects")}],[t("commandChaos"),t("hintScroll"),function(){closeCommandPalette();scrollToTarget("chaos")}],[t("commandBoss"),t("hintScroll"),function(){closeCommandPalette();scrollToTarget("boss")}],[t("commandScan"),t("hintConsole"),function(){closeCommandPalette();scanVisitor()}],[t("commandSignal"),t("hintConsole"),function(){closeCommandPalette();toggleAudio()}],[t("commandEmail"),t("hintCopy"),function(){copyValue("email")}],[t("commandPhone"),t("hintCopy"),function(){copyValue("phone")}],[t("commandSwitch"),t("hintConsole"),function(){applyLanguage(currentLanguage==="fa"?"en":"fa")}],[t("commandContact"),t("hintScroll"),function(){closeCommandPalette();scrollToTarget("contact")}],[t("commandApplitent"),t("hintExternal"),function(){open("https://applitent.com","_blank","noopener")}],[t("commandFannkala"),t("hintExternal"),function(){open("https://fannkala.com","_blank","noopener")}],[t("commandParstek"),t("hintExternal"),function(){open("https://parstek.ir","_blank","noopener")}],[t("commandDebug"),t("hintConsole"),function(){debugMode=!debugMode;document.body.classList.toggle("debug-mode",debugMode);scanVisitor()}] ];list.innerHTML="";cmds.forEach(function(c){var b=document.createElement("button");b.type="button";b.innerHTML="<span>"+esc(c[0])+"</span><small>"+esc(c[1])+"</small>";b.addEventListener("click",c[2]);list.appendChild(b)})}
-function openCommandPalette(){var d=document.getElementById("command-dialog");if(!d)return;lastFocusedElement=document.activeElement;d.hidden=false;document.body.style.overflow="hidden";var b=d.querySelector("button");if(b)b.focus()}function closeCommandPalette(){var d=document.getElementById("command-dialog");if(!d||d.hidden)return;d.hidden=true;document.body.style.overflow="";if(lastFocusedElement&&lastFocusedElement.focus)lastFocusedElement.focus()}
-function formatTime(s){if(!isFinite(s))return"0:00";return Math.floor(s/60)+":"+String(Math.floor(s%60)).padStart(2,"0")}function audioAvailable(){var p=document.getElementById("signal-player");return p&&p.dataset.audioReady==="true"}function updateAudioUi(){var a=document.getElementById("command-audio"),bar=document.getElementById("audio-progress"),time=document.getElementById("audio-time"),buttons=document.querySelectorAll("[data-audio-toggle]");if(!a)return;if(bar)bar.style.width=(a.duration?a.currentTime/a.duration*100:0)+"%";if(time)time.textContent=formatTime(a.currentTime)+" / "+formatTime(a.duration);buttons.forEach(function(b){b.textContent=a.paused?"▶":"Ⅱ";b.setAttribute("aria-label",a.paused?t("audioPlay"):t("audioPause"))})}function toggleAudio(){var a=document.getElementById("command-audio");if(!audioAvailable()||!a)return;if(a.paused)a.play().catch(function(){});else a.pause();updateAudioUi()}function initAudio(){var p=document.getElementById("signal-player"),a=document.getElementById("command-audio");if(!p||!a)return;a.addEventListener("loadedmetadata",function(){p.dataset.audioReady="true";var n=document.getElementById("audio-note");if(n)n.hidden=true;updateAudioUi()});a.addEventListener("error",function(){p.dataset.audioReady="false";updateAudioUi()});["timeupdate","play","pause"].forEach(function(e){a.addEventListener(e,updateAudioUi)})}
-document.addEventListener("click",function(e){var repairBtn=e.target.closest("[data-repair]");if(repairBtn)repair(repairBtn.dataset.repair);if(e.target.closest("[data-reset-game]"))resetGame();if(e.target.closest("[data-open-command]"))openCommandPalette();if(e.target.closest("[data-close-command]"))closeCommandPalette();if(e.target.closest("[data-scan-visitor]"))scanVisitor();var copy=e.target.closest("[data-copy]");if(copy){e.preventDefault();copyValue(copy.dataset.copy)}var audio=e.target.closest("[data-audio-toggle]");if(audio)toggleAudio();var lang=e.target.closest("[data-lang-option]");if(lang)applyLanguage(lang.dataset.langOption)});
-document.addEventListener("keydown",function(e){var target=e.target,isTyping=target&&(target.matches("input, textarea, select")||target.isContentEditable);if(e.key==="/"&&!isTyping){e.preventDefault();openCommandPalette()}if(e.key==="Escape")closeCommandPalette()});
-window.addEventListener("resize",function(){renderDiagnostics(false)});if("IntersectionObserver" in window){var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add("is-visible");observer.unobserve(entry.target)}})},{threshold:.12});document.querySelectorAll(".observe").forEach(function(el){observer.observe(el)})}else document.querySelectorAll(".observe").forEach(function(el){el.classList.add("is-visible")});
-if(!reducedMotion.matches){var glow=document.querySelector(".cursor-glow"),scheduled=false;document.addEventListener("pointermove",function(e){if(scheduled)return;scheduled=true;requestAnimationFrame(function(){scheduled=false;if(glow){glow.style.opacity="1";glow.style.left=e.clientX+"px";glow.style.top=e.clientY+"px"}})})}
-initAudio();applyLanguage(currentLanguage);window.nimaApplyLanguage=applyLanguage;window.nimaCopyValue=copyValue;
+(function () {
+    "use strict";
+
+    document.documentElement.classList.add("js");
+
+    /* Data */
+    var root = document.documentElement;
+    var storageKey = "nima-chaos-language";
+    var email = "nima.mohebali.b@gmail.com";
+    var phone = "09227241378";
+    var currentLanguage = localStorage.getItem(storageKey) === "en" ? "en" : "fa";
+    var lastFocusedElement = null;
+    var debugMode = false;
+    var gameIndex = 0;
+    var bossHp = 100;
+    var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    var colorScheme = window.matchMedia("(prefers-color-scheme: dark)");
+
+    var translations = {
+        fa: {
+            skip: "رفتن به محتوای اصلی",
+            metaTitle: "نیما — Web Chaos Command Center",
+            metaDescription: "نیما — مرکز فرمان آشوب وب. چیز خراب را بفرست: وردپرس، لاراول، ووکامرس، سئو، سرعت، DNS، ایمیل، باگ‌های عجیب و جریان‌های نیمه‌کاره.",
+            headerAria: "ناوبری اصلی",
+            brandAria: "بازگشت به بالا",
+            navAria: "لینک‌های صفحه",
+            brandName: "نیما",
+            brandRole: "مرکز فرمان آشوب وب",
+            navChaos: "آشوب‌ها",
+            navProjects: "ماموریت‌ها",
+            navBoss: "باس‌فایت",
+            navContact: "ارسال خرابی",
+            commandTrigger: "لانچر",
+            commandAria: "باز کردن لانچر فرمان",
+            langAria: "تغییر زبان",
+            langStatus: "حالت فارسی",
+            heroBadge: "Nima — Web Chaos Command Center",
+            heroTitle: "چیز خراب را بفرست.",
+            heroSubtitle: "وردپرس، لاراول، ووکامرس، سئو، سرعت، DNS، ایمیل، باگ‌های عجیب، جریان‌های شکسته و ایده‌های نیمه‌ساخته؛ من نقشه‌شان را می‌کشم و قابل استفاده‌شان می‌کنم.",
+            heroCtaGame: "خرابی را تعمیر کن",
+            heroCtaContact: "چیز خراب را بفرست",
+            heroCtaCommand: "باز کردن کنسول",
+            dashboardAria: "داشبورد فرمان",
+            dashTitle: "دریافت خرابی فعال است",
+            terminal1: "✓ آماده برای جریان‌های شکسته",
+            terminal2: "! بوی تداخل افزونه می‌آید",
+            terminal3: "✓ لایه سلیقه مسلح شد",
+            scanCta: "اسکن امن بازدیدکننده",
+            scanSafe: "بدون IP، بدون مکان‌یابی",
+            chaosKicker: "Chaos Types",
+            chaosTitle: "خرابی‌هایی که از دیدنشان فرار نمی‌کنم.",
+            projectsKicker: "Mission Projects",
+            projectsTitle: "کلمات و سایت‌های زنده، مدرک من‌اند؛ نه عددهای جعلی.",
+            gameKicker: "Fix the Broken Website",
+            gameTitle: "باس‌فایت: The Broken Site",
+            bossName: "The Broken Site",
+            gameIntro: "کارت خرابی را بخوان و تعمیر درست را بزن.",
+            resetGame: "شروع دوباره",
+            scanVisitor: "اسکن امن بازدیدکننده",
+            diagnosisKicker: "Nima’s diagnosis",
+            diagnosisLocked: "کارت تشخیص قفل است.",
+            diagnosisHint: "باس را شکست بده تا باز شود.",
+            diagnosisUnlocked: "مشکل معمولاً فقط یک باگ نیست.",
+            diagnosisText: "معمولاً ساختار، جریان، سرور، محتوا و نگه‌داری با هم می‌جنگند. اول نقشه می‌کشم، بعد تعمیر می‌کنم.",
+            signalTitle: "Command Center Signal",
+            audioPlay: "پخش سیگنال",
+            audioPause: "توقف سیگنال",
+            audioMissing: "اگر فایل صوتی موجود نباشد، پلیر بی‌صدا و تمیز می‌ماند.",
+            contactKicker: "Final unlocked action",
+            contactTitle: "چیز خراب را بفرست.",
+            contactText: "بگو چه چیزی کند، خراب، گیج‌کننده، نیمه‌تمام یا عجیب است. لازم نیست مسئله را مرتب کنی؛ مرتب کردنش کار من است.",
+            copyEmail: "کپی ایمیل",
+            copyPhone: "کپی شماره",
+            copiedEmail: "ایمیل کپی شد.",
+            copiedPhone: "شماره کپی شد.",
+            copyFailed: "کپی خودکار انجام نشد؛ متن را دستی بردار.",
+            phoneAria: "تماس با 09227241378",
+            footerText: "نیما — Web Chaos Command Center",
+            backTop: "بازگشت به بالا",
+            paletteTitle: "لانچر فرمان",
+            paletteHint: "/ برای باز کردن، Escape برای بستن.",
+            closeAria: "بستن",
+            commandProjects: "Open Projects",
+            commandChaos: "Show Chaos Types",
+            commandBoss: "Start Boss Fight",
+            commandScan: "Scan Visitor",
+            commandSignal: "Play Nima Signal",
+            commandEmail: "Copy Email",
+            commandPhone: "Copy Phone",
+            commandSwitch: "Switch Language",
+            commandContact: "Send broken thing",
+            commandApplitent: "Open Applitent",
+            commandFannkala: "Open Fannkala",
+            commandParstek: "Open Parstek",
+            commandDebug: "Toggle Debug Mode",
+            hintScroll: "رفتن به بخش",
+            hintCopy: "کپی در کلیپ‌بورد",
+            hintExternal: "باز شدن در تب تازه",
+            hintConsole: "فرمان سیستمی",
+            gameWin: "System stable. Now send me your real broken thing.",
+            gameGood: "تعمیر درست. آشوب کمتر شد.",
+            gameBad: "حرکت اشتباه؛ سایت بیشتر غر زد.",
+            diagnostics: {
+                device: "دستگاه",
+                browser: "مرورگر",
+                viewport: "اندازه صفحه",
+                language: "زبان صفحه",
+                timezone: "منطقه زمانی",
+                scheme: "طرح رنگ",
+                motion: "کاهش حرکت",
+                connection: "اتصال",
+                desktop: "رومیزی",
+                tablet: "تبلت",
+                mobile: "موبایل",
+                dark: "تیره",
+                light: "روشن",
+                reduced: "فعال",
+                noPreference: "غیرفعال",
+                unknown: "نامشخص"
+            }
+        },
+        en: {
+            skip: "Skip to main content",
+            metaTitle: "Nima — Web Chaos Command Center",
+            metaDescription: "Nima — Web Chaos Command Center. Send me the broken thing: WordPress, Laravel, WooCommerce, SEO, speed, DNS, mail, weird bugs, broken flows, and half-built ideas.",
+            headerAria: "Primary navigation",
+            brandAria: "Back to top",
+            navAria: "Page links",
+            brandName: "Nima",
+            brandRole: "Web Chaos Command Center",
+            navChaos: "Chaos",
+            navProjects: "Missions",
+            navBoss: "Boss fight",
+            navContact: "Send broken thing",
+            commandTrigger: "Launcher",
+            commandAria: "Open command launcher",
+            langAria: "Change language",
+            langStatus: "English mode",
+            heroBadge: "Nima — Web Chaos Command Center",
+            heroTitle: "Send me the broken thing.",
+            heroSubtitle: "WordPress, Laravel, WooCommerce, SEO, speed, DNS, mail, weird bugs, broken flows, half-built ideas — I map the mess and make it usable.",
+            heroCtaGame: "Fix the broken site",
+            heroCtaContact: "Send the broken thing",
+            heroCtaCommand: "Open console",
+            dashboardAria: "Command dashboard",
+            dashTitle: "Broken-site intake online",
+            terminal1: "✓ listening for broken flows",
+            terminal2: "! plugin conflict smell detected",
+            terminal3: "✓ taste layer armed",
+            scanCta: "Scan Visitor",
+            scanSafe: "No IP. No geolocation.",
+            chaosKicker: "Chaos Types",
+            chaosTitle: "The kinds of mess I do not run away from.",
+            projectsKicker: "Mission Projects",
+            projectsTitle: "My words and live sites are proof — not fake numbers.",
+            gameKicker: "Fix the Broken Website",
+            gameTitle: "Boss fight: The Broken Site",
+            bossName: "The Broken Site",
+            gameIntro: "Read the issue card and hit the right repair.",
+            resetGame: "Reset game",
+            scanVisitor: "Safe visitor scan",
+            diagnosisKicker: "Nima’s diagnosis",
+            diagnosisLocked: "Diagnosis card is locked.",
+            diagnosisHint: "Beat the boss to unlock it.",
+            diagnosisUnlocked: "The problem is rarely just one bug.",
+            diagnosisText: "It is usually structure, flow, server, content, and maintenance fighting each other. I map first, then repair.",
+            signalTitle: "Command Center Signal",
+            audioPlay: "Play signal",
+            audioPause: "Pause signal",
+            audioMissing: "If no audio file exists, this player stays quiet and graceful.",
+            contactKicker: "Final unlocked action",
+            contactTitle: "Send me the broken thing.",
+            contactText: "Tell me what is slow, broken, confusing, unfinished, or weird. You do not need to organize the mess first — that is my job.",
+            copyEmail: "Copy email",
+            copyPhone: "Copy phone",
+            copiedEmail: "Email copied.",
+            copiedPhone: "Phone copied.",
+            copyFailed: "Automatic copy failed; copy it manually.",
+            phoneAria: "Call 09227241378",
+            footerText: "Nima — Web Chaos Command Center",
+            backTop: "Back to top",
+            paletteTitle: "Command launcher",
+            paletteHint: "/ opens. Escape closes.",
+            closeAria: "Close",
+            commandProjects: "Open Projects",
+            commandChaos: "Show Chaos Types",
+            commandBoss: "Start Boss Fight",
+            commandScan: "Scan Visitor",
+            commandSignal: "Play Nima Signal",
+            commandEmail: "Copy Email",
+            commandPhone: "Copy Phone",
+            commandSwitch: "Switch Language",
+            commandContact: "Contact / Send broken thing",
+            commandApplitent: "Open Applitent",
+            commandFannkala: "Open Fannkala",
+            commandParstek: "Open Parstek",
+            commandDebug: "Toggle Debug Mode",
+            hintScroll: "Jump to section",
+            hintCopy: "Copy to clipboard",
+            hintExternal: "Open in a new tab",
+            hintConsole: "System command",
+            gameWin: "System stable. Now send me your real broken thing.",
+            gameGood: "Correct repair. Chaos reduced.",
+            gameBad: "Wrong move. The site growled louder.",
+            diagnostics: {
+                device: "Device",
+                browser: "Browser",
+                viewport: "Viewport",
+                language: "Page language",
+                timezone: "Timezone",
+                scheme: "Color scheme",
+                motion: "Reduced motion",
+                connection: "Connection",
+                desktop: "Desktop",
+                tablet: "Tablet",
+                mobile: "Mobile",
+                dark: "Dark",
+                light: "Light",
+                reduced: "Reduced",
+                noPreference: "No preference",
+                unknown: "Unknown"
+            }
+        }
+    };
+
+    var chaosCards = {
+        fa: [
+            ["WP/WOO", "وردپرس یا ووکامرس شکسته", "فروشگاه بالا می‌آید، اما اعتماد، خرید یا نگه‌داری گیر می‌کند."],
+            ["SPEED", "سایت کند", "دارایی‌های سنگین، کش بد، هاست خسته یا ساختار نامرتب."],
+            ["PLUGIN", "تداخل افزونه/قالب", "وقتی همه چیز جداگانه درست است ولی کنار هم دعوا می‌کنند."],
+            ["LARAVEL", "داشبورد و جریان لاراول", "احراز هویت، پنل، درخواست سرویس و مسیرهای نیمه‌کاره."],
+            ["DNS/SSL", "DNS، SSL، Cloudflare", "دامنه، قفل سبز، ریدایرکت و لایه زیرساختی که اعصاب می‌خواهد."],
+            ["MAIL", "ایمیل ارسال نمی‌شود", "SMTP، فرم تماس، اعلان‌ها و پیام‌هایی که در خلأ گم می‌شوند."],
+            ["SEO", "سئوی ساختاری و محتوا", "نقشه سایت، متا، مسیر محتوا و تمیزکاری معنی‌دار."],
+            ["FLOW", "فرآیند کسب‌وکار نیمه‌ساخته", "چیزی که با اکسل، فرم، واتساپ و امید زنده مانده."],
+            ["WEIRD", "باگ عجیب", "همان چیزی که هیچ‌کس دوست ندارد دست بزند."]
+        ],
+        en: [
+            ["WP/WOO", "Broken WordPress / WooCommerce", "The site loads, but trust, checkout, or maintenance keeps breaking."],
+            ["SPEED", "Slow websites", "Heavy assets, bad cache, tired hosting, or messy structure."],
+            ["PLUGIN", "Plugin/theme conflicts", "Everything is fine alone, then fights in the same room."],
+            ["LARAVEL", "Laravel dashboards and flows", "Auth, panels, service requests, and unfinished product paths."],
+            ["DNS/SSL", "DNS, SSL, Cloudflare", "Domains, green locks, redirects, and infrastructure layers."],
+            ["MAIL", "Email not sending", "SMTP, contact forms, notifications, and messages lost in space."],
+            ["SEO", "SEO structure and cleanup", "Sitemaps, metadata, content paths, and meaningful cleanup."],
+            ["FLOW", "Half-built business workflows", "The thing currently held together by spreadsheets, forms, WhatsApp, and hope."],
+            ["WEIRD", "Weird bugs", "The bug nobody wants to touch."]
+        ]
+    };
+
+    var projectCards = {
+        fa: [
+            {
+                name: "Applitent",
+                url: "https://applitent.com",
+                type: "Laravel / Legal-tech mission",
+                featured: true,
+                mess: "پلتفرم خدمات حقوقی به جریان‌های قابل اتکا، زیرساخت پایدار و مسیرهای اعتمادساز نیاز داشت.",
+                move: "روی احراز هویت، داشبوردها، درخواست سرویس، سخت‌سازی آپلود، هاب حقوقی، ایمیل، DNS، SSL، Cloudflare، نقشه سایت، سئوی فنی و عیب‌یابی سمت سرور کار کردم.",
+                outcome: "سیستم قابل استفاده‌تر و قابل نگه‌داری‌تر شد؛ با اثبات Lighthouse 100×4.",
+                chips: ["Laravel", "Auth", "Dashboards", "Cloudflare", "SEO", "Lighthouse 100×4"]
+            },
+            {
+                name: "Fannkala",
+                url: "https://fannkala.com",
+                type: "WordPress / WooCommerce mission",
+                mess: "فروشگاه به ساختار روشن‌تر، تجربه خرید بهتر و نگه‌داری ساده‌تر نیاز داشت.",
+                move: "روی ساختار وردپرس و ووکامرس، مسیر خرید، محتوا، تمیزکاری تجربه کاربر و سرعت/عملکرد کار کردم.",
+                outcome: "فروشگاه خواناتر، مرتب‌تر و آماده‌تر برای نگه‌داری و رشد محتوا شد.",
+                chips: ["WordPress", "WooCommerce", "Content", "Performance"]
+            },
+            {
+                name: "Parstek",
+                url: "https://parstek.ir",
+                type: "Corporate WordPress mission",
+                mess: "سایت شرکتی باید خدمات، مسیرهای محتوا و حس حرفه‌ای را شفاف‌تر نشان می‌داد.",
+                move: "روی ارائه خدمات، مسیرهای محتوا، پولیش UI، سفارشی‌سازی قالب و تمیزکاری UX کار کردم.",
+                outcome: "مسیر مطالعه و معرفی برند منظم‌تر و حرفه‌ای‌تر شد.",
+                chips: ["Corporate", "WordPress", "UI polish", "UX cleanup"]
+            }
+        ],
+        en: [
+            {
+                name: "Applitent",
+                url: "https://applitent.com",
+                type: "Laravel / Legal-tech mission",
+                featured: true,
+                mess: "A legal-services platform needed reliable flows, stable infrastructure, and trust-building paths.",
+                move: "I worked on auth flows, dashboards, service requests, upload hardening, legal hub, mail, DNS, SSL, Cloudflare, sitemap, technical SEO, and server-side troubleshooting.",
+                outcome: "The system became more usable and maintainable, with Lighthouse 100×4 as proof.",
+                chips: ["Laravel", "Auth", "Dashboards", "Cloudflare", "SEO", "Lighthouse 100×4"]
+            },
+            {
+                name: "Fannkala",
+                url: "https://fannkala.com",
+                type: "WordPress / WooCommerce mission",
+                mess: "The store needed clearer structure, a smoother buying experience, and easier maintenance.",
+                move: "I worked on WordPress/WooCommerce structure, buying paths, content, UX cleanup, and speed/performance cleanup.",
+                outcome: "The store became clearer, cleaner, and easier to maintain and grow with content.",
+                chips: ["WordPress", "WooCommerce", "Content", "Performance"]
+            },
+            {
+                name: "Parstek",
+                url: "https://parstek.ir",
+                type: "Corporate WordPress mission",
+                mess: "The corporate site needed clearer service presentation, content paths, and professional polish.",
+                move: "I worked on service presentation, content paths, UI polish, theme customization, and UX cleanup.",
+                outcome: "The brand presentation and browsing path became more organized and credible.",
+                chips: ["Corporate", "WordPress", "UI polish", "UX cleanup"]
+            }
+        ]
+    };
+
+    var gameIssues = [
+        { key: "dns", fa: "دامنه گاهی باز می‌شود، گاهی نه. مسیرها بو می‌دهند.", en: "The domain works sometimes, then disappears. Routing smells wrong.", answer: "DNS" },
+        { key: "ssl", fa: "مرورگر داد می‌زند اتصال امن نیست.", en: "The browser screams that the connection is not secure.", answer: "SSL" },
+        { key: "cache", fa: "تغییرات انجام شده ولی سایت نسخه قدیمی را نشان می‌دهد.", en: "Changes are deployed, but visitors still see the old version.", answer: "Cache" },
+        { key: "plugin", fa: "بعد از آپدیت، فرم/سبد خرید ناگهان شکست.", en: "After an update, the form or checkout suddenly broke.", answer: "Plugin conflict" },
+        { key: "assets", fa: "صفحه با تصویر و اسکریپت‌های سنگین خفه شده است.", en: "The page is choking on heavy images and scripts.", answer: "Slow assets" },
+        { key: "checkout", fa: "کاربر می‌خواهد پول بدهد، اما جریان پرداخت/فرم گیر می‌کند.", en: "A user wants to pay or submit, but the flow gets stuck.", answer: "Broken checkout/form" },
+        { key: "seo", fa: "گوگل نقشه، عنوان و مسیر محتوایی درست نمی‌بیند.", en: "Search engines cannot see a clean map, title, or content path.", answer: "SEO missing" },
+        { key: "mail", fa: "فرم می‌گوید ارسال شد؛ صندوق ایمیل چیزی نمی‌بیند.", en: "The form says sent; the inbox sees nothing.", answer: "Email not sending" }
+    ];
+
+    var repairOptions = ["DNS", "SSL", "Cache", "Plugin conflict", "Slow assets", "Broken checkout/form", "SEO missing", "Email not sending"];
+
+    /* Utilities */
+    function t(key) {
+        return translations[currentLanguage][key] || translations.fa[key] || key;
+    }
+
+    function escapeHtml(value) {
+        return String(value).replace(/[&<>"]/g, function (character) {
+            return {
+                "&": "&amp;",
+                "<": "&lt;",
+                ">": "&gt;",
+                '"': "&quot;"
+            }[character];
+        });
+    }
+
+    function setMeta(name, content) {
+        var element = document.querySelector('meta[name="' + name + '"]');
+        if (element) element.content = content;
+    }
+
+    function setMetaProperty(property, content) {
+        var element = document.querySelector('meta[property="' + property + '"]');
+        if (element) element.content = content;
+    }
+
+    function scrollToTarget(id) {
+        var element = document.getElementById(id);
+        if (!element) return;
+        element.scrollIntoView({
+            behavior: reducedMotion.matches ? "auto" : "smooth",
+            block: "start"
+        });
+    }
+
+    /* Language */
+    function applyLanguage(language) {
+        currentLanguage = language === "en" ? "en" : "fa";
+        localStorage.setItem(storageKey, currentLanguage);
+
+        root.lang = currentLanguage;
+        root.dir = currentLanguage === "fa" ? "rtl" : "ltr";
+        document.title = t("metaTitle");
+
+        setMeta("description", t("metaDescription"));
+        setMeta("twitter:title", t("metaTitle"));
+        setMeta("twitter:description", t("metaDescription"));
+        setMetaProperty("og:title", t("metaTitle"));
+        setMetaProperty("og:description", t("metaDescription"));
+        setMetaProperty("og:locale", currentLanguage === "fa" ? "fa_IR" : "en_US");
+
+        document.querySelectorAll("[data-i18n]").forEach(function (element) {
+            element.textContent = t(element.dataset.i18n);
+        });
+
+        document.querySelectorAll("[data-i18n-aria-label]").forEach(function (element) {
+            element.setAttribute("aria-label", t(element.dataset.i18nAriaLabel));
+        });
+
+        document.querySelectorAll("[data-lang-option]").forEach(function (button) {
+            button.classList.toggle("is-active", button.dataset.langOption === currentLanguage);
+        });
+
+        renderChaosCards();
+        renderProjectCards();
+        renderGame();
+        renderCommandList();
+        renderDiagnostics(false);
+        updateAudioUi();
+    }
+
+    /* Rendering */
+    function renderChaosCards() {
+        var grid = document.getElementById("chaos-grid");
+        if (!grid) return;
+
+        grid.innerHTML = chaosCards[currentLanguage].map(function (card) {
+            return [
+                '<article class="chaos-card observe is-visible">',
+                '<button type="button" data-chaos-focus>',
+                '<span class="alert-code">' + escapeHtml(card[0]) + '</span>',
+                '<h3>' + escapeHtml(card[1]) + '</h3>',
+                '<p>' + escapeHtml(card[2]) + '</p>',
+                '</button>',
+                '</article>'
+            ].join("");
+        }).join("");
+    }
+
+    function renderProjectCards() {
+        var grid = document.getElementById("mission-grid");
+        if (!grid) return;
+
+        grid.innerHTML = projectCards[currentLanguage].map(function (project) {
+            var chips = project.chips.map(function (chip) {
+                return '<span class="chip">' + escapeHtml(chip) + '</span>';
+            }).join("");
+
+            return [
+                '<article class="mission-card observe is-visible ' + (project.featured ? "featured" : "") + '">',
+                '<span class="mission-type">' + escapeHtml(project.type) + '</span>',
+                '<h3>' + escapeHtml(project.name) + '</h3>',
+                renderMissionRow(currentLanguage === "fa" ? "آشوب" : "The mess", project.mess),
+                renderMissionRow(currentLanguage === "fa" ? "حرکت من" : "My move", project.move),
+                renderMissionRow(currentLanguage === "fa" ? "سیستم پایدارتر شد" : "System stabilized", project.outcome),
+                '<div class="chips">' + chips + '</div>',
+                '<a class="live-link" target="_blank" rel="noopener" href="' + escapeHtml(project.url) + '">' + (currentLanguage === "fa" ? "مشاهده سایت زنده" : "Open live site") + '</a>',
+                '</article>'
+            ].join("");
+        }).join("");
+    }
+
+    function renderMissionRow(label, text) {
+        return '<div class="mission-row"><strong>' + escapeHtml(label) + '</strong><p>' + escapeHtml(text) + '</p></div>';
+    }
+
+    /* Diagnostics */
+    function getBrowserName() {
+        var agent = navigator.userAgent;
+        if (agent.indexOf("Edg/") > -1) return "Microsoft Edge";
+        if (agent.indexOf("Firefox/") > -1) return "Firefox";
+        if (agent.indexOf("Chrome/") > -1 && agent.indexOf("Chromium") === -1) return "Chrome";
+        if (agent.indexOf("Safari/") > -1 && agent.indexOf("Chrome/") === -1) return "Safari";
+        return translations[currentLanguage].diagnostics.unknown;
+    }
+
+    function getDeviceType() {
+        var labels = translations[currentLanguage].diagnostics;
+        if (window.innerWidth < 640) return labels.mobile;
+        if (window.innerWidth < 980) return labels.tablet;
+        return labels.desktop;
+    }
+
+    function renderDiagnostics(showPanel) {
+        var grid = document.getElementById("diagnostics-grid");
+        if (!grid) return;
+
+        var labels = translations[currentLanguage].diagnostics;
+        var connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+        var items = [
+            [labels.device, getDeviceType()],
+            [labels.browser, getBrowserName()],
+            [labels.viewport, window.innerWidth + "×" + window.innerHeight],
+            [labels.language, root.lang + " / " + root.dir],
+            [labels.timezone, Intl.DateTimeFormat().resolvedOptions().timeZone || labels.unknown],
+            [labels.scheme, colorScheme.matches ? labels.dark : labels.light],
+            [labels.motion, reducedMotion.matches ? labels.reduced : labels.noPreference],
+            [labels.connection, connection && connection.effectiveType ? connection.effectiveType : labels.unknown]
+        ];
+
+        grid.innerHTML = items.map(function (item) {
+            return '<div class="diagnostic-item"><small>' + escapeHtml(item[0]) + '</small><strong>' + escapeHtml(item[1]) + '</strong></div>';
+        }).join("");
+
+        if (showPanel) grid.hidden = false;
+    }
+
+    function scanVisitor() {
+        renderDiagnostics(true);
+        scrollToTarget("top");
+    }
+
+    /* Boss Fight */
+    function renderGame() {
+        updateBossMeter();
+
+        var issue = document.getElementById("issue-card");
+        var actions = document.getElementById("repair-actions");
+        if (!issue || !actions) return;
+
+        if (gameIndex >= gameIssues.length) {
+            issue.textContent = t("gameWin");
+            actions.innerHTML = '<a class="btn primary-btn" href="#contact">' + escapeHtml(t("heroCtaContact")) + '</a>';
+            unlockDiagnosis();
+            return;
+        }
+
+        var currentIssue = gameIssues[gameIndex];
+        issue.textContent = currentLanguage === "fa" ? currentIssue.fa : currentIssue.en;
+        actions.innerHTML = repairOptions.map(function (option) {
+            return '<button type="button" data-repair="' + escapeHtml(option) + '">' + escapeHtml(option) + '</button>';
+        }).join("");
+    }
+
+    function updateBossMeter() {
+        var hp = document.getElementById("boss-hp");
+        var label = document.getElementById("boss-hp-label");
+        if (hp) hp.style.width = bossHp + "%";
+        if (label) label.textContent = bossHp + "%";
+    }
+
+    function repairIssue(answer) {
+        var card = document.getElementById("game-card");
+        var status = document.getElementById("game-status");
+        var currentIssue = gameIssues[gameIndex];
+        if (!currentIssue) return;
+
+        if (answer === currentIssue.answer) {
+            bossHp = Math.max(0, bossHp - 13);
+            gameIndex += 1;
+            if (status) status.textContent = t("gameGood");
+        } else {
+            bossHp = Math.min(100, bossHp + 5);
+            if (status) status.textContent = t("gameBad");
+            shakeGameCard(card);
+        }
+
+        if (gameIndex >= gameIssues.length) bossHp = 0;
+        renderGame();
+    }
+
+    function shakeGameCard(card) {
+        if (!card) return;
+        card.classList.remove("shake");
+        void card.offsetWidth;
+        card.classList.add("shake");
+    }
+
+    function resetGame() {
+        gameIndex = 0;
+        bossHp = 100;
+
+        var status = document.getElementById("game-status");
+        var diagnosis = document.getElementById("diagnosis-card");
+        if (status) status.textContent = t("gameIntro");
+        if (diagnosis) {
+            diagnosis.classList.remove("unlocked");
+            diagnosis.innerHTML = '<p class="section-kicker">' + escapeHtml(t("diagnosisKicker")) + '</p><h3 data-i18n="diagnosisLocked">' + escapeHtml(t("diagnosisLocked")) + '</h3><p data-i18n="diagnosisHint">' + escapeHtml(t("diagnosisHint")) + '</p>';
+        }
+
+        renderGame();
+    }
+
+    function unlockDiagnosis() {
+        var diagnosis = document.getElementById("diagnosis-card");
+        if (!diagnosis) return;
+
+        diagnosis.classList.add("unlocked");
+        diagnosis.innerHTML = [
+            '<p class="section-kicker">' + escapeHtml(t("diagnosisKicker")) + '</p>',
+            '<h3>' + escapeHtml(t("diagnosisUnlocked")) + '</h3>',
+            '<p>' + escapeHtml(t("diagnosisText")) + '</p>'
+        ].join("");
+    }
+
+    /* Command Launcher */
+    function getCommands() {
+        return [
+            { label: t("commandProjects"), hint: t("hintScroll"), action: function () { closeCommandPalette(); scrollToTarget("projects"); } },
+            { label: t("commandChaos"), hint: t("hintScroll"), action: function () { closeCommandPalette(); scrollToTarget("chaos"); } },
+            { label: t("commandBoss"), hint: t("hintScroll"), action: function () { closeCommandPalette(); scrollToTarget("boss"); } },
+            { label: t("commandScan"), hint: t("hintConsole"), action: function () { closeCommandPalette(); scanVisitor(); } },
+            { label: t("commandSignal"), hint: t("hintConsole"), action: function () { closeCommandPalette(); toggleAudio(); } },
+            { label: t("commandEmail"), hint: t("hintCopy"), action: function () { copyValue("email"); } },
+            { label: t("commandPhone"), hint: t("hintCopy"), action: function () { copyValue("phone"); } },
+            { label: t("commandSwitch"), hint: t("hintConsole"), action: function () { applyLanguage(currentLanguage === "fa" ? "en" : "fa"); } },
+            { label: t("commandContact"), hint: t("hintScroll"), action: function () { closeCommandPalette(); scrollToTarget("contact"); } },
+            { label: t("commandApplitent"), hint: t("hintExternal"), action: function () { window.open("https://applitent.com", "_blank", "noopener"); } },
+            { label: t("commandFannkala"), hint: t("hintExternal"), action: function () { window.open("https://fannkala.com", "_blank", "noopener"); } },
+            { label: t("commandParstek"), hint: t("hintExternal"), action: function () { window.open("https://parstek.ir", "_blank", "noopener"); } },
+            { label: t("commandDebug"), hint: t("hintConsole"), action: toggleDebugMode }
+        ];
+    }
+
+    function renderCommandList() {
+        var list = document.getElementById("command-list");
+        if (!list) return;
+
+        list.innerHTML = "";
+        getCommands().forEach(function (command) {
+            var button = document.createElement("button");
+            button.type = "button";
+            button.innerHTML = "<span>" + escapeHtml(command.label) + "</span><small>" + escapeHtml(command.hint) + "</small>";
+            button.addEventListener("click", command.action);
+            list.appendChild(button);
+        });
+    }
+
+    function openCommandPalette() {
+        var dialog = document.getElementById("command-dialog");
+        if (!dialog) return;
+
+        lastFocusedElement = document.activeElement;
+        dialog.hidden = false;
+        document.body.style.overflow = "hidden";
+
+        var firstCommand = dialog.querySelector(".command-list button");
+        if (firstCommand) firstCommand.focus();
+    }
+
+    function closeCommandPalette() {
+        var dialog = document.getElementById("command-dialog");
+        if (!dialog || dialog.hidden) return;
+
+        dialog.hidden = true;
+        document.body.style.overflow = "";
+
+        if (lastFocusedElement && typeof lastFocusedElement.focus === "function") {
+            lastFocusedElement.focus();
+        }
+    }
+
+    function toggleDebugMode() {
+        debugMode = !debugMode;
+        document.body.classList.toggle("debug-mode", debugMode);
+        scanVisitor();
+    }
+
+    /* Copy Actions */
+    function copyValue(type) {
+        var value = type === "phone" ? phone : email;
+        var status = document.getElementById("copy-status");
+        var finish = function (message) {
+            if (status) status.textContent = message;
+        };
+
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(value).then(function () {
+                finish(type === "phone" ? t("copiedPhone") : t("copiedEmail"));
+            }).catch(function () {
+                fallbackCopy(value, finish, type);
+            });
+        } else {
+            fallbackCopy(value, finish, type);
+        }
+    }
+
+    function fallbackCopy(value, finish, type) {
+        var temporary = document.createElement("textarea");
+        temporary.value = value;
+        temporary.style.position = "fixed";
+        temporary.style.opacity = "0";
+        document.body.appendChild(temporary);
+        temporary.select();
+
+        var copied = document.execCommand("copy");
+        temporary.remove();
+        finish(copied ? (type === "phone" ? t("copiedPhone") : t("copiedEmail")) : t("copyFailed"));
+    }
+
+    /* Audio */
+    function audioAvailable() {
+        var player = document.getElementById("signal-player");
+        return !!(player && player.dataset.audioReady === "true");
+    }
+
+    function formatTime(seconds) {
+        if (!isFinite(seconds)) return "0:00";
+        var minutes = Math.floor(seconds / 60);
+        var rest = Math.floor(seconds % 60);
+        return minutes + ":" + String(rest).padStart(2, "0");
+    }
+
+    function updateAudioUi() {
+        var audio = document.getElementById("command-audio");
+        var progress = document.getElementById("audio-progress");
+        var time = document.getElementById("audio-time");
+        var buttons = document.querySelectorAll("[data-audio-toggle]");
+        if (!audio) return;
+
+        if (progress) {
+            progress.style.width = (audio.duration ? (audio.currentTime / audio.duration) * 100 : 0) + "%";
+        }
+
+        if (time) {
+            time.textContent = formatTime(audio.currentTime) + " / " + formatTime(audio.duration);
+        }
+
+        buttons.forEach(function (button) {
+            button.textContent = audio.paused ? "▶" : "Ⅱ";
+            button.setAttribute("aria-label", audio.paused ? t("audioPlay") : t("audioPause"));
+        });
+    }
+
+    function toggleAudio() {
+        var audio = document.getElementById("command-audio");
+        if (!audioAvailable() || !audio) return;
+
+        if (audio.paused) audio.play().catch(function () {});
+        else audio.pause();
+
+        updateAudioUi();
+    }
+
+    function initAudio() {
+        var player = document.getElementById("signal-player");
+        var audio = document.getElementById("command-audio");
+        if (!player || !audio) return;
+
+        audio.addEventListener("loadedmetadata", function () {
+            player.dataset.audioReady = "true";
+            var note = document.getElementById("audio-note");
+            if (note) note.hidden = true;
+            updateAudioUi();
+        });
+
+        audio.addEventListener("error", function () {
+            player.dataset.audioReady = "false";
+            updateAudioUi();
+        });
+
+        ["timeupdate", "play", "pause"].forEach(function (eventName) {
+            audio.addEventListener(eventName, updateAudioUi);
+        });
+    }
+
+    /* Events */
+    function handleDocumentClick(event) {
+        var repairButton = event.target.closest("[data-repair]");
+        var resetButton = event.target.closest("[data-reset-game]");
+        var openCommandButton = event.target.closest("[data-open-command]");
+        var closeCommandButton = event.target.closest("[data-close-command]");
+        var scanButton = event.target.closest("[data-scan-visitor]");
+        var copyButton = event.target.closest("[data-copy]");
+        var audioButton = event.target.closest("[data-audio-toggle]");
+        var languageButton = event.target.closest("[data-lang-option]");
+
+        if (repairButton) repairIssue(repairButton.dataset.repair);
+        if (resetButton) resetGame();
+        if (openCommandButton) openCommandPalette();
+        if (closeCommandButton) closeCommandPalette();
+        if (scanButton) scanVisitor();
+        if (audioButton) toggleAudio();
+
+        if (copyButton) {
+            event.preventDefault();
+            copyValue(copyButton.dataset.copy);
+        }
+
+        if (languageButton) {
+            applyLanguage(languageButton.dataset.langOption);
+        }
+    }
+
+    function handleKeyboard(event) {
+        var target = event.target;
+        var isTyping = target && (target.matches("input, textarea, select") || target.isContentEditable);
+
+        if (event.key === "/" && !isTyping) {
+            event.preventDefault();
+            openCommandPalette();
+        }
+
+        if (event.key === "Escape") {
+            closeCommandPalette();
+        }
+    }
+
+    function initObservers() {
+        if (!("IntersectionObserver" in window)) {
+            document.querySelectorAll(".observe").forEach(function (element) {
+                element.classList.add("is-visible");
+            });
+            return;
+        }
+
+        var observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("is-visible");
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12 });
+
+        document.querySelectorAll(".observe").forEach(function (element) {
+            observer.observe(element);
+        });
+    }
+
+    function initCursorGlow() {
+        if (reducedMotion.matches) return;
+
+        var glow = document.querySelector(".cursor-glow");
+        var scheduled = false;
+
+        document.addEventListener("pointermove", function (event) {
+            if (scheduled) return;
+            scheduled = true;
+
+            requestAnimationFrame(function () {
+                scheduled = false;
+                if (!glow) return;
+                glow.style.opacity = "1";
+                glow.style.left = event.clientX + "px";
+                glow.style.top = event.clientY + "px";
+            });
+        });
+    }
+
+    function init() {
+        document.addEventListener("click", handleDocumentClick);
+        document.addEventListener("keydown", handleKeyboard);
+        window.addEventListener("resize", function () { renderDiagnostics(false); });
+
+        if (typeof reducedMotion.addEventListener === "function") {
+            reducedMotion.addEventListener("change", function () { renderDiagnostics(false); });
+            colorScheme.addEventListener("change", function () { renderDiagnostics(false); });
+        }
+
+        initAudio();
+        applyLanguage(currentLanguage);
+        initObservers();
+        initCursorGlow();
+    }
+
+    init();
+
+    window.nimaApplyLanguage = applyLanguage;
+    window.nimaCopyValue = copyValue;
 })();
