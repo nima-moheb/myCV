@@ -67,22 +67,22 @@
             projectsKicker: "ماموریت‌های واقعی",
             projectsTitle: "چند نمونه از جاهایی که فقط ظاهر سایت مهم نبود",
             projectsSubtitle: "ساختار، مسیر کاربر، نگه‌داری، سرعت و عیب‌یابی واقعی هم بخشی از کار بودند.",
-            gameKicker: "بازی نجات سایت",
-            gameTitle: "مشکل‌ها دارن به هسته سایت می‌رسن",
+            gameKicker: "اتاق فرمان سه‌بعدی",
+            gameTitle: "کنسول‌های خراب را روشن کن",
             healthLabel: "سلامت سایت",
             repairedLabel: "تعمیر شده",
             comboLabel: "کمبو",
-            selectedToolLabel: "ابزار فعال",
-            startGame: "شروع بازی",
+            selectedToolLabel: "کنسول فعال",
+            startGame: "ورود به اتاق فرمان",
             pauseGame: "مکث",
-            gameIntro: "ابزار درست را انتخاب کن و قبل از آسیب، مشکل را تعمیر کن.",
+            gameIntro: "هر کنسول یک لایه از سایت است. مشکل را باز کن، تعمیر درست را انتخاب کن و هسته سایت را روشن کن.",
             resetGame: "شروع دوباره",
             scanVisitor: "سیستم منو بخون",
             diagnosisKicker: "تشخیص نیما",
-            diagnosisLocked: "کارت تشخیص هنوز قفل است.",
-            diagnosisHint: "بازی را ببَر تا کارت تشخیص باز شود.",
-            diagnosisUnlocked: "تشخیص باز شد",
-            diagnosisText: "مشکل سایت معمولاً فقط یک باگ نیست؛ معمولاً چند لایه با هم قاطی کرده‌اند: مسیر کاربر، تنظیمات، سرور، محتوا و نگه‌داری.",
+            diagnosisLocked: "تشخیص هنوز قفل است.",
+            diagnosisHint: "همه کنسول‌ها را روشن کن تا باز شود.",
+            diagnosisUnlocked: "نقشه مشکل روشن شد",
+            diagnosisText: "مشکل سایت معمولاً فقط یک باگ نیست؛ چند لایه با هم قاطی کرده‌اند: مسیر کاربر، تنظیمات، سرور، محتوا و نگه‌داری.",
             signalTitle: "سیگنال اتاق فرمان",
             audioPlay: "پخش سیگنال",
             audioPause: "توقف سیگنال",
@@ -107,7 +107,7 @@
             closeAria: "بستن",
             commandProjects: "دیدن ماموریت‌ها",
             commandChaos: "دیدن دردسرها",
-            commandBoss: "شروع بازی نجات سایت",
+            commandBoss: "ورود به اتاق فرمان سه‌بعدی",
             commandScan: "منو بررسی کن",
             commandSignal: "پخش سیگنال نیما",
             commandEmail: "کپی ایمیل",
@@ -122,12 +122,15 @@
             hintCopy: "کپی در کلیپ‌بورد",
             hintExternal: "باز شدن در تب تازه",
             hintConsole: "فرمان سیستمی",
-            gameWin: "سایت نجات پیدا کرد. حالا مشکل واقعی سایتت رو بفرست.",
-            gameGood: "PATCHED",
-            gameLose: "سایت از دست رفت. دوباره تمیزتر تعمیرش کن.",
-            gameWrong: "ابزار اشتباه بود.",
-            gameHit: "مشکل به هسته خورد.",
-            gameBad: "ابزار اشتباه بود.",
+            gameWin: "اتاق فرمان روشن شد. حالا مشکل واقعی سایتت رو بفرست.",
+            gameGood: "درست بود. این کنسول روشن شد.",
+            gameLose: "اتاق فرمان روشن شد. حالا مشکل واقعی سایتت رو بفرست.",
+            gameWrong: "این تعمیر به این مشکل نمی‌خورد.",
+            mistakesLabel: "خطا",
+            powerLabel: "قدرت اتاق",
+            chooseRepair: "تعمیر درست را انتخاب کن",
+            gameHit: "این تعمیر به این مشکل نمی‌خورد.",
+            gameBad: "این تعمیر به این مشکل نمی‌خورد.",
             diagnostics: {
                 device: "دستگاه",
                 browser: "مرورگر",
@@ -206,21 +209,21 @@
             projectsKicker: "Real Missions",
             projectsTitle: "A few places where the job was bigger than the surface",
             projectsSubtitle: "Structure, user flow, maintenance, speed, and real debugging mattered too.",
-            gameKicker: "Site Rescue Arcade",
-            gameTitle: "Problems are reaching the site core",
+            gameKicker: "3D Debug Lab",
+            gameTitle: "Power up the broken consoles",
             healthLabel: "Site health",
             repairedLabel: "Repaired",
             comboLabel: "Combo",
-            selectedToolLabel: "Selected tool",
-            startGame: "Start game",
+            selectedToolLabel: "Active console",
+            startGame: "Enter the lab",
             pauseGame: "Pause",
-            gameIntro: "Pick the right tool and repair the issue before it damages the site.",
+            gameIntro: "Each console is one layer of the site. Open the issue, choose the right repair, and light the site core.",
             resetGame: "Restart",
             scanVisitor: "Read my setup",
             diagnosisKicker: "Nima’s diagnosis",
-            diagnosisLocked: "Diagnosis card is locked.",
-            diagnosisHint: "Win the arcade round to unlock it.",
-            diagnosisUnlocked: "Diagnosis unlocked",
+            diagnosisLocked: "Diagnosis is still locked.",
+            diagnosisHint: "Power up every console to unlock it.",
+            diagnosisUnlocked: "The problem map is lit",
             diagnosisText: "A broken site is rarely just one bug. It is usually layers fighting each other: user flow, settings, server, content, and maintenance.",
             signalTitle: "Command Center Signal",
             audioPlay: "Play signal",
@@ -246,7 +249,7 @@
             closeAria: "Close",
             commandProjects: "Open Projects",
             commandChaos: "Show Chaos Types",
-            commandBoss: "Start Site Rescue Arcade",
+            commandBoss: "Enter 3D Debug Lab",
             commandScan: "Scan my setup",
             commandSignal: "Play Nima Signal",
             commandEmail: "Copy Email",
@@ -261,12 +264,15 @@
             hintCopy: "Copy to clipboard",
             hintExternal: "Open in a new tab",
             hintConsole: "System command",
-            gameWin: "Site rescued. Now send me your real broken thing.",
-            gameGood: "PATCHED",
-            gameLose: "The site went down. Try a cleaner repair.",
-            gameWrong: "Wrong tool.",
-            gameHit: "The issue hit the core.",
-            gameBad: "Wrong tool.",
+            gameWin: "The command room is online. Now send me the real broken thing.",
+            gameGood: "Correct. This console is online.",
+            gameLose: "The command room is online. Now send me the real broken thing.",
+            gameWrong: "That repair does not match this issue.",
+            mistakesLabel: "Mistakes",
+            powerLabel: "Room power",
+            chooseRepair: "Choose the right repair",
+            gameHit: "That repair does not match this issue.",
+            gameBad: "That repair does not match this issue.",
             diagnostics: {
                 device: "Device",
                 browser: "Browser",
@@ -391,18 +397,25 @@
         ]
     };
 
-    var rescueTools = [
-        { type: "DNS", key: "dns", fa: "DNS", en: "DNS", fixed: "DNS FIXED" },
-        { type: "SSL", key: "ssl", fa: "SSL", en: "SSL", fixed: "SSL PATCHED" },
-        { type: "Cache", key: "cache", fa: "کش", en: "Cache", fixed: "CACHE CLEARED" },
-        { type: "Plugin", key: "plugin", fa: "افزونه", en: "Plugin", fixed: "PLUGIN PATCHED" },
-        { type: "Speed", key: "speed", fa: "سرعت", en: "Optimize", fixed: "OPTIMIZED" },
-        { type: "Checkout/Form", key: "flow", fa: "جریان", en: "Flow", fixed: "FLOW FIXED" },
-        { type: "SEO", key: "seo", fa: "سئو", en: "SEO", fixed: "SEO FIXED" },
-        { type: "Mail", key: "mail", fa: "ایمیل", en: "Mail", fixed: "MAIL FIXED" }
+    var repairLabels = {
+        DNS: { fa: "DNS", en: "DNS" }, SSL: { fa: "SSL", en: "SSL" }, Cache: { fa: "کش", en: "Cache" },
+        Plugin: { fa: "افزونه", en: "Plugin" }, Speed: { fa: "سرعت", en: "Speed" }, Flow: { fa: "جریان", en: "Flow" }, SEO: { fa: "سئو", en: "SEO" }, Mail: { fa: "ایمیل", en: "Mail" }
+    };
+
+    var rescueTools = Object.keys(repairLabels).map(function (key) { return { type: key, key: key.toLowerCase(), fa: repairLabels[key].fa, en: repairLabels[key].en, fixed: key + " ONLINE" }; });
+
+    var debugConsoles = [
+        { key: "DNS", label: "DNS", faTitle: "DNS", enTitle: "DNS", faClue: "دامنه درست مسیر نمی‌گیرد یا گاهی بالا نمی‌آید.", enClue: "The domain does not route correctly or only loads sometimes.", correct: "DNS", choices: ["DNS", "Cache", "Plugin"] },
+        { key: "SSL", label: "SSL", faTitle: "SSL", enTitle: "SSL", faClue: "مرورگر اعتماد نمی‌کند و هشدار امنیتی نشان می‌دهد.", enClue: "The browser does not trust the site and shows a security warning.", correct: "SSL", choices: ["SSL", "SEO", "Mail"] },
+        { key: "Cache", label: "CACHE", faTitle: "کش", enTitle: "Cache", faClue: "تغییر انجام شده اما کاربر هنوز نسخه قدیمی را می‌بیند.", enClue: "The change is live, but users still see the old version.", correct: "Cache", choices: ["Cache", "DNS", "Flow"] },
+        { key: "Plugin", label: "PLUGIN", faTitle: "افزونه", enTitle: "Plugin", faClue: "بعد از آپدیت، بخشی از سایت ناگهان از کار افتاده.", enClue: "After an update, part of the site suddenly stopped working.", correct: "Plugin", choices: ["Plugin", "Speed", "SSL"] },
+        { key: "Speed", label: "SPEED", faTitle: "سرعت", enTitle: "Speed", faClue: "صفحه سنگین است و دیر جان می‌گیرد.", enClue: "The page is heavy and takes too long to wake up.", correct: "Speed", choices: ["Speed", "Mail", "SEO"] },
+        { key: "Flow", label: "FLOW", faTitle: "جریان", enTitle: "Flow", faClue: "کاربر در فرم، خرید یا درخواست سرویس گیر می‌کند.", enClue: "Users get stuck in a form, checkout, or service request.", correct: "Flow", choices: ["Flow", "Cache", "DNS"] },
+        { key: "SEO", label: "SEO", faTitle: "سئو", enTitle: "SEO", faClue: "مسیر محتوا و متاها برای آدم و گوگل واضح نیست.", enClue: "Content paths and metadata are unclear for people and Google.", correct: "SEO", choices: ["SEO", "SSL", "Plugin"] },
+        { key: "Mail", label: "MAIL", faTitle: "ایمیل", enTitle: "Mail", faClue: "فرم می‌گوید ارسال شد اما ایمیلی نمی‌رسد.", enClue: "The form says sent, but no email arrives.", correct: "Mail", choices: ["Mail", "Speed", "Cache"] }
     ];
 
-    var rescueConfig = { targetRepairs: 12, maxProblems: 5 };
+    var rescueConfig = { targetRepairs: 8, maxProblems: 0 };
 
     /* Utilities */
     function t(key) {
@@ -473,7 +486,7 @@
 
         renderChaosCards();
         renderProjectCards();
-        if (game) { renderToolbelt(); updateGameHud(); drawRescueGame(0); if (game.won) unlockDiagnosis(); }
+        if (game) { renderDebugLab(); updateGameHud(); if (game.won) unlockDiagnosis(); else lockDiagnosis(); }
         renderCommandList();
         renderDiagnostics(diagnosticsOpen);
         updateAudioUi();
@@ -596,156 +609,92 @@
         openDiagnosticsPanel();
     }
 
-    /* Site Rescue Arcade */
+    /* 3D Debug Lab */
     function toolLabel(tool) { return currentLanguage === "fa" ? tool.fa : tool.en; }
+    function consoleTitle(item) { return currentLanguage === "fa" ? item.faTitle : item.enTitle; }
+    function consoleClue(item) { return currentLanguage === "fa" ? item.faClue : item.enClue; }
+    function repairLabel(key) { return currentLanguage === "fa" ? repairLabels[key].fa : repairLabels[key].en; }
 
     function initRescueGame() {
-        var canvas = document.getElementById("site-rescue-canvas");
-        var stage = document.getElementById("site-rescue-stage");
-        if (!canvas || !stage) return;
-        game = { canvas: canvas, ctx: canvas.getContext("2d"), stage: stage, running: false, paused: false, over: false, won: false, health: 100, repaired: 0, combo: 0, selected: rescueTools[0].type, problems: [], effects: [], last: 0, spawn: 0, shake: 0, raf: 0 };
-        renderToolbelt();
-        resizeRescueCanvas();
+        var stage = document.getElementById("debug-lab-stage");
+        if (!stage) return;
+        game = { stage: stage, running: false, won: false, active: null, repairedMap: {}, mistakes: 0, lastResult: "" };
+        renderDebugLab();
         updateGameHud();
-        drawRescueGame(0);
+        lockDiagnosis();
     }
 
-    function renderToolbelt() {
-        var belt = document.getElementById("toolbelt");
-        if (!belt) return;
-        belt.innerHTML = rescueTools.map(function (tool, index) {
-            var active = game && game.selected === tool.type ? " is-active" : "";
-            return '<button type="button" class="tool-button' + active + '" data-tool="' + escapeHtml(tool.type) + '"><span>' + (index + 1) + '</span><strong>' + escapeHtml(toolLabel(tool)) + '</strong></button>';
-        }).join("");
-    }
-
-    function startGame() { resetGame(true); }
+    function renderToolbelt() { renderRepairChoices(); }
+    function startGame() { if (!game) initRescueGame(); if (!game) return; game.running = true; setStatus(t("gameIntro")); renderDebugLab(); updateGameHud(); }
 
     function resetGame(autostart) {
         if (!game) initRescueGame();
         if (!game) return;
-        game.running = !!autostart; game.paused = false; game.over = false; game.won = false; game.health = 100; game.repaired = 0; game.combo = 0; game.problems = []; game.effects = []; game.spawn = 0; game.shake = 0; game.last = performance.now();
-        lockDiagnosis();
-        setStatus(autostart ? t("gameIntro") : t("gameIntro"));
-        updateGameHud();
-        resizeRescueCanvas();
-        if (game.raf) cancelAnimationFrame(game.raf);
-        game.raf = requestAnimationFrame(loopRescueGame);
+        game.running = !!autostart; game.won = false; game.active = null; game.repairedMap = {}; game.mistakes = 0; game.lastResult = "";
+        lockDiagnosis(); setStatus(t("gameIntro")); renderDebugLab(); updateGameHud();
     }
 
-    function togglePause() {
-        if (!game || game.over) return;
-        if (!game.running) { startGame(); return; }
-        game.paused = !game.paused;
-        setStatus(game.paused ? t("pauseGame") : t("gameIntro"));
-        game.last = performance.now();
+    function togglePause() { startGame(); }
+    function selectTool(type) { chooseRepair(type); }
+
+    function repairedCount() { return game ? Object.keys(game.repairedMap).length : 0; }
+    function activeConsole() { return debugConsoles.find(function (item) { return game && item.key === game.active; }) || null; }
+
+    function renderDebugLab() {
+        var consoles = document.getElementById("lab-consoles"), beams = document.getElementById("lab-beams"), card = document.getElementById("game-card");
+        if (!game || !consoles || !beams) return;
+        if (card) card.classList.toggle("is-powered", game.won);
+        consoles.innerHTML = debugConsoles.map(function (item, index) {
+            var repaired = !!game.repairedMap[item.key], active = game.active === item.key;
+            return '<button type="button" class="lab-console console-' + index + (repaired ? ' is-repaired' : '') + (active ? ' is-active' : '') + '" data-console="' + escapeHtml(item.key) + '" aria-pressed="' + (active ? 'true' : 'false') + '"><span class="console-light"></span><strong>' + escapeHtml(item.label) + '</strong><small>' + escapeHtml(repaired ? t("repairedLabel") : consoleTitle(item)) + '</small></button>';
+        }).join("");
+        beams.innerHTML = debugConsoles.map(function (item, index) { return '<span class="lab-beam beam-' + index + (game.repairedMap[item.key] ? ' is-lit' : '') + '"></span>'; }).join("");
+        renderRepairChoices();
     }
 
-    function selectTool(type) {
-        if (!rescueTools.some(function (tool) { return tool.type === type; })) return;
+    function openConsole(key) {
         if (!game) initRescueGame();
-        game.selected = type;
-        renderToolbelt();
-        updateGameHud();
+        if (!game || game.won) return;
+        game.running = true; game.active = key; game.lastResult = "";
+        renderDebugLab(); updateGameHud(); setStatus(t("chooseRepair"));
     }
 
-    function resizeRescueCanvas() {
-        if (!game) return;
-        var rect = game.stage.getBoundingClientRect();
-        var ratio = Math.min(window.devicePixelRatio || 1, 2);
-        game.width = Math.max(300, rect.width); game.height = Math.max(220, rect.height);
-        game.canvas.width = Math.round(game.width * ratio); game.canvas.height = Math.round(game.height * ratio);
-        game.canvas.style.width = game.width + "px"; game.canvas.style.height = game.height + "px";
-        game.ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+    function renderRepairChoices() {
+        var title = document.getElementById("panel-title"), clue = document.getElementById("panel-clue"), actions = document.getElementById("repair-actions"), panel = document.getElementById("console-panel");
+        if (!title || !clue || !actions) return;
+        var item = activeConsole();
+        if (panel) panel.classList.toggle("has-active", !!item);
+        title.textContent = item ? consoleTitle(item) : "—";
+        clue.textContent = item ? consoleClue(item) : t("gameIntro");
+        actions.innerHTML = item ? item.choices.map(function (choice) { return '<button type="button" data-repair="' + escapeHtml(choice) + '">' + escapeHtml(repairLabel(choice)) + '</button>'; }).join("") : "";
     }
 
-    function spawnProblem() {
-        var tool = rescueTools[Math.floor(Math.random() * rescueTools.length)];
-        var edge = Math.floor(Math.random() * 3);
-        var x = edge === 0 ? 26 : edge === 1 ? game.width - 26 : 40 + Math.random() * (game.width - 80);
-        var y = edge === 2 ? 28 : 42 + Math.random() * Math.max(40, game.height * 0.36);
-        var speed = (reducedMotion.matches ? 22 : 34) + Math.random() * 16 + game.repaired * 1.4;
-        game.problems.push({ id: Date.now() + Math.random(), type: tool.type, label: tool.type, x: x, y: y, r: 24, speed: speed, pulse: Math.random() * 10 });
-    }
-
-    function loopRescueGame(now) {
-        if (!game) return;
-        var dt = Math.min(0.033, (now - game.last) / 1000 || 0); game.last = now;
-        if (game.running && !game.paused && !game.over) updateRescueGame(dt);
-        drawRescueGame(now / 1000);
-        game.raf = requestAnimationFrame(loopRescueGame);
-    }
-
-    function updateRescueGame(dt) {
-        game.spawn -= dt;
-        if (game.spawn <= 0 && game.problems.length < rescueConfig.maxProblems) { spawnProblem(); game.spawn = Math.max(0.72, 1.45 - game.repaired * 0.035); }
-        var core = corePoint();
-        game.problems = game.problems.filter(function (p) {
-            var dx = core.x - p.x, dy = core.y - p.y, dist = Math.hypot(dx, dy) || 1;
-            p.x += dx / dist * p.speed * dt; p.y += dy / dist * p.speed * dt; p.pulse += dt;
-            if (dist < p.r + 29) { damage(14, t("gameHit")); addEffect(core.x, core.y, t("gameHit"), "bad"); return false; }
-            return true;
-        });
-        game.effects = game.effects.filter(function (e) { e.life -= dt; e.y -= dt * 28; return e.life > 0; });
-        if (game.shake > 0) game.shake -= dt;
-    }
-
-    function corePoint() { return { x: game.width / 2, y: game.height * 0.66 }; }
-
-    function handleStagePointer(event) {
-        if (!game || !game.running || game.paused || game.over) return;
-        var rect = game.canvas.getBoundingClientRect();
-        var x = event.clientX - rect.left, y = event.clientY - rect.top;
-        for (var i = game.problems.length - 1; i >= 0; i -= 1) {
-            var p = game.problems[i];
-            if (Math.hypot(p.x - x, p.y - y) <= p.r + 12) { repairProblem(p, i); break; }
+    function chooseRepair(choice) {
+        var item = activeConsole();
+        if (!game || !item || game.won) return;
+        var stage = document.getElementById("debug-lab-stage");
+        if (choice === item.correct) {
+            game.repairedMap[item.key] = true; game.lastResult = t("gameGood"); setStatus(game.lastResult);
+            if (stage) { stage.classList.remove("wrong-pulse"); stage.classList.add("good-pulse"); setTimeout(function () { stage.classList.remove("good-pulse"); }, 520); }
+            if (repairedCount() >= rescueConfig.targetRepairs) finishGame(true);
+        } else {
+            game.mistakes += 1; game.lastResult = t("gameWrong"); setStatus(game.lastResult);
+            if (stage && !reducedMotion.matches) { stage.classList.remove("good-pulse"); stage.classList.add("wrong-pulse"); setTimeout(function () { stage.classList.remove("wrong-pulse"); }, 420); }
         }
+        renderDebugLab(); updateGameHud();
     }
 
-    function repairProblem(problem, index) {
-        var tool = rescueTools.find(function (item) { return item.type === problem.type; });
-        if (game.selected === problem.type) {
-            game.problems.splice(index, 1); game.repaired += 1; game.combo += 1;
-            addEffect(problem.x, problem.y, tool ? tool.fixed : "PATCHED", "good");
-            setStatus(tool ? tool.fixed : t("gameGood"));
-            if (game.repaired >= rescueConfig.targetRepairs) finishGame(true);
-        } else { game.combo = 0; damage(9, t("gameWrong")); addEffect(problem.x, problem.y, t("gameWrong"), "bad"); }
-        updateGameHud();
-    }
-
-    function damage(amount, message) { game.health = Math.max(0, game.health - amount); game.shake = reducedMotion.matches ? 0 : 0.28; setStatus(message); if (game.health <= 0) finishGame(false); updateGameHud(); }
-    function addEffect(x, y, text, kind) { if (reducedMotion.matches && kind === "good") return; game.effects.push({ x: x, y: y, text: text, kind: kind, life: 0.9 }); }
-    function finishGame(won) { game.over = true; game.running = false; game.won = won; setStatus(t(won ? "gameWin" : "gameLose")); if (won) unlockDiagnosis(); }
+    function finishGame(won) { game.won = won; game.running = false; game.active = null; setStatus(t("gameWin")); renderDebugLab(); updateGameHud(); unlockDiagnosis(); }
     function setStatus(text) { var status = document.getElementById("game-status"); if (status) status.textContent = text; }
 
     function updateGameHud() {
-        var health = document.getElementById("game-health"), repaired = document.getElementById("game-repaired"), combo = document.getElementById("game-combo"), selected = document.getElementById("game-selected-tool");
-        var tool = rescueTools.find(function (item) { return game && item.type === game.selected; }) || rescueTools[0];
-        if (health) health.textContent = (game ? game.health : 100) + "%";
-        if (repaired) repaired.textContent = (game ? game.repaired : 0) + "/" + rescueConfig.targetRepairs;
-        if (combo) combo.textContent = (game ? game.combo : 0) + "x";
-        if (selected) selected.textContent = toolLabel(tool);
-        renderToolbelt();
-    }
-
-    function drawRescueGame(time) {
-        if (!game) return;
-        var ctx = game.ctx, w = game.width, h = game.height, core = corePoint();
-        ctx.clearRect(0, 0, w, h); ctx.save();
-        if (game.shake > 0) ctx.translate((Math.random() - 0.5) * 7, (Math.random() - 0.5) * 7);
-        ctx.fillStyle = "#070914"; ctx.fillRect(0, 0, w, h);
-        ctx.strokeStyle = "rgba(118,255,216,.09)"; ctx.lineWidth = 1;
-        for (var gx = 0; gx < w; gx += 34) { ctx.beginPath(); ctx.moveTo(gx, 0); ctx.lineTo(gx, h); ctx.stroke(); }
-        for (var gy = 0; gy < h; gy += 34) { ctx.beginPath(); ctx.moveTo(0, gy); ctx.lineTo(w, gy); ctx.stroke(); }
-        var pulse = reducedMotion.matches ? 0 : Math.sin(time * 3) * 5;
-        ctx.beginPath(); ctx.arc(core.x, core.y, 34 + pulse, 0, Math.PI * 2); ctx.fillStyle = "rgba(118,255,216,.14)"; ctx.fill();
-        ctx.beginPath(); ctx.arc(core.x, core.y, 25, 0, Math.PI * 2); ctx.fillStyle = "#76ffd8"; ctx.shadowColor = "#76ffd8"; ctx.shadowBlur = 22; ctx.fill(); ctx.shadowBlur = 0;
-        ctx.fillStyle = "#071018"; ctx.font = "900 12px sans-serif"; ctx.textAlign = "center"; ctx.fillText("CORE", core.x, core.y + 4);
-        game.problems.forEach(function (p) { ctx.beginPath(); ctx.arc(p.x, p.y, p.r + (reducedMotion.matches ? 0 : Math.sin(p.pulse * 5) * 2), 0, Math.PI * 2); ctx.fillStyle = "rgba(255,93,115,.86)"; ctx.shadowColor = "#ff5d73"; ctx.shadowBlur = 14; ctx.fill(); ctx.shadowBlur = 0; ctx.strokeStyle = "rgba(255,255,255,.45)"; ctx.stroke(); ctx.fillStyle = "#fff"; ctx.font = "900 11px sans-serif"; ctx.fillText(p.label, p.x, p.y + 4); });
-        game.effects.forEach(function (e) { ctx.globalAlpha = Math.max(0, e.life); ctx.fillStyle = e.kind === "good" ? "#76ffd8" : "#ff5d73"; ctx.font = "1000 13px sans-serif"; ctx.fillText(e.text, e.x, e.y); ctx.globalAlpha = 1; });
-        if (!game.running && !game.over) { ctx.fillStyle = "rgba(7,9,20,.62)"; ctx.fillRect(0, 0, w, h); ctx.fillStyle = "#fff"; ctx.font = "1000 18px sans-serif"; ctx.fillText(t("startGame"), w / 2, h / 2); }
-        if (game.paused) { ctx.fillStyle = "rgba(7,9,20,.62)"; ctx.fillRect(0, 0, w, h); ctx.fillStyle = "#fff"; ctx.font = "1000 18px sans-serif"; ctx.fillText(t("pauseGame"), w / 2, h / 2); }
-        ctx.restore();
+        var repaired = document.getElementById("game-repaired"), active = document.getElementById("game-active-console"), mistakes = document.getElementById("game-mistakes"), power = document.getElementById("game-power"), legacy = document.getElementById("game-selected-tool");
+        var count = repairedCount(), item = activeConsole(), percent = Math.round(count / rescueConfig.targetRepairs * 100);
+        if (repaired) repaired.textContent = count + "/" + rescueConfig.targetRepairs;
+        if (active) active.textContent = item ? consoleTitle(item) : "—";
+        if (legacy) legacy.textContent = item ? consoleTitle(item) : "—";
+        if (mistakes) mistakes.textContent = game ? String(game.mistakes) : "0";
+        if (power) power.textContent = percent + "%";
     }
 
     function lockDiagnosis() {
@@ -759,7 +708,7 @@
         var diagnosis = document.getElementById("diagnosis-card");
         if (!diagnosis) return;
         diagnosis.classList.add("unlocked");
-        diagnosis.innerHTML = ['<p class="section-kicker">' + escapeHtml(t("diagnosisKicker")) + '</p>', '<h3>' + escapeHtml(t("diagnosisUnlocked")) + '</h3>', '<p>' + escapeHtml(t("diagnosisText")) + '</p>'].join("");
+        diagnosis.innerHTML = ['<p class="section-kicker">' + escapeHtml(t("diagnosisKicker")) + '</p>', '<h3>' + escapeHtml(t("diagnosisUnlocked")) + '</h3>', '<p>' + escapeHtml(t("diagnosisText")) + '</p>', '<a class="btn primary-btn" href="#contact">' + escapeHtml(t("commandContact")) + '</a>'].join("");
     }
 
     /* Command Launcher */
@@ -955,6 +904,10 @@
         if (startButton) startGame();
         if (pauseButton) togglePause();
         if (toolButton) selectTool(toolButton.dataset.tool);
+        var consoleButton = event.target.closest("[data-console]");
+        var repairButton = event.target.closest("[data-repair]");
+        if (consoleButton) openConsole(consoleButton.dataset.console);
+        if (repairButton) chooseRepair(repairButton.dataset.repair);
         if (resetButton) resetGame(true);
         if (openCommandButton) openCommandPalette();
         if (closeCommandButton) closeCommandPalette();
@@ -1042,8 +995,8 @@
     function init() {
         document.addEventListener("click", handleDocumentClick);
         document.addEventListener("keydown", handleKeyboard);
-        window.addEventListener("resize", function () { renderDiagnostics(diagnosticsOpen); resizeRescueCanvas(); });
-        document.addEventListener("visibilitychange", function () { if (game && document.hidden) game.paused = true; });
+        window.addEventListener("resize", function () { renderDiagnostics(diagnosticsOpen); renderDebugLab(); });
+        document.addEventListener("visibilitychange", function () { return; });
 
         if (typeof reducedMotion.addEventListener === "function") {
             reducedMotion.addEventListener("change", function () { renderDiagnostics(diagnosticsOpen); });
@@ -1052,8 +1005,6 @@
 
         initAudio();
         initRescueGame();
-        var canvas = document.getElementById("site-rescue-canvas");
-        if (canvas) canvas.addEventListener("pointerdown", handleStagePointer);
         applyLanguage(currentLanguage);
         initObservers();
         initCursorGlow();
