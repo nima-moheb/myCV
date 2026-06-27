@@ -11,6 +11,7 @@
     var currentLanguage = localStorage.getItem(storageKey) === "en" ? "en" : "fa";
     var lastFocusedElement = null;
     var debugMode = false;
+    var diagnosticsOpen = false;
     var gameIndex = 0;
     var bossHp = 100;
     var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -437,7 +438,7 @@
         renderProjectCards();
         renderGame();
         renderCommandList();
-        renderDiagnostics(false);
+        renderDiagnostics(diagnosticsOpen);
         updateAudioUi();
     }
 
@@ -530,10 +531,16 @@
             return '<div class="diagnostic-item"><small>' + escapeHtml(item[0]) + '</small><strong>' + escapeHtml(item[1]) + '</strong></div>';
         }).join("");
 
-        if (showPanel) grid.hidden = false;
+        if (showPanel) {
+            diagnosticsOpen = true;
+            grid.hidden = false;
+        } else if (!diagnosticsOpen) {
+            grid.hidden = true;
+        }
     }
 
     function scanVisitor() {
+        diagnosticsOpen = true;
         renderDiagnostics(true);
     }
 
@@ -895,11 +902,11 @@
     function init() {
         document.addEventListener("click", handleDocumentClick);
         document.addEventListener("keydown", handleKeyboard);
-        window.addEventListener("resize", function () { renderDiagnostics(false); });
+        window.addEventListener("resize", function () { renderDiagnostics(diagnosticsOpen); });
 
         if (typeof reducedMotion.addEventListener === "function") {
-            reducedMotion.addEventListener("change", function () { renderDiagnostics(false); });
-            colorScheme.addEventListener("change", function () { renderDiagnostics(false); });
+            reducedMotion.addEventListener("change", function () { renderDiagnostics(diagnosticsOpen); });
+            colorScheme.addEventListener("change", function () { renderDiagnostics(diagnosticsOpen); });
         }
 
         initAudio();

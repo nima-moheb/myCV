@@ -1355,3 +1355,161 @@ html[dir="rtl"] .boss-meter span#boss-hp { top: 1.9rem; }
 @media (prefers-reduced-motion: reduce) {
     .chaos-strip::before, .chaos-strip span, .chaos-strip span::after, .chip, .system-lights span::before { animation: none !important; }
 }
+
+
+/* Live QA layout containment pass */
+@media (min-width: 921px) {
+    .hero-grid {
+        grid-template-columns: minmax(0, 1.08fr) minmax(300px, 0.72fr);
+        align-items: start;
+        gap: clamp(1.6rem, 3.4vw, 3.4rem);
+    }
+
+    .hero-copy {
+        padding-top: clamp(0.35rem, 1.4vw, 1.2rem);
+    }
+
+    .dashboard {
+        margin-top: clamp(1.25rem, 3.2vw, 3rem);
+    }
+
+    .operator-card img {
+        height: clamp(19rem, 31vw, 29rem);
+    }
+
+    .signal-player {
+        grid-template-columns: minmax(0, 1fr) 4.4rem;
+    }
+
+    .signal-copy {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .signal-play {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .wave,
+    .signal-scrub,
+    .audio-note {
+        grid-column: 1 / -1;
+    }
+
+    .signal-scrub {
+        grid-template-columns: auto minmax(16rem, 1fr) auto;
+    }
+}
+
+.chaos-strip {
+    min-height: 4.6rem;
+    align-items: center;
+    contain: layout paint;
+    transform: translateZ(0);
+    animation-name: stripGlowContained;
+}
+
+.chaos-strip span {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.25rem;
+    padding-inline-end: 1.52rem;
+    overflow: hidden;
+    contain: layout paint;
+}
+
+.chaos-strip span:nth-child(odd)::after,
+.chaos-strip span:nth-child(2n)::after,
+.chaos-strip span:nth-child(3n)::after {
+    position: absolute;
+    inset-inline-end: 0.62rem;
+    top: 50%;
+    display: block;
+    width: 0.24rem;
+    height: 1rem;
+    margin: 0;
+    transform: translateY(-50%) scaleY(0.62);
+    transform-origin: center;
+    vertical-align: initial;
+    animation-name: eqBarContained;
+}
+
+.system-lights {
+    align-items: stretch;
+    gap: 0.55rem;
+}
+
+.system-lights span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.65rem;
+    padding: 0.62rem 0.85rem 0.62rem 1.9rem;
+    line-height: 1.15;
+}
+
+.system-lights span::before {
+    position: absolute;
+    inset-inline-start: 0.78rem;
+    top: 50%;
+    display: block;
+    width: 0.46rem;
+    height: 0.46rem;
+    margin: 0;
+    transform: translateY(-50%);
+    animation-name: lightPulseContained;
+}
+
+html[dir="rtl"] .system-lights span {
+    padding: 0.62rem 1.9rem 0.62rem 0.85rem;
+}
+
+.mission-card .chips {
+    justify-content: center;
+}
+
+@keyframes stripGlowContained {
+    50% { filter: drop-shadow(0 0 18px rgba(140,123,255,0.16)); }
+}
+
+@keyframes eqBarContained {
+    50% { transform: translateY(-50%) scaleY(1.35); box-shadow: 0 0 16px currentColor; opacity: 0.95; }
+}
+
+@keyframes lightPulseContained {
+    50% { transform: translateY(-50%) scale(1.25); opacity: 0.72; }
+}
+
+@media (max-width: 920px) {
+    .hero-grid,
+    .hero-copy,
+    .dashboard,
+    .operator-card,
+    .system-lights,
+    .diagnostics-grid,
+    .signal-player {
+        overflow: clip;
+    }
+
+    .chaos-strip {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        min-height: 0;
+        gap: 0.55rem;
+    }
+
+    .chaos-strip span {
+        min-width: 0;
+        width: 100%;
+        padding: 0.58rem 1.35rem 0.58rem 0.5rem;
+    }
+}
+
+@keyframes equalizer {
+    50% {
+        transform: scaleY(1.7);
+    }
+}
