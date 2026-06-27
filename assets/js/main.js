@@ -50,6 +50,13 @@
             scanCta: "سیستم منو بخون",
             diagnosticsTitle: "اسکن محیط",
             scanFriendly: "نمای سریع محیطی که سایت را با آن می‌بینی.",
+            scanHelper: "محیطی که این صفحه را با آن می‌بینی",
+            scratchTitle: "از صفر هم می‌سازم",
+            scratchBody: "اگر چیزی هنوز فقط ایده است، می‌توانم از صفر برایش ساختار، مسیر کاربر، ظاهر، منطق و نسخه قابل استفاده بسازم.",
+            scratchItem1: "لندینگ و سایت شرکتی",
+            scratchItem2: "فروشگاه وردپرسی / ووکامرس",
+            scratchItem3: "وب‌اپ و پنل لاراول",
+            scratchItem4: "ساختار، محتوا و جریان کار",
             operatorAlt: "نیما در اتاق فرمان وب",
             statusWp: "قابل بررسی",
             statusLaravel: "قابل بررسی",
@@ -174,6 +181,13 @@
             scanCta: "Read my setup",
             diagnosticsTitle: "Environment scan",
             scanFriendly: "A quick read of the setup viewing this site.",
+            scanHelper: "The environment viewing this page",
+            scratchTitle: "I also build from scratch",
+            scratchBody: "If the thing is still only an idea, I can turn it into a usable structure: interface, user flow, logic, content, and a real working version.",
+            scratchItem1: "Landing pages & company sites",
+            scratchItem2: "WordPress / WooCommerce builds",
+            scratchItem3: "Laravel web apps & dashboards",
+            scratchItem4: "Structure, content, and flow",
             operatorAlt: "Nima in the web command center",
             statusWp: "WordPress",
             statusLaravel: "Laravel",
@@ -303,6 +317,7 @@
                 mess: "پلتفرمی که جریان کاربر، زیرساخت و اعتماد در آن مهم بود.",
                 move: "ورود، داشبورد، درخواست سرویس، آپلود، ایمیل، DNS/SSL، Cloudflare، نقشه سایت و سئوی فنی.",
                 outcome: "",
+                proof: "Lighthouse 100×4",
                 chips: ["Laravel", "Auth", "Dashboards", "Cloudflare", "SEO", "Lighthouse 100×4"]
             },
             {
@@ -312,6 +327,7 @@
                 mess: "فروشگاهی که ساختار، خرید و نگه‌داری‌اش باید روشن‌تر می‌شد.",
                 move: "روی ساختار وردپرس و ووکامرس، مسیر خرید، محتوا، تجربه کاربر و بهبود سرعت کار کردم.",
                 outcome: "فروشگاه خواناتر، مرتب‌تر و آماده‌تر برای نگه‌داری و رشد محتوا شد.",
+                proof: "ساختار فروشگاه، مسیر خرید و بهبود سرعت",
                 chips: ["WordPress", "WooCommerce", "Content", "Performance"]
             },
             {
@@ -321,6 +337,7 @@
                 mess: "سایت شرکتی که باید معرفی خدمات و مسیر محتوا را شفاف‌تر نشان می‌داد.",
                 move: "روی ارائه خدمات، مسیرهای محتوا، پولیش رابط کاربری، سفارشی‌سازی قالب و تمیزکاری تجربه کاربر کار کردم.",
                 outcome: "مسیر مطالعه و معرفی برند منظم‌تر و حرفه‌ای‌تر شد.",
+                proof: "ارائه خدمات، مسیر محتوا و پولیش تجربه کاربر",
                 chips: ["Corporate", "WordPress", "UI polish", "UX cleanup"]
             }
         ],
@@ -333,6 +350,7 @@
                 mess: "A legal-services platform needed reliable flows, stable infrastructure, and trust-building paths.",
                 move: "I worked on auth flows, dashboards, service requests, upload hardening, legal hub, mail, DNS, SSL, Cloudflare, sitemap, technical SEO, and server-side troubleshooting.",
                 outcome: "",
+                proof: "Lighthouse 100×4",
                 chips: ["Laravel", "Auth", "Dashboards", "Cloudflare", "SEO", "Lighthouse 100×4"]
             },
             {
@@ -342,6 +360,7 @@
                 mess: "The store needed clearer structure, a smoother buying experience, and easier maintenance.",
                 move: "I worked on WordPress/WooCommerce structure, buying paths, content, UX cleanup, and speed/performance cleanup.",
                 outcome: "The store became clearer, cleaner, and easier to maintain and grow with content.",
+                proof: "Store structure, buying path, and speed cleanup",
                 chips: ["WordPress", "WooCommerce", "Content", "Performance"]
             },
             {
@@ -351,6 +370,7 @@
                 mess: "The corporate site needed clearer service presentation, content paths, and professional polish.",
                 move: "I worked on service presentation, content paths, UI polish, theme customization, and UX cleanup.",
                 outcome: "The brand presentation and browsing path became more organized and credible.",
+                proof: "Service presentation, content path, and UX polish",
                 chips: ["Corporate", "WordPress", "UI polish", "UX cleanup"]
             }
         ]
@@ -470,7 +490,7 @@
             var chips = project.chips.filter(function (chip) { return chip !== "Lighthouse 100×4"; }).map(function (chip) {
                 return '<span class="chip">' + escapeHtml(chip) + '</span>';
             }).join("");
-            var badge = project.featured ? '<div class="mission-proof"><div class="lighthouse-badge"><strong>Lighthouse 100×4</strong><span><i>100</i><i>100</i><i>100</i><i>100</i></span></div></div>' : '<div class="mission-proof mission-proof-spacer" aria-hidden="true"></div>';
+            var badge = project.featured ? '<div class="mission-proof"><div class="lighthouse-badge"><strong>Lighthouse 100×4</strong><span><i>100</i><i>100</i><i>100</i><i>100</i></span></div></div>' : '<div class="mission-proof"><strong>' + escapeHtml(project.proof) + '</strong></div>';
 
             return [
                 '<article class="mission-card observe is-visible ' + (project.featured ? "featured" : "") + '">',
