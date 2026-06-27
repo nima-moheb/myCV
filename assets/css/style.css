@@ -1955,3 +1955,46 @@ html[dir="rtl"] .system-lights span {
 @media (max-width: 920px) { .debug-lab-stage { min-height: 21rem; perspective: 620px; } .lab-console { width: 5.25rem; min-height: 4.25rem; font-size: 0.84rem; } .repair-actions { grid-template-columns: 1fr; } }
 @media (max-width: 520px) { .debug-lab-stage { min-height: 18rem; max-height: 62vh; } .lab-core { width: 5.4rem; height: 5.4rem; font-size: 0.75rem; } .lab-console { width: 4.65rem; min-height: 3.85rem; border-radius: 16px; } .lab-console small { display: none; } .debug-lab-hud { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (prefers-reduced-motion: reduce) { .lab-core::before, .lab-core::after, .lab-console, .debug-lab-stage.wrong-pulse { animation: none !important; transition: none !important; } }
+
+/* Chaos Cleaner game override */
+.chaos-stage .lab-core { transition: box-shadow 0.25s ease, filter 0.25s ease; }
+.debug-lab-card.is-powered .lab-core { filter: brightness(1.2) saturate(1.25); box-shadow: 0 0 34px rgba(255,211,110,0.95), 0 0 120px rgba(118,255,216,0.46); }
+.chaos-stage .lab-consoles { z-index: 7; }
+.chaos-glitch {
+    pointer-events: auto;
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    width: max(44px, var(--size));
+    min-height: max(44px, var(--size));
+    border: 1px solid color-mix(in srgb, var(--accent), white 18%);
+    border-radius: 42% 58% 54% 46% / 46% 44% 56% 54%;
+    transform: translate(-50%, -50%) translateZ(120px);
+    display: grid;
+    place-items: center;
+    padding: 0.4rem;
+    cursor: pointer;
+    color: #fff;
+    background: radial-gradient(circle at 32% 25%, rgba(255,255,255,0.32), transparent 28%), linear-gradient(135deg, color-mix(in srgb, var(--accent), transparent 35%), rgba(255,93,115,0.28));
+    box-shadow: 0 0 22px color-mix(in srgb, var(--accent), transparent 48%), inset 0 0 22px rgba(255,255,255,0.08), 0 18px 32px rgba(0,0,0,0.34);
+    font: inherit;
+    font-weight: 1000;
+    isolation: isolate;
+    animation: chaosPulse 2.4s ease-in-out infinite;
+}
+.chaos-glitch span { position: absolute; inset: -8px; border-radius: inherit; background: linear-gradient(90deg, rgba(255,0,90,0.32), rgba(0,255,255,0.24)); filter: blur(7px); opacity: 0.75; z-index: -1; }
+.chaos-glitch strong { position: relative; font-size: clamp(0.72rem, 2.6vw, 0.95rem); text-shadow: 2px 0 rgba(255,0,90,0.62), -2px 0 rgba(0,255,255,0.55); }
+.chaos-glitch:hover,
+.chaos-glitch:focus-visible { outline: none; transform: translate(-50%, -58%) translateZ(160px) scale(1.05); border-color: var(--amber); box-shadow: 0 0 34px rgba(255,211,110,0.34), 0 0 26px color-mix(in srgb, var(--accent), transparent 35%); }
+.chaos-glitch.drift-a { animation: chaosPulse 2.4s ease-in-out infinite, chaosDriftA 5.2s ease-in-out infinite; }
+.chaos-glitch.drift-b { animation: chaosPulse 2.2s ease-in-out infinite, chaosDriftB 5.8s ease-in-out infinite; }
+.repair-burst { position: absolute; z-index: 9; left: var(--x); top: var(--y); width: 1rem; height: 1rem; transform: translate(-50%, -50%); border-radius: 999px; pointer-events: none; background: var(--accent); box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent), transparent 20%), 0 0 28px var(--accent); animation: repairBurst 0.68s ease-out forwards; }
+.chaos-stage::after { content: "DNS  SSL  SEO  MAIL  CACHE"; position: absolute; inset-inline: 1rem; top: 0.85rem; z-index: 1; color: rgba(255,255,255,0.1); font-weight: 1000; letter-spacing: 0.18em; text-align: center; pointer-events: none; }
+.debug-lab-card.is-powered .chaos-stage { border-color: rgba(255,211,110,0.55); box-shadow: inset 0 0 110px rgba(255,211,110,0.18), 0 0 58px rgba(118,255,216,0.24); }
+@keyframes chaosPulse { 0%, 100% { filter: brightness(1); } 45% { filter: brightness(1.28) hue-rotate(12deg); } 48% { filter: brightness(0.84) hue-rotate(-18deg); } }
+@keyframes chaosDriftA { 50% { margin-left: 10px; margin-top: -7px; } }
+@keyframes chaosDriftB { 50% { margin-left: -8px; margin-top: 9px; } }
+@keyframes repairBurst { to { opacity: 0; transform: translate(-50%, -50%) scale(5); box-shadow: 0 0 0 24px color-mix(in srgb, var(--accent), transparent 88%), 0 0 48px var(--accent); } }
+@media (max-width: 920px) { .debug-lab-hud { grid-template-columns: repeat(3, minmax(0, 1fr)); } .chaos-glitch { width: max(48px, calc(var(--size) * 0.88)); min-height: max(48px, calc(var(--size) * 0.88)); } }
+@media (max-width: 520px) { .debug-lab-hud { grid-template-columns: 1fr 1fr; } .debug-lab-hud span:first-child { grid-column: 1 / -1; } .chaos-stage { min-height: 19rem; max-width: 100%; } .chaos-glitch { width: max(48px, calc(var(--size) * 0.76)); min-height: max(48px, calc(var(--size) * 0.76)); } }
+@media (prefers-reduced-motion: reduce) { .chaos-glitch, .chaos-glitch.drift-a, .chaos-glitch.drift-b, .repair-burst, .chaos-stage .lab-core { animation: none !important; transition: none !important; } }
