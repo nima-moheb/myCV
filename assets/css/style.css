@@ -459,10 +459,10 @@ html[dir="rtl"] .hero-title {
 .system-cards {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.7rem;
+    gap: 0.85rem;
 }
 
-.system-cards div,
+.system-module,
 .scan-card,
 .diagnostic-item {
     border: 1px solid var(--line);
@@ -471,32 +471,150 @@ html[dir="rtl"] .hero-title {
     padding: 0.85rem;
 }
 
+.system-module {
+    position: relative;
+    display: grid;
+    justify-items: center;
+    gap: 0.22rem;
+    min-height: 7rem;
+    overflow: hidden;
+    text-align: center;
+    background: linear-gradient(160deg, rgba(255,255,255,0.09), rgba(255,255,255,0.035));
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+}
+
+.system-module::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, rgba(118,255,216,0.8), rgba(140,123,255,0.75), transparent);
+}
+
+.system-module i {
+    display: grid;
+    place-items: center;
+    width: 2.2rem;
+    height: 2.2rem;
+    border: 1px solid rgba(118,255,216,0.24);
+    border-radius: 0.9rem;
+    background: rgba(118,255,216,0.08);
+    color: var(--mint);
+    font-style: normal;
+    font-weight: 1000;
+}
+
 .system-cards small,
 .contact-link small,
 .diagnostic-item small {
     display: block;
     color: #d1cbe0;
-    font-weight: 950;
+    font-weight: 850;
 }
 
 .system-cards strong {
-    font-size: 1.25rem;
+    font-size: 1.08rem;
+    line-height: 1.25;
 }
 
 .scan-card {
+    position: relative;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 0.9rem;
     width: 100%;
-    margin-top: 0.8rem;
+    margin-top: 0.9rem;
     color: var(--text);
     text-align: start;
+    background:
+        radial-gradient(circle at 12% 20%, rgba(118,255,216,0.2), transparent 9rem),
+        linear-gradient(135deg, rgba(118,255,216,0.14), rgba(140,123,255,0.12) 48%, rgba(255,111,181,0.09));
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.12), 0 18px 42px rgba(0,0,0,0.22);
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.scan-card span {
+.scan-card:hover,
+.scan-card:focus-visible {
+    transform: translateY(-2px);
+    border-color: rgba(118,255,216,0.62);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.16), 0 22px 58px rgba(118,255,216,0.13);
+}
+
+.scan-glyph,
+.scan-arrow {
+    display: grid;
+    place-items: center;
+    width: 3.1rem;
+    height: 3.1rem;
+    border-radius: 1.15rem;
+    background: rgba(7,10,18,0.58);
+    color: var(--mint);
+    font-weight: 1000;
+    box-shadow: inset 0 0 0 1px rgba(118,255,216,0.24);
+}
+
+.scan-copy strong,
+.scan-copy small {
     display: block;
+}
+
+.scan-copy strong {
+    font-size: 1.15rem;
     font-weight: 1000;
 }
 
-.scan-card small {
-    color: var(--muted);
+.scan-copy small {
+    color: #d8d2e4;
+    font-weight: 850;
+}
+
+.scratch-card {
+    position: relative;
+    margin-top: 0.9rem;
+    border: 1px solid rgba(255,255,255,0.13);
+    border-radius: 24px;
+    background:
+        radial-gradient(circle at 85% 0, rgba(255,211,110,0.14), transparent 10rem),
+        linear-gradient(145deg, rgba(255,255,255,0.085), rgba(255,255,255,0.035));
+    padding: 1rem;
+    overflow: hidden;
+}
+
+.scratch-kicker {
+    color: var(--amber);
+    font-size: 0.78rem;
+    font-weight: 1000;
+    letter-spacing: 0.11em;
+}
+
+.scratch-card h2 {
+    margin: 0.25rem 0 0.45rem;
+    font-size: clamp(1.55rem, 3vw, 2.1rem);
+    line-height: 1.15;
+}
+
+.scratch-card p {
+    margin: 0;
+    color: #eee9f6;
+    font-weight: 720;
+}
+
+.scratch-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem;
+    margin-top: 0.85rem;
+}
+
+.scratch-list span {
+    border: 1px solid rgba(118,255,216,0.14);
+    border-radius: 14px;
+    background: rgba(0,0,0,0.16);
+    padding: 0.55rem;
+    color: #efeaf7;
+    font-size: 0.9rem;
+    font-weight: 900;
 }
 
 .diagnostics-grid {
@@ -619,10 +737,56 @@ html[dir="rtl"] .hero-title {
     font-weight: 620;
 }
 
+.mission-proof {
+    display: grid;
+    place-items: center;
+    min-height: 5.7rem;
+    border: 1px solid rgba(118,255,216,0.2);
+    border-radius: 20px;
+    background: linear-gradient(145deg, rgba(118,255,216,0.1), rgba(140,123,255,0.08));
+    text-align: center;
+    color: #f4effa;
+    font-weight: 1000;
+}
+
+.lighthouse-badge {
+    display: grid;
+    justify-items: center;
+    gap: 0.45rem;
+}
+
+.lighthouse-badge span {
+    display: flex;
+    gap: 0.35rem;
+}
+
+.lighthouse-badge i {
+    display: grid;
+    place-items: center;
+    width: 2.15rem;
+    height: 2.15rem;
+    border-radius: 999px;
+    background: rgba(118,255,216,0.14);
+    color: var(--mint);
+    font-style: normal;
+    font-size: 0.78rem;
+    box-shadow: inset 0 0 0 1px rgba(118,255,216,0.25);
+}
+
 .chips {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.45rem;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.chips .chip {
+    transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.chips .chip:hover {
+    border-color: rgba(118,255,216,0.35);
+    background: rgba(118,255,216,0.08);
 }
 
 .live-link {
@@ -1187,7 +1351,7 @@ html[dir="rtl"] .boss-meter span#boss-hp {
 .operator-card strong { display: block; font-size: 1.35rem; }
 .dash-top { justify-content: flex-start; }
 .system-cards strong { font-size: 1.05rem; color: #fff7d6; }
-.scan-card { display: grid; gap: 0.2rem; border-color: rgba(118,255,216,0.22); background: linear-gradient(135deg, rgba(118,255,216,0.12), rgba(140,123,255,0.1)); }
+.scan-card { border-color: rgba(118,255,216,0.32); }
 .diagnostics-grid { padding: 0.75rem; border: 1px solid rgba(118,255,216,0.16); border-radius: 22px; background: rgba(5,8,18,0.58); }
 .diagnostics-note { grid-column: 1 / -1; margin: 0 0 0.25rem; color: #efe8ff; font-weight: 850; }
 .diagnostic-item { padding: 0.72rem; }
@@ -1620,11 +1784,7 @@ html[dir="rtl"] .system-lights span {
 
 .mission-proof {
     justify-content: center;
-    min-height: 4.5rem;
-}
-
-.mission-proof-spacer {
-    visibility: hidden;
+    min-height: 5.7rem;
 }
 
 .lighthouse-badge {
