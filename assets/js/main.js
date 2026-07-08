@@ -6,8 +6,16 @@
     /* Data */
     var root = document.documentElement;
     var storageKey = "nima-chaos-language";
-    var email = "nima.mohebali.b@gmail.com";
-    var phone = "09227241378";
+    var CONTACT_CHANNELS = {
+        email: "nima.mohebali.b@gmail.com",
+        phone: "+989227241378",
+        phoneDisplay: "09227241378",
+        whatsapp: "+989227241378",
+        telegram: "",
+        bale: ""
+    };
+    var email = CONTACT_CHANNELS.email;
+    var phone = CONTACT_CHANNELS.phoneDisplay;
     var currentLanguage = localStorage.getItem(storageKey) === "en" ? "en" : "fa";
     var lastFocusedElement = null;
     var debugMode = false;
@@ -89,17 +97,33 @@
             audioMissing: "اگر فایل صوتی موجود نباشد، پلیر عمداً خاموش و مرتب می‌ماند.",
             tagMade: "ساخته‌ی نیما",
             tagPersonal: "سیگنال شخصی",
-            contactKicker: "قدم بعدی",
-            contactTitle: "مشکل سایتت رو بفرست.",
-            contactText: "بگو کجای سایت کند، خراب، گیج‌کننده، نیمه‌کاره یا عجیب شده. لازم نیست تمیز و مرتب توضیحش بدهی؛ مرتب کردن مسئله بخشی از کار من است.",
-            emailContext: "بهترین مسیر برای شرح پروژه یا مشکل",
-            phoneContext: "تماس سریع‌تر و مستقیم‌تر",
+            contactKicker: "خط ارتباط",
+            contactTitle: "از هر مسیری راحتی، پیام بده.",
+            contactText: "پروژه، باگ، ایده نصفه، سایت کند یا چیزی که هنوز دقیق نمی‌دانی مشکلش چیست؛ همان‌طور که هست بفرست.",
+            contactRouterLabel: "SIGNAL ROUTER",
+            contactUtilityTitle: "ابزار سریع",
+            whatsappTitle: "واتساپ",
+            whatsappHelper: "برای پیام سریع، عکس و توضیح کوتاه",
+            whatsappAction: "باز کردن واتساپ",
+            telegramTitle: "تلگرام",
+            telegramHelper: "برای پیام، فایل و ادامه گفتگو",
+            telegramAction: "باز کردن تلگرام",
+            baleTitle: "بله",
+            baleHelper: "یک مسیر داخلی و مستقیم",
+            baleAction: "باز کردن بله",
+            emailTitle: "ایمیل",
+            emailContext: "برای شرح کامل پروژه و جزئیات",
+            emailAction: "نوشتن ایمیل",
+            phoneTitle: "تماس",
+            phoneContext: "وقتی صحبت مستقیم بهتر جواب می‌دهد",
+            phoneAction: "تماس با نیما",
             copyEmail: "کپی ایمیل",
             copyPhone: "کپی شماره",
-            copiedEmail: "ایمیل کپی شد.",
-            copiedPhone: "شماره کپی شد.",
+            copiedEmail: "ایمیل کپی شد",
+            copiedPhone: "شماره کپی شد",
             copyFailed: "کپی خودکار انجام نشد؛ متن را دستی بردار.",
             phoneAria: "تماس با 09227241378",
+            whatsappMessage: "سلام نیما، درباره یک سایت / پروژه می‌خواستم صحبت کنم.",
             footerText: "نیما — Web Chaos Command Center",
             backTop: "بازگشت به بالا",
             paletteTitle: "فرمان‌ها",
@@ -236,17 +260,33 @@
             audioMissing: "If no audio file exists, this player stays intentionally quiet and clean.",
             tagMade: "Made by Nima",
             tagPersonal: "Personal signal",
-            contactKicker: "Final unlocked action",
-            contactTitle: "Send me the broken thing.",
-            contactText: "Tell me what is slow, broken, confusing, unfinished, or weird. You do not need to organize the mess first — that is my job.",
-            emailContext: "Best for describing a project or problem",
-            phoneContext: "Faster, more direct contact",
+            contactKicker: "Contact line",
+            contactTitle: "Use whichever channel feels easiest.",
+            contactText: "Project, bug, half-formed idea, slow site, or something you cannot quite diagnose yet — send it as it is.",
+            contactRouterLabel: "SIGNAL ROUTER",
+            contactUtilityTitle: "Quick tools",
+            whatsappTitle: "WhatsApp",
+            whatsappHelper: "Quick messages, screenshots, and short context",
+            whatsappAction: "Open WhatsApp",
+            telegramTitle: "Telegram",
+            telegramHelper: "Messages, files, and longer back-and-forth",
+            telegramAction: "Open Telegram",
+            baleTitle: "Bale",
+            baleHelper: "A direct local messaging route",
+            baleAction: "Open Bale",
+            emailTitle: "Email",
+            emailContext: "Best for full project context and details",
+            emailAction: "Write an email",
+            phoneTitle: "Call",
+            phoneContext: "When a direct conversation works better",
+            phoneAction: "Call Nima",
             copyEmail: "Copy email",
             copyPhone: "Copy phone",
-            copiedEmail: "Email copied.",
-            copiedPhone: "Phone copied.",
+            copiedEmail: "Email copied",
+            copiedPhone: "Phone copied",
             copyFailed: "Automatic copy failed; copy it manually.",
             phoneAria: "Call 09227241378",
+            whatsappMessage: "Hi Nima, I wanted to talk about a site or project.",
             footerText: "Nima — Web Chaos Command Center",
             backTop: "Back to top",
             paletteTitle: "Command launcher",
@@ -499,6 +539,7 @@
         if (game) { renderDebugLab(); updateGameHud(); if (game.won) unlockDiagnosis(); else lockDiagnosis(); }
         renderCommandList();
         renderDiagnostics(diagnosticsOpen);
+        renderContactChannels();
         updateAudioUi();
     }
 
@@ -546,6 +587,46 @@
 
     function renderMissionRow(label, text) {
         return '<div class="mission-row"><strong>' + escapeHtml(label) + '</strong><p>' + escapeHtml(text) + '</p></div>';
+    }
+
+
+    function normalizePhone(value) {
+        return String(value || "").replace(/[^0-9]/g, "");
+    }
+
+    function channelIcon(name) {
+        var paths = {
+            whatsapp: '<path d="M7.6 18.4 8.4 15A7 7 0 1 1 11 17.6z"/><path d="M10.2 8.8c.2-.4.4-.4.7-.4h.5c.2 0 .4.1.5.4l.6 1.4c.1.2.1.4 0 .6l-.4.5c.6 1 1.4 1.8 2.5 2.3l.6-.7c.2-.2.4-.2.7-.1l1.4.7c.3.1.4.3.4.6-.1.8-.8 1.5-1.6 1.5-2.9-.1-6.3-3-6.9-6.1-.1-.3.5-.7 1-.7z"/>',
+            telegram: '<path d="M20 5 4.4 11.2c-.8.3-.8 1.4.1 1.6l3.9 1.1 1.5 4.6c.3.8 1.3 1 1.8.3l2.2-2.8 4 3c.7.5 1.7.1 1.9-.8L22 6.3c.2-.9-.9-1.6-2-.9z"/><path d="m8.6 13.8 8.6-5.2-6.8 7.2-.2 2.2"/>',
+            bale: '<path d="M6 5.5h8.6a4.1 4.1 0 0 1 0 8.2H11l-3.8 4.1v-4.1H6z"/><path d="M11 9.6h4.8"/><path d="M11 12.2h3.2"/>',
+            email: '<rect x="4" y="6" width="16" height="12" rx="3"/><path d="m5.2 8 6.8 5 6.8-5"/>',
+            phone: '<path d="M8.5 5.5 10.4 9c.3.5.2 1.1-.2 1.5l-.9.9a10.5 10.5 0 0 0 4.4 4.4l.9-.9c.4-.4 1-.5 1.5-.2l3.4 1.9c.6.3.8 1 .5 1.6-.8 1.5-2.4 2.2-4 1.8A15.2 15.2 0 0 1 4 8c-.4-1.6.3-3.2 1.8-4 .6-.3 1.3-.1 1.6.5z"/>'
+        };
+        return '<svg class="channel-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">' + paths[name] + '</svg>';
+    }
+
+    function renderChannelCard(channel) {
+        var isExternal = channel.href.indexOf("http") === 0;
+        var attrs = isExternal ? ' target="_blank" rel="noopener noreferrer"' : '';
+        return ['<a class="switchboard-channel channel-' + channel.name + '" data-channel="' + channel.name + '" href="' + escapeHtml(channel.href) + '"' + attrs + '>',
+            '<span class="channel-orb">' + channelIcon(channel.name) + '</span>',
+            '<span class="channel-copy"><strong>' + escapeHtml(t(channel.title)) + '</strong><small>' + escapeHtml(t(channel.helper)) + '</small><em>' + escapeHtml(t(channel.action)) + '</em></span>',
+            '<span class="signal-dots" aria-hidden="true"><i></i><i></i><i></i></span>',
+            '</a>'].join("");
+    }
+
+    function renderContactChannels() {
+        var grid = document.getElementById("contact-channel-grid");
+        if (!grid) return;
+        var whatsappNumber = normalizePhone(CONTACT_CHANNELS.whatsapp || CONTACT_CHANNELS.phone);
+        var channels = [
+            { name: "whatsapp", title: "whatsappTitle", helper: "whatsappHelper", action: "whatsappAction", href: "https://wa.me/" + whatsappNumber + "?text=" + encodeURIComponent(t("whatsappMessage")) },
+            { name: "telegram", title: "telegramTitle", helper: "telegramHelper", action: "telegramAction", href: CONTACT_CHANNELS.telegram },
+            { name: "bale", title: "baleTitle", helper: "baleHelper", action: "baleAction", href: CONTACT_CHANNELS.bale },
+            { name: "email", title: "emailTitle", helper: "emailContext", action: "emailAction", href: "mailto:" + CONTACT_CHANNELS.email },
+            { name: "phone", title: "phoneTitle", helper: "phoneContext", action: "phoneAction", href: "tel:" + CONTACT_CHANNELS.phone }
+        ];
+        grid.innerHTML = channels.filter(function (channel) { return !!channel.href && channel.href !== "#"; }).map(renderChannelCard).join("");
     }
 
     /* Diagnostics */
@@ -630,8 +711,9 @@
         { key: "SEO", label: "SEO", accent: "#8c7bff" },
         { key: "Mail", label: "Mail", accent: "#ff6fb5" }
     ];
-    var glitchSlots = [[50,17],[74,27],[83,52],[70,76],[50,84],[30,76],[17,52],[26,27],[62,38],[38,38]];
-    var rescueConfig = { targetStability: 100, maxGlitches: 6, cleanStep: 14 };
+    var desktopGlitchSlots = [[18,18],[34,16],[50,14],[66,16],[82,18],[14,34],[30,32],[70,32],[86,34],[12,50],[88,50],[14,66],[30,68],[70,68],[86,66],[18,82],[38,84],[62,84],[82,82]];
+    var mobileGlitchSlots = [[20,17],[50,14],[80,17],[15,34],[85,34],[12,52],[88,52],[18,70],[82,70],[32,84],[68,84]];
+    var rescueConfig = { targetStability: 100, maxGlitches: 6, mobileMaxGlitches: 5, cleanStep: 14 };
 
     function initRescueGame() {
         var stage = document.getElementById("debug-lab-stage");
@@ -657,14 +739,78 @@
     function selectTool() {}
     function renderToolbelt() {}
 
+    function getStageMetrics() {
+        var rect = game && game.stage ? game.stage.getBoundingClientRect() : { width: 720, height: 380 };
+        return { width: Math.max(rect.width || 720, 280), height: Math.max(rect.height || 380, 260), mobile: (rect.width || window.innerWidth) < 560 };
+    }
+
+    function getGlitchSlots() {
+        return getStageMetrics().mobile ? mobileGlitchSlots : desktopGlitchSlots;
+    }
+
+    function glitchRadius(size, metrics) {
+        var scale = metrics.mobile ? 0.76 : (metrics.width < 920 ? 0.88 : 1);
+        return Math.max(48, size * scale) / 2;
+    }
+
+    function coreClearance(candidate, metrics) {
+        var cx = metrics.width / 2, cy = metrics.height / 2;
+        var coreRadius = metrics.mobile ? 58 : 76;
+        var dx = candidate.px - cx, dy = candidate.py - cy;
+        return Math.sqrt(dx * dx + dy * dy) >= candidate.radius + coreRadius + 18;
+    }
+
+    function candidateFits(candidate, metrics) {
+        var gap = metrics.mobile ? 12 : 16;
+        if (candidate.px - candidate.radius < 8 || candidate.px + candidate.radius > metrics.width - 8 || candidate.py - candidate.radius < 8 || candidate.py + candidate.radius > metrics.height - 8) return false;
+        if (!coreClearance(candidate, metrics)) return false;
+        return game.activeGlitches.every(function (item) {
+            if (item.slot === candidate.slot) return false;
+            var dx = item.px - candidate.px, dy = item.py - candidate.py;
+            return Math.sqrt(dx * dx + dy * dy) >= item.radius + candidate.radius + gap;
+        });
+    }
+
+    function createGlitchCandidate(type, size, metrics) {
+        var slots = getGlitchSlots().map(function (slot, index) { return { slot: slot, index: index }; }).filter(function (entry) {
+            return !game.activeGlitches.some(function (item) { return item.slot === entry.index; });
+        });
+        for (var i = slots.length - 1; i > 0; i -= 1) {
+            var j = (game.nextId + i * 7) % (i + 1), tmp = slots[i]; slots[i] = slots[j]; slots[j] = tmp;
+        }
+        for (var attempt = 0; attempt < slots.length; attempt += 1) {
+            var entry = slots[attempt], radius = glitchRadius(size, metrics), maxJitter = Math.max(0, Math.min(10, Math.min(metrics.width, metrics.height) * 0.018));
+            var jitterSeed = game.nextId + attempt * 11;
+            var x = entry.slot[0] + (((jitterSeed % 5) - 2) * maxJitter / metrics.width * 100);
+            var y = entry.slot[1] + ((((jitterSeed * 3) % 5) - 2) * maxJitter / metrics.height * 100);
+            var candidate = { slot: entry.index, x: Math.max(6, Math.min(94, x)), y: Math.max(6, Math.min(94, y)), px: metrics.width * x / 100, py: metrics.height * y / 100, radius: radius };
+            if (candidateFits(candidate, metrics)) return candidate;
+        }
+        return null;
+    }
+
     function spawnGlitches(count) {
         if (!game || game.gameWon) return;
-        while (count > 0 && game.activeGlitches.length < rescueConfig.maxGlitches) {
+        var metrics = getStageMetrics(), limit = metrics.mobile ? rescueConfig.mobileMaxGlitches : rescueConfig.maxGlitches;
+        while (count > 0 && game.activeGlitches.length < limit) {
             var type = glitchTypes[(game.nextId + game.activeGlitches.length) % glitchTypes.length];
-            var slot = glitchSlots[(game.nextId + game.activeGlitches.length) % glitchSlots.length];
-            game.activeGlitches.push({ id: String(game.nextId++), key: type.key, label: type.label, accent: type.accent, x: slot[0], y: slot[1], size: 56 + ((game.nextId % 3) * 10), motion: game.nextId % 2 ? " drift-a" : " drift-b" });
+            var size = 56 + ((game.nextId % 3) * 10);
+            var candidate = createGlitchCandidate(type, size, metrics);
+            if (!candidate) break;
+            game.activeGlitches.push({ id: String(game.nextId++), key: type.key, label: type.label, accent: type.accent, x: Number(candidate.x.toFixed(2)), y: Number(candidate.y.toFixed(2)), px: candidate.px, py: candidate.py, radius: candidate.radius, slot: candidate.slot, size: size, motion: game.nextId % 2 ? " drift-a" : " drift-b" });
             count -= 1;
         }
+    }
+
+    function reflowGlitches() {
+        if (!game || !game.activeGlitches.length) return;
+        var existing = game.activeGlitches.slice();
+        game.activeGlitches = [];
+        existing.forEach(function (item) {
+            var candidate = createGlitchCandidate(item, item.size, getStageMetrics());
+            if (candidate) game.activeGlitches.push(Object.assign(item, { x: Number(candidate.x.toFixed(2)), y: Number(candidate.y.toFixed(2)), px: candidate.px, py: candidate.py, radius: candidate.radius, slot: candidate.slot }));
+        });
+        renderDebugLab();
     }
 
     function renderDebugLab() {
@@ -676,7 +822,7 @@
             return '<button type="button" class="chaos-glitch' + item.motion + '" data-glitch="' + escapeHtml(item.id) + '" style="--x:' + item.x + '%;--y:' + item.y + '%;--size:' + item.size + 'px;--accent:' + escapeHtml(item.accent) + '" aria-label="Clean ' + escapeHtml(item.label) + ' glitch"><span></span><strong>' + escapeHtml(item.label) + '</strong></button>';
         }).join("");
         var lit = Math.ceil(game.stability / 13);
-        beams.innerHTML = glitchSlots.slice(0, 8).map(function (_, index) { return '<span class="lab-beam beam-' + index + (index < lit ? ' is-lit' : '') + '"></span>'; }).join("");
+        beams.innerHTML = getGlitchSlots().slice(0, 8).map(function (_, index) { return '<span class="lab-beam beam-' + index + (index < lit ? ' is-lit' : '') + '"></span>'; }).join("");
     }
 
     function openConsole(key) { cleanGlitch(key); }
@@ -1017,7 +1163,8 @@
     function init() {
         document.addEventListener("click", handleDocumentClick);
         document.addEventListener("keydown", handleKeyboard);
-        window.addEventListener("resize", function () { renderDiagnostics(diagnosticsOpen); renderDebugLab(); });
+        var resizeTimer = null;
+        window.addEventListener("resize", function () { renderDiagnostics(diagnosticsOpen); clearTimeout(resizeTimer); resizeTimer = setTimeout(reflowGlitches, 120); });
         document.addEventListener("visibilitychange", function () { return; });
 
         if (typeof reducedMotion.addEventListener === "function") {
