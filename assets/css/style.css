@@ -2057,3 +2057,32 @@ html[dir="rtl"] .system-lights span {
 @media (max-width: 920px) { .switchboard-panel { grid-template-columns: 1fr; } .route-lines { display: none; } .router-core { width: 9rem; } .contact-channel-grid { grid-template-columns: repeat(2, minmax(0,1fr)); } .channel-whatsapp { grid-row: auto; } }
 @media (max-width: 560px) { .contact-switchboard { padding-bottom: 5.5rem; } .contact-channel-grid { grid-template-columns: 1fr; } .switchboard-channel { min-height: 5.9rem; border-radius: 22px; } .contact-utilities { display: grid; grid-template-columns: 1fr; } .contact-utilities strong { margin: 0; } }
 @media (prefers-reduced-motion: reduce) { .pulse-ring, .router-core::before, .router-core::after, .switchboard-channel, .channel-orb { animation: none !important; transition: none !important; } }
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.7rem 1rem;
+}
+
+.footer-links a {
+    color: var(--muted);
+    font-weight: 850;
+}
+
+.footer-links a:hover,
+.footer-links a:focus {
+    color: var(--mint);
+}
+
+@media (max-width: 520px) {
+    .footer-content {
+        align-items: flex-start;
+        gap: 0.8rem;
+    }
+
+    .footer-links {
+        width: 100%;
+        justify-content: flex-start;
+    }
+}
