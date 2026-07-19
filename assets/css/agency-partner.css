@@ -1,5 +1,8 @@
 .agency-page { background: radial-gradient(circle at 70% 4%, rgba(118,255,216,.14), transparent 27rem), radial-gradient(circle at 8% 18%, rgba(140,123,255,.18), transparent 30rem), linear-gradient(180deg,#05060d,#070b16 48%,#05060d); }
 .agency-page .nav-shell { border-radius: 28px; }
+.footer-links { display:flex; gap:1rem; flex-wrap:wrap; align-items:center; }
+.footer-links a { color:var(--muted); font-weight:850; }
+.footer-links a:hover { color:var(--mint); }
 .agency-hero { padding-top: clamp(4rem, 8vw, 7rem); }
 .agency-hero-grid { display:grid; grid-template-columns: minmax(0,1.02fr) minmax(340px,.98fr); gap:clamp(2rem,5vw,4rem); align-items:center; }
 .agency-hero h1 { margin:.4rem 0 1rem; font-size:clamp(2.45rem,6vw,5.6rem); line-height:1.08; letter-spacing:-.05em; max-width: 13ch; }
@@ -50,7 +53,5 @@
 .observe.is-visible { opacity:1; transform:none; }
 @media (min-width: 900px){ .agency-relay ol { grid-template-columns:1fr; } }
 @media (max-width: 1020px){ .agency-hero-grid,.agency-split,.agency-service-grid,.agency-case-grid { grid-template-columns:1fr; } .agency-workflow { grid-template-columns:repeat(2,1fr); } .agency-rules { grid-template-columns:repeat(2,1fr); overflow:visible; } }
-@media (max-width: 920px){ .agency-page .site-header { display:block; padding:.55rem .65rem; } .agency-page .nav-shell { display:flex; min-height:auto; gap:.5rem; padding:.45rem .55rem; border-radius:20px; } .agency-page .brand { flex:1 1 auto; min-width:0; gap:.45rem; } .agency-page .brand-mark { inline-size:2.15rem; block-size:2.15rem; flex:0 0 auto; } .agency-page .brand small, .agency-page .lang-status, .agency-page .nav-links { display:none; } .agency-page .brand strong { white-space:nowrap; } .agency-page .nav-actions { flex:0 0 auto; } .agency-page .language-switch { gap:.28rem; padding:.2rem; } .agency-page .lang-option { min-width:2.35rem; padding:.45rem .5rem; } .agency-hero { padding-top:4.8rem; } }
-@media (max-width: 680px){ .agency-hero h1 { font-size:clamp(2.1rem,14vw,3.25rem); } .agency-ownership,.agency-workflow,.agency-rules,.agency-faq { grid-template-columns:1fr; } .agency-relay li { padding:.85rem; } .agency-relay span { font-size:.9rem; } .agency-cta .hero-actions { flex-direction:column; align-items:stretch; } }
-@media (max-width: 360px){ .agency-page .site-header { padding:.45rem .45rem; } .agency-page .nav-shell { padding:.38rem .45rem; } .agency-page .brand { gap:.35rem; } .agency-page .brand-mark { inline-size:1.95rem; block-size:1.95rem; } .agency-page .lang-option { min-width:2.1rem; padding:.42rem .42rem; } .agency-relay { padding:.9rem; } }
+@media (max-width: 680px){ .agency-page .nav-links { display:none; } .agency-hero h1 { font-size:clamp(2.1rem,14vw,3.25rem); } .agency-ownership,.agency-workflow,.agency-rules,.agency-faq { grid-template-columns:1fr; } .agency-relay li { padding:.85rem; } .agency-relay span { font-size:.9rem; } .agency-cta .hero-actions { flex-direction:column; align-items:stretch; } }
 @media (prefers-reduced-motion: reduce){ .observe { opacity:1; transform:none; transition:none; } .pulse-dot { animation:none; } }
