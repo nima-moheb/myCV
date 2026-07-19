@@ -1295,13 +1295,13 @@ html[dir="rtl"] .boss-meter span#boss-hp {
 }
 
 /* Motion */
-.observe {
+html.js .observe {
     opacity: 0;
     transform: translateY(18px);
     transition: opacity 0.55s ease, transform 0.55s ease;
 }
 
-.observe.is-visible {
+html.js .observe.is-visible {
     opacity: 1;
     transform: none;
 }

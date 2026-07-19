@@ -34,7 +34,7 @@
             </div>
             <div class="nav-actions">
                 <button class="command-trigger" type="button" data-open-command data-i18n-aria-label="commandAria" aria-label="باز کردن فرمان‌ها"><span>⌘</span><span data-i18n="commandTrigger">فرمان‌ها</span><kbd>/</kbd></button>
-                <div class="language-switch" role="group" data-i18n-aria-label="langAria" aria-label="تغییر زبان"><button type="button" class="lang-option is-active" data-lang-option="fa">FA</button><button type="button" class="lang-option" data-lang-option="en">EN</button><span class="lang-status" data-i18n="langStatus">حالت فارسی</span></div>
+                <div class="language-switch" role="group" data-i18n-aria-label="langAria" aria-label="تغییر زبان"><button type="button" class="lang-option is-active" data-lang-option="fa" aria-pressed="true">FA</button><button type="button" class="lang-option" data-lang-option="en" aria-pressed="false">EN</button><span class="lang-status" data-i18n="langStatus">حالت فارسی</span></div>
             </div>
         </nav>
     </header>
@@ -115,7 +115,7 @@
         </section>
     </main>
 
-    <footer class="page-footer"><div class="container footer-content"><p data-i18n="footerText">نیما — Web Chaos Command Center</p><nav class="footer-links" aria-label="Footer links"><a href="agency-partner/" data-i18n="agencyPartnerLink">همکاری با آژانس‌ها</a><a href="#top" data-i18n="backTop">بازگشت به بالا</a></nav></div></footer>
+    <footer class="page-footer"><div class="container footer-content"><p data-i18n="footerText">نیما — Web Chaos Command Center</p><nav class="footer-links" data-i18n-aria-label="footerNavAria" aria-label="لینک‌های پایین صفحه"><a href="agency-partner/" data-i18n="agencyPartnerLink">همکاری با آژانس‌ها</a><a href="#top" data-i18n="backTop">بازگشت به بالا</a></nav></div></footer>
     <div class="mobile-dock" aria-label="Pocket console"><button type="button" data-open-command>⌘</button><a href="#boss">☠︎</a><a href="#contact">✉</a><button type="button" data-audio-toggle>▶</button></div>
 
     <div class="diagnostics-dialog" id="diagnostics-dialog" role="dialog" aria-modal="true" aria-labelledby="diagnostics-title" hidden><div class="diagnostics-backdrop" data-close-diagnostics></div><div class="diagnostics-panel" role="document"><div class="diagnostics-head"><div><p class="section-kicker">Environment Scan</p><h2 id="diagnostics-title" data-i18n="diagnosticsTitle">اسکن محیط</h2></div><button class="icon-button" type="button" data-close-diagnostics data-i18n-aria-label="closeAria" aria-label="بستن">×</button></div><div class="diagnostics-grid" id="diagnostics-grid" hidden aria-live="polite"></div></div></div>

@@ -537,7 +537,9 @@
         });
 
         document.querySelectorAll("[data-lang-option]").forEach(function (button) {
-            button.classList.toggle("is-active", button.dataset.langOption === currentLanguage);
+            var active = button.dataset.langOption === currentLanguage;
+            button.classList.toggle("is-active", active);
+            button.setAttribute("aria-pressed", active ? "true" : "false");
         });
 
         renderChaosCards();
