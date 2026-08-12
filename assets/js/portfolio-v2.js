@@ -98,11 +98,11 @@
                 en: "A rice store with legacy content and technical debt needed a clean rebuild without dragging the old implementation forward."
             },
             work: {
-                fa: "بازسازی روی WordPress و WooCommerce با قالب و لایه کسب‌وکار اختصاصی، حداقل افزونه‌های ثالث، پاک‌سازی و مهاجرت محتوا، معماری محصولات و طراحی تجربه فروشگاه.",
+                fa: "بازسازی روی WordPress و WooCommerce با قالب و لایه کسب‌وکار اختصاصی، کمترین وابستگی ممکن به افزونه‌های جانبی، پاک‌سازی و مهاجرت محتوا، معماری محصولات و طراحی تجربه فروشگاه.",
                 en: "A WordPress/WooCommerce rebuild with a custom theme and business layer, minimal third-party plugins, audited content migration, product architecture, and storefront UX."
             },
             result: {
-                fa: "یک پایه تمیزتر برای فروش، محتوا و توسعه‌های بعدی؛ با جداسازی آگاهانه کد قابل نگه‌داری از میراث قدیمی سایت.",
+                fa: "یک پایه تمیزتر برای فروش، محتوا و توسعه‌های بعدی؛ با جداسازی آگاهانه کد قابل نگه‌داری از میراث فنی قدیمی سایت.",
                 en: "A cleaner base for commerce, content, and future development, with maintainable application code deliberately separated from legacy baggage."
             },
             proof: {
@@ -148,11 +148,11 @@
                 en: "WordPress / Innovation-services platform"
             },
             challenge: {
-                fa: "سایتی با حجم بالای خدمات، محتوا و مسیرهای ورودی کاربر باید بازطراحی و فنی‌سازی می‌شد، بدون اینکه ارزش سئوی سال‌های قبل از بین برود.",
+                fa: "سایتی با حجم بالای خدمات، محتوا و مسیرهای ورودی کاربر باید از نظر ساختار و فنی بازسازی می‌شد، بدون اینکه ارزش سئوی سال‌های قبل از بین برود.",
                 en: "A service-heavy site with years of content and many user-entry paths needed a technical rebuild without throwing away its accumulated search value."
             },
             work: {
-                fa: "قالب و قابلیت‌های اختصاصی WordPress، بازطراحی ساختار خدمات و صفحات، فرم‌ها و مسیرهای تبدیل، پاک‌سازی فنی، مهاجرت سرور، سئو و بهینه‌سازی نگه‌داری.",
+                fa: "قالب و افزونه‌های اختصاصی WordPress، بازطراحی ساختار خدمات و صفحات، فرم‌ها و مسیرهای تبدیل، پاک‌سازی فنی، مهاجرت سرور، سئو و بهینه‌سازی نگه‌داری.",
                 en: "Custom WordPress theme and site functionality, service and page architecture, conversion forms, technical cleanup, server migration, SEO, and maintainability work."
             },
             result: {
@@ -160,10 +160,10 @@
                 en: "A more controlled service platform with clearer content architecture, conversion paths, and infrastructure for ongoing work."
             },
             proof: {
-                fa: "قالب اختصاصی + بازسازی سئو",
+                fa: "قالب و افزونه اختصاصی + بازسازی سئو",
                 en: "Custom theme + SEO rebuild"
             },
-            chips: ["WordPress", "Custom Theme", "Custom Functionality", "SEO", "Migration", "Lead Flows"]
+            chips: ["WordPress", "Custom Theme", "Custom Plugin", "SEO", "Migration", "Lead Flows"]
         }
     ];
 
@@ -176,7 +176,7 @@
             navChaos: "مسئله‌ها",
             heroBadge: "نیما — توسعه‌دهنده فول‌استک و حل‌کننده مسئله",
             heroTitleMain: "از ایده تا",
-            heroTitleSoft: "سیستم زنده",
+            heroTitleSoft: "سیستم واقعی",
             heroSubtitle: "سایت، فروشگاه، وب‌اپ، پنل، زیرساخت و سئو؛ اگر لازم باشد از صفر می‌سازم، اگر خراب باشد عیب‌یابی می‌کنم، و اگر پیچیده شده باشد ساده و قابل نگه‌داری تحویل می‌دهم.",
             heroCta: "نمونه‌کارها را ببین",
             scratchTitle: "فقط صفحه نمی‌سازم",
@@ -193,7 +193,7 @@
             open: "مشاهده سایت زنده",
             systemsKicker: "چیزی که می‌سازم",
             systemsTitle: "یک نفر برای کل زنجیره، نه فقط یک لایه",
-            systemsText: "وقتی پروژه نیاز دارد فرانت‌اند، بک‌اند، وردپرس، سرور و سئو با هم تصمیم بگیرند، دقیقاً همان‌جاست که بهترین عملکرد را دارم.",
+            systemsText: "وقتی فرانت‌اند، بک‌اند، وردپرس، سرور و سئو باید با هم هماهنگ باشند، دقیقاً همان‌جاست که بهترین عملکرد را دارم.",
             systems: [
                 ["WP", "WordPress و WooCommerce اختصاصی", "قالب، افزونه، فروشگاه، منطق تجاری و تجربه کاربر با حداقل وابستگی غیرضروری."],
                 ["{}", "Laravel و وب‌اپ", "احراز هویت، داشبورد، جریان‌های سرویس، پنل داخلی، API و منطق محصول."],
@@ -210,7 +210,7 @@
             gameBrief: "۸ گلیچ • هدف: ۱۰۰٪ پایداری",
             diagnosisKicker: "گزارش نهایی",
             diagnosisLocked: "هنوز داده کافی ندارم.",
-            diagnosisHint: "هسته را تا ۱۰۰٪ پایدار کن تا تشخیص ساخته شود.",
+            diagnosisHint: "هسته را تا ۱۰۰٪ پایدار کن تا گزارش نهایی باز شود.",
             diagnosisUnlocked: "ریشه مشکل معمولاً بین لایه‌هاست",
             diagnosisText: "مسیر کاربر، کد، تنظیمات، سرور، محتوا و نگه‌داری روی هم اثر می‌گذارند. برای همین قبل از دست‌زدن به یک جزء، کل سیستم را می‌خوانم.",
             contactTitle: "پروژه، ایده یا دردسر فنی؟ مستقیم بفرست.",
