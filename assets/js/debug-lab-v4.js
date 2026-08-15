@@ -1,6 +1,26 @@
 (function () {
     "use strict";
 
+    function installHeroFit() {
+        if (document.getElementById("hero-fit-v5")) return;
+
+        var style = document.createElement("style");
+        style.id = "hero-fit-v5";
+        style.textContent = [
+            ".hero-copy{min-width:0;max-width:100%;}",
+            ".hero-title{width:100%!important;max-width:100%!important;white-space:normal!important;overflow-wrap:normal!important;word-break:normal!important;text-wrap:balance;font-size:clamp(3.3rem,4.8vw,5.3rem)!important;line-height:.98!important;letter-spacing:-.035em!important;}",
+            ".hero-title-main,.hero-title-soft{display:inline!important;font:inherit!important;font-size:1em!important;line-height:inherit!important;letter-spacing:inherit!important;margin:0!important;vertical-align:baseline!important;}",
+            ".hero-title-main::after{content:' ';}",
+            "html[dir='rtl'] .hero-title{letter-spacing:-.018em!important;}",
+            "html[lang='en'] .hero-title{max-width:10ch!important;font-size:clamp(2.65rem,4.1vw,4.3rem)!important;letter-spacing:-.04em!important;}",
+            "@media(max-width:920px){.hero-title{font-size:clamp(3rem,11.5vw,4.75rem)!important;max-width:10.5ch!important;}html[lang='en'] .hero-title{max-width:10ch!important;font-size:clamp(2.7rem,10.5vw,4.1rem)!important;}}",
+            "@media(max-width:520px){.hero-title{font-size:clamp(2.8rem,12vw,3.8rem)!important;max-width:10.5ch!important;}html[lang='en'] .hero-title{font-size:clamp(2.55rem,11.5vw,3.55rem)!important;max-width:9.5ch!important;}}"
+        ].join("");
+        document.head.appendChild(style);
+    }
+
+    installHeroFit();
+
     var stage = document.getElementById("debug-lab-stage");
     var core = document.getElementById("lab-core");
     var card = document.getElementById("game-card");
