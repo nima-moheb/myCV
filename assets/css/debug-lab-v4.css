@@ -1,0 +1,419 @@
+/* Final hero fit + Mini Debug Lab v4 */
+
+/* English hero must stay inside its column. Same type size across both title fragments. */
+html[lang="en"] .hero-title {
+    width: 100%;
+    max-width: 9.4ch !important;
+    white-space: normal !important;
+    text-wrap: balance;
+    overflow-wrap: normal;
+    font-size: clamp(2.8rem, 4.8vw, 4.65rem) !important;
+    line-height: .98 !important;
+    letter-spacing: -.045em !important;
+}
+
+html[lang="en"] .hero-title-main,
+html[lang="en"] .hero-title-soft {
+    display: inline !important;
+    font: inherit !important;
+    font-size: 1em !important;
+    line-height: inherit !important;
+    letter-spacing: inherit !important;
+}
+
+/* --- Debug Lab v4 ------------------------------------------------------- */
+.debug-lab-stage.chaos-stage {
+    --v4-grid: rgba(118,255,216,.085);
+    --v4-ring: rgba(118,255,216,.16);
+    position: relative;
+    min-height: 29rem;
+    cursor: crosshair;
+    background:
+        radial-gradient(circle at 50% 50%, rgba(118,255,216,.14), transparent 7.8rem),
+        radial-gradient(circle at 50% 50%, transparent 0 10rem, rgba(140,123,255,.08) 10.1rem 10.25rem, transparent 10.4rem),
+        radial-gradient(circle at 50% 50%, transparent 0 15rem, rgba(118,255,216,.055) 15.1rem 15.25rem, transparent 15.4rem),
+        linear-gradient(180deg, rgba(8,13,24,.99), rgba(4,7,14,.995));
+    border-color: rgba(118,255,216,.28);
+    box-shadow:
+        inset 0 0 100px rgba(0,0,0,.58),
+        inset 0 0 60px rgba(118,255,216,.045),
+        0 28px 80px rgba(0,0,0,.34);
+}
+
+/* Replace the old vertical scan bar with an actual radar sweep. */
+.debug-lab-stage.chaos-stage::before {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    inset: -38%;
+    pointer-events: none;
+    background:
+        conic-gradient(from 0deg at 50% 50%, transparent 0deg 326deg, rgba(118,255,216,.02) 330deg, rgba(118,255,216,.22) 350deg, rgba(118,255,216,.72) 359deg, transparent 360deg),
+        repeating-radial-gradient(circle at 50% 50%, transparent 0 4.6rem, rgba(118,255,216,.04) 4.68rem 4.76rem);
+    opacity: .62;
+    transform-origin: 50% 50%;
+    animation: v4-radar 7s linear infinite;
+    mix-blend-mode: screen;
+}
+
+.debug-lab-stage.chaos-stage::after {
+    content: "LIVE NODE MAP  •  CLEAR FAULTS  •  CHAIN HITS FOR COMBO";
+    position: absolute;
+    z-index: 10;
+    inset-inline: .9rem;
+    inset-block-end: .7rem;
+    color: rgba(223,253,245,.48);
+    font: 850 .63rem/1.2 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    letter-spacing: .095em;
+    text-align: center;
+    pointer-events: none;
+}
+
+/* The previous animation overwrote the centering transform. Keep the core mathematically centered. */
+.chaos-stage .lab-core,
+#game-card.v2-complete .lab-core,
+#game-card.v4-online .lab-core {
+    inset: 50% auto auto 50% !important;
+    transform: translate(-50%, -50%) translateZ(80px) !important;
+    margin: 0 !important;
+    animation: v4-core-signal 2.1s ease-in-out infinite !important;
+    transition: filter .18s ease, box-shadow .18s ease, background .25s ease !important;
+}
+
+.chaos-stage .lab-core {
+    width: 7rem;
+    height: 7rem;
+    border: 1px solid rgba(220,255,248,.5);
+    background:
+        radial-gradient(circle at 36% 30%, #fff 0 8%, #c9fff0 9%, #76ffd8 30%, #24d4b8 58%, rgba(25,104,99,.96) 72%, rgba(7,17,27,.98) 73%);
+    box-shadow:
+        0 0 0 1px rgba(118,255,216,.12),
+        0 0 30px rgba(118,255,216,.72),
+        0 0 105px rgba(118,255,216,.2);
+}
+
+.chaos-stage .lab-core span {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    place-items: center;
+    width: 3.7rem;
+    height: 3.7rem;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,.52);
+    background: rgba(4,15,20,.25);
+    color: #04100f;
+    text-shadow: 0 1px 0 rgba(255,255,255,.45);
+    letter-spacing: .13em;
+}
+
+.chaos-stage .lab-core::before,
+.chaos-stage .lab-core::after {
+    animation-name: labOrbit !important;
+    animation-timing-function: linear !important;
+}
+
+/* Fixed nodes: no drift, no hover displacement, no weird shake. */
+.chaos-stage .chaos-glitch,
+.chaos-stage .chaos-glitch.drift-a,
+.chaos-stage .chaos-glitch.drift-b {
+    margin: 0 !important;
+    transform: translate(-50%, -50%) translateZ(110px) !important;
+    animation: v4-node-alarm 2.35s ease-in-out infinite !important;
+    transition: border-color .16s ease, background .16s ease, box-shadow .16s ease, filter .16s ease !important;
+    border: 1px solid color-mix(in srgb, var(--accent), white 12%);
+    border-radius: 18px;
+    background:
+        linear-gradient(150deg, color-mix(in srgb, var(--accent), transparent 79%), rgba(10,13,24,.94) 62%),
+        rgba(8,10,18,.96);
+    box-shadow:
+        0 12px 26px rgba(0,0,0,.38),
+        0 0 18px color-mix(in srgb, var(--accent), transparent 63%),
+        inset 0 1px 0 rgba(255,255,255,.09);
+    overflow: visible;
+}
+
+.chaos-stage .chaos-glitch::before {
+    content: "";
+    position: absolute;
+    inset: 5px;
+    border: 1px solid color-mix(in srgb, var(--accent), transparent 54%);
+    border-radius: 13px;
+    opacity: .58;
+    pointer-events: none;
+}
+
+.chaos-stage .chaos-glitch::after {
+    content: "×";
+    position: absolute;
+    inset-block-start: -.52rem;
+    inset-inline-end: -.44rem;
+    display: grid;
+    place-items: center;
+    width: 1.35rem;
+    height: 1.35rem;
+    border: 1px solid color-mix(in srgb, var(--accent), white 18%);
+    border-radius: 50%;
+    background: #090d17;
+    color: var(--accent);
+    font: 1000 .82rem/1 ui-monospace, monospace;
+    box-shadow: 0 0 15px color-mix(in srgb, var(--accent), transparent 44%);
+    pointer-events: none;
+}
+
+.chaos-stage .chaos-glitch > span {
+    inset: -5px;
+    opacity: .42;
+    filter: blur(8px);
+    transform: scale(.94);
+    transition: transform .16s ease, opacity .16s ease, filter .16s ease;
+}
+
+.chaos-stage .chaos-glitch strong {
+    z-index: 2;
+    font-size: clamp(.72rem, 1.4vw, .9rem);
+    letter-spacing: .035em;
+    text-shadow: none;
+    transition: letter-spacing .16s ease, color .16s ease;
+}
+
+.chaos-stage .chaos-glitch:hover,
+.chaos-stage .chaos-glitch:focus-visible,
+.chaos-stage .chaos-glitch:active {
+    margin: 0 !important;
+    transform: translate(-50%, -50%) translateZ(110px) !important;
+    outline: none;
+    border-color: #fff;
+    background:
+        linear-gradient(150deg, color-mix(in srgb, var(--accent), transparent 62%), rgba(12,17,29,.98) 68%),
+        rgba(8,10,18,.98);
+    filter: brightness(1.12) saturate(1.18);
+    box-shadow:
+        0 15px 34px rgba(0,0,0,.42),
+        0 0 28px color-mix(in srgb, var(--accent), transparent 32%),
+        inset 0 0 20px color-mix(in srgb, var(--accent), transparent 82%);
+}
+
+.chaos-stage .chaos-glitch:hover > span,
+.chaos-stage .chaos-glitch:focus-visible > span {
+    transform: scale(1.14);
+    opacity: .82;
+    filter: blur(10px);
+}
+
+.chaos-stage .chaos-glitch:hover strong,
+.chaos-stage .chaos-glitch:focus-visible strong {
+    color: #fff;
+    letter-spacing: .07em;
+}
+
+/* Existing energy beams now read like circuitry. */
+.chaos-stage .lab-beam {
+    height: 2px;
+    opacity: .16;
+    background: linear-gradient(90deg, rgba(118,255,216,0), rgba(118,255,216,.48), rgba(118,255,216,0));
+    filter: drop-shadow(0 0 6px rgba(118,255,216,.5));
+}
+
+.chaos-stage .lab-beam.is-lit {
+    opacity: .92;
+    animation: v4-beam-charge .72s ease-in-out infinite alternate;
+}
+
+/* V4 overlay / progress rail inserted by debug-lab-v4.js. */
+.lab-v4-overlay {
+    position: absolute;
+    z-index: 9;
+    inset: .8rem .8rem auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .7rem;
+    pointer-events: none;
+}
+
+.lab-v4-overlay span {
+    border: 1px solid rgba(118,255,216,.17);
+    border-radius: 999px;
+    background: rgba(4,9,16,.62);
+    color: rgba(230,255,248,.64);
+    padding: .35rem .55rem;
+    font: 850 .61rem/1 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    letter-spacing: .08em;
+    backdrop-filter: blur(8px);
+}
+
+.lab-v4-progress {
+    position: absolute;
+    z-index: 10;
+    inset-inline: 13%;
+    inset-block-end: 2rem;
+    height: 5px;
+    overflow: hidden;
+    border: 1px solid rgba(118,255,216,.17);
+    border-radius: 999px;
+    background: rgba(255,255,255,.045);
+    pointer-events: none;
+}
+
+.lab-v4-progress > i {
+    display: block;
+    width: 0;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #76ffd8, #8c7bff, #ffd36e);
+    box-shadow: 0 0 16px rgba(118,255,216,.55);
+    transition: width .28s cubic-bezier(.2,.8,.2,1);
+}
+
+.lab-v4-packet {
+    position: absolute;
+    z-index: 12;
+    width: .72rem;
+    height: .72rem;
+    border-radius: 50%;
+    background: var(--packet-accent, #76ffd8);
+    box-shadow: 0 0 12px var(--packet-accent, #76ffd8), 0 0 28px var(--packet-accent, #76ffd8);
+    pointer-events: none;
+    animation: v4-packet .46s cubic-bezier(.2,.78,.24,1) forwards;
+}
+
+.lab-v4-score {
+    position: absolute;
+    z-index: 13;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font: 1000 .7rem/1 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    letter-spacing: .06em;
+    text-shadow: 0 0 12px var(--score-accent, #76ffd8);
+    pointer-events: none;
+    animation: v4-score .72s ease-out forwards;
+}
+
+.chaos-stage.v4-hit .lab-core {
+    filter: brightness(1.28) saturate(1.28);
+    box-shadow:
+        0 0 0 1px rgba(255,255,255,.2),
+        0 0 46px rgba(118,255,216,.95),
+        0 0 135px rgba(118,255,216,.32);
+}
+
+.chaos-stage.v4-booting {
+    animation: v4-stage-boot .62s ease-out;
+}
+
+#game-card.v2-complete .debug-lab-stage.chaos-stage::after {
+    content: "SYSTEM STABLE  •  CORE SYNCHRONIZED  •  DIAGNOSIS UNLOCKED";
+    color: rgba(119,255,157,.78);
+}
+
+#game-card.v2-complete .lab-core {
+    background:
+        radial-gradient(circle at 36% 30%, #fff 0 8%, #eaffbf 9%, #9dff77 30%, #61df69 58%, rgba(24,104,59,.96) 72%, rgba(7,17,27,.98) 73%);
+    box-shadow: 0 0 38px rgba(119,255,157,.92), 0 0 135px rgba(119,255,157,.34);
+}
+
+@keyframes v4-radar {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes v4-core-signal {
+    0%, 100% {
+        filter: brightness(1) saturate(1);
+        box-shadow: 0 0 28px rgba(118,255,216,.68), 0 0 96px rgba(118,255,216,.18);
+    }
+    50% {
+        filter: brightness(1.12) saturate(1.14);
+        box-shadow: 0 0 38px rgba(118,255,216,.86), 0 0 118px rgba(118,255,216,.28);
+    }
+}
+
+@keyframes v4-node-alarm {
+    0%, 100% { filter: brightness(1); }
+    50% { filter: brightness(1.09) saturate(1.08); }
+}
+
+@keyframes v4-beam-charge {
+    from { filter: drop-shadow(0 0 5px rgba(118,255,216,.45)); }
+    to { filter: drop-shadow(0 0 13px rgba(118,255,216,.92)); }
+}
+
+@keyframes v4-packet {
+    0% { transform: translate(-50%, -50%) scale(.65); opacity: .25; }
+    28% { opacity: 1; }
+    100% { transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(.22); opacity: 0; }
+}
+
+@keyframes v4-score {
+    0% { opacity: 0; transform: translate(-50%, -38%) scale(.9); }
+    18% { opacity: 1; }
+    100% { opacity: 0; transform: translate(-50%, -145%) scale(1.04); }
+}
+
+@keyframes v4-stage-boot {
+    0% { filter: brightness(.72) saturate(.65); }
+    45% { filter: brightness(1.28) saturate(1.24); }
+    100% { filter: none; }
+}
+
+@media (max-width: 920px) {
+    html[lang="en"] .hero-title {
+        max-width: 10ch !important;
+        font-size: clamp(2.75rem, 11vw, 4.35rem) !important;
+    }
+
+    .debug-lab-stage.chaos-stage {
+        min-height: 23rem;
+    }
+}
+
+@media (max-width: 520px) {
+    html[lang="en"] .hero-title {
+        max-width: 9.2ch !important;
+        font-size: clamp(2.6rem, 12.5vw, 3.65rem) !important;
+    }
+
+    .debug-lab-stage.chaos-stage {
+        min-height: 20rem;
+    }
+
+    .chaos-stage .lab-core {
+        width: 5.9rem;
+        height: 5.9rem;
+    }
+
+    .chaos-stage .lab-core span {
+        width: 3.1rem;
+        height: 3.1rem;
+        font-size: .72rem;
+    }
+
+    .lab-v4-overlay {
+        inset: .6rem .6rem auto;
+    }
+
+    .lab-v4-overlay span:first-child {
+        display: none;
+    }
+
+    .lab-v4-progress {
+        inset-inline: 10%;
+    }
+
+    .debug-lab-stage.chaos-stage::after {
+        content: "CLEAR FAULTS • BUILD COMBO";
+        font-size: .56rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .debug-lab-stage.chaos-stage::before,
+    .chaos-stage .lab-core,
+    .chaos-stage .chaos-glitch,
+    .chaos-stage .lab-beam,
+    .lab-v4-packet,
+    .lab-v4-score,
+    .chaos-stage.v4-booting {
+        animation: none !important;
+    }
+}
